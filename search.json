@@ -21,14 +21,25 @@
     ]
   },
   {
-    "objectID": "src/tt/2025-07-08.html",
-    "href": "src/tt/2025-07-08.html",
-    "title": "TidyTuesday Sample 1",
+    "objectID": "src/tt/hw01-tt.html",
+    "href": "src/tt/hw01-tt.html",
+    "title": "Homework 01",
     "section": "",
-    "text": "Add content here",
+    "text": "TidyTuesday Section\nCode# Load packages\nlibrary(tidyverse)\nlibrary(ggmosaic)\nlibrary(ggpubr)\nCode# Load data\ntuesdata &lt;- tidytuesdayR::tt_load('2025-09-02')\nfrogID_data &lt;- tuesdata$frogID_data\nfrog_names &lt;- tuesdata$frog_names\nCode# Merge frog ID data with frog names\nfrog &lt;- frogID_data %&gt;%\n  full_join(frog_names, by = join_by(scientificName), relationship = \"many-to-many\")",
     "crumbs": [
       "TidyTuesday",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>TidyTuesday Sample 1</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Homework 01</span>"
+    ]
+  },
+  {
+    "objectID": "src/tt/hw01-tt.html#tidytuesday-section",
+    "href": "src/tt/hw01-tt.html#tidytuesday-section",
+    "title": "Homework 01",
+    "section": "",
+    "text": "About the Data\nThe Tidy Tuesday data for the week of 9/2/25 comes from the sixth annual release of FrogID data. FrogID is a mobile app that enables citizen scientists in Australia to record and submit frog calls for experts to identify. Some key information provided in the dataset includes the time and location of the observation and taxonomic variables.\nDriving Question: How do the observed numbers of different types of frogs vary temporally and spatially?\nTemporal Analysis\nFirst, I was interested in exploring how the abundances of different types of frogs, specifically tribes, vary over the course of a day. Are some tribes more active at night? In the afternoon?\nTo investigate my question, I created a new variable for the time of day. I mutated the event time variable, which is recorded in seconds, and divided it into four categories. “Night” includes 12 AM to 6 AM, “Morning” includes 6 AM to 12 PM, “Afternoon” includes 12 PM to 6 PM, and “Evening” includes 6 PM to 12 AM.\n\nCode# Create variable for categorizing the time \nfrog &lt;- frog %&gt;%\n  mutate(\n    time_of_day = case_when(\n      eventTime &gt;= 0 & eventTime &lt; 21600 ~ \"Night\",\n      eventTime &gt;= 21600 & eventTime &lt; 43200 ~ \"Morning\",\n      eventTime &gt;= 43200 & eventTime &lt; 64800 ~ \"Afternoon\",\n      eventTime &gt;= 64800 & eventTime &lt;= 86400 ~ \"Evening\"\n    )\n  )\n\n\nGiven that I am considering two categorical variables, time of day and tribe, I chose to visualize the data as a mosaic plot. The width of the columns is proportional to the number of observations at each time of day, and the vertical length of the bars is proportional to the number of observations for each tribe.\n\nCode# Remove entries where tribe is unknown\nfrog_plot &lt;- frog %&gt;%\n  select(time_of_day, tribe) %&gt;%\n  na.omit() \n\n# Create mosaic plot\nggplot(data = frog_plot %&gt;% mutate(tribe = as.factor(tribe))) +\n  geom_mosaic(aes(x = product(time_of_day), fill = tribe)) +\n  theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(),\n  axis.ticks.x = element_blank(), panel.background = element_blank(),\n  panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + \n  labs(title = \"Australian Frog Tribe Abundances at Different Times of Day\", \n  subtitle = \"2023 FrogID Data\", y = \"Tribe\", x = \"Time of Day\",\n  fill = \"Tribe\", caption = \"Cate Stacy, 9/7/25, TidyTuesday\")\n\n\n\n\n\n\n\nThis plot shows that frogs are more abundant in the mornings and evenings, which include dawn and dusk. However, it should be noted that this trend could also reflect the behavior patterns of citizen scientists. For example, it makes sense that there would be fewer people making observations at night between the hours of 12 AM and 6 AM. The Pelodryadidae, Myobatrachidae, and Limnodynastidae tribes are far more abundant than the Asterophryninae, Bufonidae, and Ranidae tribes across all times of day. The Myobatrachidae tribe appears to be relatively more active at afternoon and night than in evening and morning. The Bufonidae tribe appears to be most active in the morning.\nSpatial Analysis\nI was also curious if the abundances of different frog tribes varies by region. I chose to visualize the relationship between state province and tribe as a balloon plot. The size of the circles corresponds to the number of frogs of a specific tribe in a given province.\n\nCode# Create new data frame in proper format for balloon plot\nfrog_plot2 &lt;- frog %&gt;%\n  group_by(stateProvince, tribe) %&gt;%\n  summarize(Count = n()) %&gt;%\n  na.omit() \n\n# Create balloon plot\nggballoonplot(frog_plot2, x = \"stateProvince\", y = \"tribe\",\n  size = \"Count\", fill = \"darkGreen\") + \n  labs(title = \"Australian Frog Tribe Abundances Across State Provinces\",\n  subtitle = \"2023 FrogID Data\", y = \"Tribe\", x = \"State Province\",\n  caption = \"Cate Stacy, 9/7/25, TidyTuesday\")\n\n\n\n\n\n\n\nThe plot demonstrates that New South Wales, Queensland, and Victoria had the most observations. However, it should be considered that there are potential confounding variables, including the size of the provinces and number of citizen scientists. This plot affirms the trend of Pelodryadidae, Myobatrachidae, and Limnodynastidae being most abundant, which was observed in the mosaic plot. An interesting finding is that the Ranidae tribe was only observed in Queensland. Additionally, despite having a relatively low total number of frogs, the Northern Territory had the second highest species richness (number of different species) and the highest species evenness (balanced relative abundance of different species).\nConclusions\nThrough creating visualizations, I was able to explore temporal and spatial variations in frog tribe abundance. More rigorous statistical analysis is required in order to make statements about the significance of the observed trends and account for potential confounding variables. However, the plots suggest that there are differences in frog activity among tribes and that the diversity and abundance of frogs varies across provinces.",
+    "crumbs": [
+      "TidyTuesday",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Homework 01</span>"
     ]
   },
   {
@@ -102,7 +113,7 @@
     "href": "mm/mm.html#creativity",
     "title": "Appendix C — Mind Maps",
     "section": "",
-    "text": "0808-mind_map_example.jpg",
+    "text": "0808-mind_map_example.jpg\n\n\n\n\n\n0905-review.png\n\n\n\n\n\n0908-D4DS1.png",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>C</span>  <span class='chapter-title'>Mind Maps</span>"
