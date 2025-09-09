@@ -71,8 +71,8 @@ book:
 
     - part: "In-Class Activities"
       chapters:
-      - src/ica/ica-sample1.qmd
-      - src/ica/ica-sample2.qmd
+      - src/ica/03-adv-ggplot-notes.qmd
+      - src/ica/cleaning.qmd
 
   appendices:
   - src/appx/appx-sample1.qmd

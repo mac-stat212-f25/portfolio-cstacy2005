@@ -169,14 +169,16 @@ If you'd like finer control of the width of these lines/rectangles, check out th
 
 Recreate the visual demarcations of the months by adding vertical lines separating the months.  Brainstorm how we might draw those vertical lines. What `geom` might we use?  What subset of the data might we use in that `geom` layer to draw lines only at the month divisions? 
 
-```{r }
+```{r}
+months <- data.frame(month = c(1:12), day = c(31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365), culmP_month = c(0.94, 4.79, 5.7, 0.33, 0.47, 1.49, 0, 0, 0.01, 1.18, 1.55, 0.13))
+
 ggplot(weather) +
   geom_linerange(aes(x=dateInYear, ymin = RecordLow, ymax = RecordHigh),  color = "#ECEBE3") +
   theme_classic() +
   geom_linerange(aes(x=dateInYear, ymin = NormalLow, ymax = NormalHigh),  color = "#C8B8BA") +
   theme_classic() +
   geom_linerange(aes(x=dateInYear, ymin = Low, ymax = High),  color = "#A90248") +
-  geom_vline(aes(xintercept = Month))
+  geom_vline(data = months, aes(xintercept = day), color = "grey", linetype = "dashed") + 
   theme_classic()
 ```
 
@@ -197,6 +199,26 @@ Try to figuring out this new challenge using search engines and LLMs:
 
 - **LLMs.** Use [ChatGPT](https://chat.openai.com/) or [Gemini](https://gemini.google.com/) with prompts that will most efficiently get you the desired results. Record the chat prompts used and output given. Evaluate the output. Do you fully understand the code generated? How can you tell that the generated code is correct?
 
+```{r}
+months <- months %>%
+  mutate(month_name = month.abb[month])
+
+ggplot(weather) +
+  geom_linerange(aes(x=dateInYear, ymin = RecordLow, ymax = RecordHigh),  color = "#ECEBE3") +
+  theme_classic() +
+  geom_linerange(aes(x=dateInYear, ymin = NormalLow, ymax = NormalHigh),  color = "#C8B8BA") +
+  theme_classic() +
+  geom_linerange(aes(x=dateInYear, ymin = Low, ymax = High),  color = "#A90248") +
+  geom_vline(data = months, aes(xintercept = day), color = "grey", linetype = "dashed") +
+  scale_x_continuous(
+    breaks = c(15.5, 45, 74.5, 105, 135.5, 166, 196.5, 227.5, 258, 288.5, 319, 349.5),
+    labels = c("Jan.", "Feb.", "March", "April", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.",
+      "Dec.")) +
+  theme_classic() + 
+  theme(axis.ticks.x = element_blank())
+```
+I found that I was able to figure out the right command through a Google search. I then looked up the specifications in the console. However, I was unable to get the code to run. So, I asked in ChatGPT "how to add custom x axis labels ggplot r" and in the bottom of the output, it said the command won't work if the number of labels doesn't match the number of breaks. So, I asked what to do if that is the case, and it showed me how I could chose to label only specific values.
+
 
 ## Exercise 6 
 
@@ -210,7 +232,21 @@ Create a precipitation plot that looks like the following.  Note that
 
 
 ```{r weather_plot_precip}
+weather <- weather %>%
+  mutate(RecordP_num = case_when(
+    RecordP == "TRUE" ~ CulmPrec,
+    RecordP == "FALSE" ~ NA
+    )
+  )
 
+weather2 <- weather %>%
+  full_join(months, by = join_by(Month == month))
+
+ggplot(weather, aes(x = dateInYear, y = CulmPrec)) + 
+  geom_line(color = "#32a3d8") + geom_ribbon(aes(ymin = 0, ymax = CulmPrec), fill = "#ebeae2") +
+  theme_classic() + 
+  geom_point(data = weather, aes(x = dateInYear, y = RecordP_num), shape = 25, size = 1, fill = "black") +
+  geom_text(data = months, aes(x = day, y = culmP_month, label = culmP_month), vjust = -0.5, hjust = 0.9, size = 3)
 ```
 ## Done!
 
