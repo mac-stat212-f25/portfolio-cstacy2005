@@ -2,7 +2,7 @@
 
 ## Creativity
 
-![0908-adv_spatial_viz_p1.png](0908-adv_data_viz.png)
+![0910-adv_spatial_viz_p1.png](0910-adv_spatial_viz_p1.png)
 
 ![0908-adv_data_viz.png](0908-adv_data_viz.png)
 
