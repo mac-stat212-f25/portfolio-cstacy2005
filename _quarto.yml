@@ -71,6 +71,7 @@ book:
 
     - part: "In-Class Activities"
       chapters:
+      - src/ica/04_adv_maps/code/04-adv-maps-1-notes.qmd
       - src/ica/03-adv-ggplot-notes.qmd
       - src/ica/cleaning.qmd
 
