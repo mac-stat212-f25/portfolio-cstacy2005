@@ -21,6 +21,28 @@
     ]
   },
   {
+    "objectID": "src/tt/hw02-tt.html",
+    "href": "src/tt/hw02-tt.html",
+    "title": "Homework 02",
+    "section": "",
+    "text": "TidyTuesday Section (optional)\nCode# Load packages\nlibrary(tidyverse)\nlibrary(dplyr)\nlibrary(fmsb)\nCode# Load data\ntuesdata &lt;- tidytuesdayR::tt_load('2025-09-09')\ncountry_lists &lt;- tuesdata$country_lists\nrank_by_year &lt;- tuesdata$rank_by_year",
+    "crumbs": [
+      "TidyTuesday",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Homework 02</span>"
+    ]
+  },
+  {
+    "objectID": "src/tt/hw02-tt.html#tidytuesday-section-optional",
+    "href": "src/tt/hw02-tt.html#tidytuesday-section-optional",
+    "title": "Homework 02",
+    "section": "",
+    "text": "Instructions\n\n\n\nYou can count work on this week’s TidyTuesday toward the exceptional work required for an A in the Homework component.\n\n\n\n\nAbout the Data\nThe Tidy Tuesday data for the week of 9/9/25 comes from the Henley Passport Index API. It includes information on the number of countries to which travelers in possession of each passport in the world may enter without going through the standard visa application process. The data is at the country level but also includes region groupings.\nDriving Question: How has passport power changed over time across regions?\nI began my analysis by creating a simple plot displaying the change in mean visa free count, meaning the number of countries that do not require the passport holder to apply for a visa beforehand, over time. Mean was used rather than sum so that the metric would not be skewed by the number of countries in a region.\n\nCoderegion_ranks &lt;- rank_by_year %&gt;%\n  group_by(region, year) %&gt;%\n  summarize(reg_free_count = mean(visa_free_count))\n\nggplot(region_ranks, aes(x = year, y = reg_free_count, color = region)) + \n  geom_line(stat = \"smooth\") +\n  theme_classic() + \n  labs(x = \"Year\", y = \"Mean Visa Free Count\", title = \"Mean Visa Free Count by Region from 2006 to 2025\", color = \"Region\", caption = \"Cate Stacy, 9/16/25, Henley Passport Index\")\n\n\n\n\n\n\n\nThe line graph displays an increase in the number of countries passport holders can visit without applying for a visa across all regions. In 2025, Europe had the highest mean visa free count and Africa had the lowest.\nNext, I explored a different measure of passport power, rank, which is highly correlated with visa free count, as seen in the scatterplot below. A lower rank indicates a more powerful passport.\n\nCoderank_by_year %&gt;%\n  filter(year == 2025) %&gt;%\n  group_by(region) %&gt;%\n  summarize(reg_free_count = mean(visa_free_count), reg_rank = mean(rank)) %&gt;%\n  ggplot(aes(x = reg_rank, y = reg_free_count)) + \n  geom_point() + \n  geom_smooth(se = FALSE, method = \"lm\") +\n  theme_classic() +\n  labs(x = \"Region Rank\", y = \"Region Free Count\", title = \"Region Free Count by Region Rank for 2025\", caption = \"Cate Stacy, 9/16/25, Henley Passport Index\") \n\n\n\n\n\n\n\nI was specifically interesting in exploring how the mean rank changed from 2006 to 2025 across regions. I chose to visualize this as a spider plot. I first had to do some data wrangling in order to compute the difference in rank for each region and format the dataframe according to the specifications of radarchart().\n\nCoderank_change &lt;- rank_by_year %&gt;%\n  filter(year == \"2006\" | year == \"2025\") %&gt;%\n  group_by(region, year) %&gt;%\n  summarize(mean_rank = mean(rank)) %&gt;%\n  pivot_wider(names_from = year, values_from = mean_rank) %&gt;%\n  setNames(c(\"region\", \"yr_2006\", \"yr_2025\")) %&gt;%\n  mutate(diff = yr_2025 - yr_2006) %&gt;%\n  select(region, diff) %&gt;%\n  pivot_wider(names_from = region, values_from = diff) \n  \nspider &lt;- rbind(rep(14,7), rep(-10, 7), rank_change)\nradarchart(\n  spider,\n  axistype = 1,\n  pcol = rgb(0.5, 0, 0.5, 0.9), pfcol = rgb(0.5, 0, 0.5, 0.5), plwd = 2,\n  cglcol = \"grey\", cglty = 1, axislabcol = \"black\",\n  cglwd = 0.8,\n  vlcex = 0.8,\n  seg = 6,\n  caxislabels = c(\"-10\", \"\", \"-2\", \"\", \"+6\", \"\", \"+14\"),\n)\n\ntitle(main = \"Mean Passport Rank Difference from 2006 to 2025 by Region\", sub = \"Cate Stacy, 9/16/25, Henley Passport Index\")\n\n\n\n\n\n\n\nAs demonstrated in the plot, Africa saw the greatest decline in passport power (~ +11) while the Caribbean saw the greatest increase in passport power (~ -8). This plot displays different patterns than the ones visualized in the line graph. While all regions saw an increase in visa free count from 2006 to 2005, not all regions experienced and increase in rank.",
+    "crumbs": [
+      "TidyTuesday",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Homework 02</span>"
+    ]
+  },
+  {
     "objectID": "src/tt/hw01-tt.html",
     "href": "src/tt/hw01-tt.html",
     "title": "Homework 01",
@@ -28,7 +50,7 @@
     "text": "TidyTuesday Section\nCode# Load packages\nlibrary(tidyverse)\nlibrary(ggmosaic)\nlibrary(ggpubr)\nCode# Load data\ntuesdata &lt;- tidytuesdayR::tt_load('2025-09-02')\nfrogID_data &lt;- tuesdata$frogID_data\nfrog_names &lt;- tuesdata$frog_names\nCode# Merge frog ID data with frog names\nfrog &lt;- frogID_data %&gt;%\n  full_join(frog_names, by = join_by(scientificName), relationship = \"many-to-many\")",
     "crumbs": [
       "TidyTuesday",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Homework 01</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Homework 01</span>"
     ]
   },
   {
@@ -39,18 +61,7 @@
     "text": "About the Data\nThe Tidy Tuesday data for the week of 9/2/25 comes from the sixth annual release of FrogID data. FrogID is a mobile app that enables citizen scientists in Australia to record and submit frog calls for experts to identify. Some key information provided in the dataset includes the time and location of the observation and taxonomic variables.\nDriving Question: How do the observed numbers of different types of frogs vary temporally and spatially?\nTemporal Analysis\nFirst, I was interested in exploring how the abundances of different types of frogs, specifically tribes, vary over the course of a day. Are some tribes more active at night? In the afternoon?\nTo investigate my question, I created a new variable for the time of day. I mutated the event time variable, which is recorded in seconds, and divided it into four categories. “Night” includes 12 AM to 6 AM, “Morning” includes 6 AM to 12 PM, “Afternoon” includes 12 PM to 6 PM, and “Evening” includes 6 PM to 12 AM.\n\nCode# Create variable for categorizing the time \nfrog &lt;- frog %&gt;%\n  mutate(\n    time_of_day = case_when(\n      eventTime &gt;= 0 & eventTime &lt; 21600 ~ \"Night\",\n      eventTime &gt;= 21600 & eventTime &lt; 43200 ~ \"Morning\",\n      eventTime &gt;= 43200 & eventTime &lt; 64800 ~ \"Afternoon\",\n      eventTime &gt;= 64800 & eventTime &lt;= 86400 ~ \"Evening\"\n    )\n  )\n\n\nGiven that I am considering two categorical variables, time of day and tribe, I chose to visualize the data as a mosaic plot. The width of the columns is proportional to the number of observations at each time of day, and the vertical length of the bars is proportional to the number of observations for each tribe.\n\nCode# Remove entries where tribe is unknown\nfrog_plot &lt;- frog %&gt;%\n  select(time_of_day, tribe) %&gt;%\n  na.omit() \n\n# Create mosaic plot\nggplot(data = frog_plot %&gt;% mutate(tribe = as.factor(tribe))) +\n  geom_mosaic(aes(x = product(time_of_day), fill = tribe)) +\n  theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(),\n  axis.ticks.x = element_blank(), panel.background = element_blank(),\n  panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + \n  labs(title = \"Australian Frog Tribe Abundances at Different Times of Day\", \n  subtitle = \"2023 FrogID Data\", y = \"Tribe\", x = \"Time of Day\",\n  fill = \"Tribe\", caption = \"Cate Stacy, 9/7/25, TidyTuesday\")\n\n\n\n\n\n\n\nThis plot shows that frogs are more abundant in the mornings and evenings, which include dawn and dusk. However, it should be noted that this trend could also reflect the behavior patterns of citizen scientists. For example, it makes sense that there would be fewer people making observations at night between the hours of 12 AM and 6 AM. The Pelodryadidae, Myobatrachidae, and Limnodynastidae tribes are far more abundant than the Asterophryninae, Bufonidae, and Ranidae tribes across all times of day. The Myobatrachidae tribe appears to be relatively more active at afternoon and night than in evening and morning. The Bufonidae tribe appears to be most active in the morning.\nSpatial Analysis\nI was also curious if the abundances of different frog tribes varies by region. I chose to visualize the relationship between state province and tribe as a balloon plot. The size of the circles corresponds to the number of frogs of a specific tribe in a given province.\n\nCode# Create new data frame in proper format for balloon plot\nfrog_plot2 &lt;- frog %&gt;%\n  group_by(stateProvince, tribe) %&gt;%\n  summarize(Count = n()) %&gt;%\n  na.omit() \n\n# Create balloon plot\nggballoonplot(frog_plot2, x = \"stateProvince\", y = \"tribe\",\n  size = \"Count\", fill = \"darkGreen\") + \n  labs(title = \"Australian Frog Tribe Abundances Across State Provinces\",\n  subtitle = \"2023 FrogID Data\", y = \"Tribe\", x = \"State Province\",\n  caption = \"Cate Stacy, 9/7/25, TidyTuesday\")\n\n\n\n\n\n\n\nThe plot demonstrates that New South Wales, Queensland, and Victoria had the most observations. However, it should be considered that there are potential confounding variables, including the size of the provinces and number of citizen scientists. This plot affirms the trend of Pelodryadidae, Myobatrachidae, and Limnodynastidae being most abundant, which was observed in the mosaic plot. An interesting finding is that the Ranidae tribe was only observed in Queensland. Additionally, despite having a relatively low total number of frogs, the Northern Territory had the second highest species richness (number of different species) and the highest species evenness (balanced relative abundance of different species).\nConclusions\nThrough creating visualizations, I was able to explore temporal and spatial variations in frog tribe abundance. More rigorous statistical analysis is required in order to make statements about the significance of the observed trends and account for potential confounding variables. However, the plots suggest that there are differences in frog activity among tribes and that the diversity and abundance of frogs varies across provinces.",
     "crumbs": [
       "TidyTuesday",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Homework 01</span>"
-    ]
-  },
-  {
-    "objectID": "src/tt/2025-07-15.html",
-    "href": "src/tt/2025-07-15.html",
-    "title": "TidyTuesday Sample 2",
-    "section": "",
-    "text": "Add content here",
-    "crumbs": [
-      "TidyTuesday",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>TidyTuesday Sample 2</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Homework 01</span>"
     ]
   },
   {
@@ -344,7 +355,7 @@
     "href": "mm/mm.html#creativity",
     "title": "Appendix C — Mind Maps",
     "section": "",
-    "text": "0910-adv_spatial_viz_p1.png\n\n\n\n\n\n0908-adv_data_viz.png\n\n\n\n\n\n0905-review.png\n\n\n\n\n\n0808-mind_map_example.jpg",
+    "text": "0917-adv-data-wrangling-p1.png\n\n\n\n\n\n0910-adv_spatial_viz_p1.png\n\n\n\n\n\n0908-adv_data_viz.png\n\n\n\n\n\n0905-review.png\n\n\n\n\n\n0808-mind_map_example.jpg",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>C</span>  <span class='chapter-title'>Mind Maps</span>"
