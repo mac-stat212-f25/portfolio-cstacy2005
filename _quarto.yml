@@ -66,11 +66,12 @@ book:
 
     - part: "TidyTuesday"
       chapters:
+      - src/tt/hw02-tt.qmd
       - src/tt/hw01-tt.qmd
-      - src/tt/2025-07-15.qmd
 
     - part: "In-Class Activities"
       chapters:
+      - src/ica/06-wrangling-1-notes.qmd
       - src/ica/04_adv_maps/code/04-adv-maps-1-notes.qmd
       - src/ica/03-adv-ggplot-notes.qmd
       - src/ica/cleaning.qmd
