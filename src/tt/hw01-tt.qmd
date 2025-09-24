@@ -10,6 +10,7 @@ title: "Homework 01"
 library(tidyverse)
 library(ggmosaic)
 library(ggpubr)
+library(ggplot2)
 ```
 
 ```{r, message = FALSE}
@@ -26,6 +27,7 @@ frog <- frogID_data %>%
 ```
 
 ### About the Data
+
 The Tidy Tuesday data for the week of 9/2/25 comes from the sixth annual release of FrogID data. FrogID is a mobile app that enables citizen scientists in Australia to record and submit frog calls for experts to identify. Some key information provided in the dataset includes the time and location of the observation and taxonomic variables.
 
 ### Driving Question: How do the observed numbers of different types of frogs vary temporally and spatially?
@@ -49,23 +51,41 @@ frog <- frog %>%
   )
 ```
 
+::: {.callout-important title="Important Note"}
+
+A mosaic plot was originally created for this assignment, but it no longer renders. The code was commented out and a proportional bar plot using the same variables was created.
+
+:::
+
+
 Given that I am considering two categorical variables, time of day and tribe, I chose to visualize the data as a mosaic plot. The width of the columns is proportional to the number of observations at each time of day, and the vertical length of the bars is proportional to the number of observations for each tribe.
 
-```{r, message = FALSE, warning = FALSE}
+```{r message=FALSE, warning=FALSE}
 # Remove entries where tribe is unknown
 frog_plot <- frog %>%
   select(time_of_day, tribe) %>%
   na.omit() 
 
 # Create mosaic plot
-ggplot(data = frog_plot %>% mutate(tribe = as.factor(tribe))) +
-  geom_mosaic(aes(x = product(time_of_day), fill = tribe)) +
+# ggplot(data = frog_plot %>% mutate(tribe = as.factor(tribe))) +
+#  geom_mosaic(aes(x = product(time_of_day), fill = tribe)) +
+#  theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(),
+#  axis.ticks.x = element_blank(), panel.background = element_blank(),
+#  panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + 
+#  labs(
+#    title = "Australian Frog Tribe Abundances at Different Times of Day",
+#    subtitle = "2023 FrogID Data", x = "Time of Day", y = "Tribe",
+#  fill = "Tribe", caption = "Cate Stacy, 9/7/25, TidyTuesday")
+
+ggplot(data = frog_plot) +
+  geom_bar(aes(x = time_of_day, fill = tribe), position = "fill") +
   theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(),
   axis.ticks.x = element_blank(), panel.background = element_blank(),
   panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + 
-  labs(title = "Australian Frog Tribe Abundances at Different Times of Day", 
-  subtitle = "2023 FrogID Data", y = "Tribe", x = "Time of Day",
-  fill = "Tribe", caption = "Cate Stacy, 9/7/25, TidyTuesday")
+  labs(
+    title = "Australian Frog Tribe Abundances at Different Times of Day",
+    subtitle = "2023 FrogID Data", x = "Time of Day", y = "Tribe",
+    fill = "Tribe", caption = "Cate Stacy, 9/7/25, TidyTuesday")
 ```
 
 This plot shows that frogs are more abundant in the mornings and evenings, which include dawn and dusk. However, it should be noted that this trend could also reflect the behavior patterns of citizen scientists. For example, it makes sense that there would be fewer people making observations at night between the hours of 12 AM and 6 AM. The Pelodryadidae, Myobatrachidae, and Limnodynastidae tribes are far more abundant than the Asterophryninae, Bufonidae, and Ranidae tribes across all times of day. The Myobatrachidae tribe appears to be relatively more active at afternoon and night than in evening and morning. The Bufonidae tribe appears to be most active in the morning.
