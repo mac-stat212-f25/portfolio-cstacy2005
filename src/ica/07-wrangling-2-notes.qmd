@@ -182,7 +182,7 @@ df_dates <- tibble(
 df_dates <- df_dates %>%
   mutate(
     month_num = match(month, month.abb),
-    full_date1 = str_c(month_num, "-", day, "-", year)
+    full_date1 = str_c(month_num, "-", day, "-", year), full_date2 = str_glue("{month_num}-{day}-{year}")
   )
 
 df_dates
@@ -230,8 +230,8 @@ df <- tibble(
     word = c("replace", "match", "pattern")
 )
 
-
-
+df <- df %>%
+  mutate(mid_letter = str_sub(word, start = floor(str_length(word)/2) + 1, end = floor(str_length(word)/2) + 1))
 ```
 
 
@@ -294,7 +294,7 @@ str_view(words, "[^aeiou]y[^aeiou]")
 
 ```{r ex_regex_classes}
 # Your code
-
+str_view(words, "[aeiou][aeiou]m")
 ```
 
 
@@ -311,7 +311,7 @@ str_view(fruit, "apple|melon|nut")
 
 ```{r ex_regex_alternation}
 # Your code
-
+str_view(fruit, "aa|ee|ii|oo|uu")
 ```
 
 
@@ -325,8 +325,8 @@ str_view(fruit, "apple|melon|nut")
 
 ```{r ex_regex_start_end_group}
 # Your code
-
-
+str_view(words, "^y")
+str_view(words, "^[^y]")
 ```
 
 
@@ -356,7 +356,13 @@ The following are core `stringr` functions that use regular expressions:
 **Exercise:** Starting from `str_count()`, explore each of these functions by pulling up the function documentation page and reading through the arguments. Try out each function using the `posts` data.
 
 ```{r}
-
+# str_view(posts$title, "help")
+# str_count(posts$title, "love")
+# str_detect(posts$question_only, "cat")
+# str_subset(posts$title, "husband")
+# str_extract(posts$title, "husband")
+# str_replace(posts$title, "dog", "chicken")
+# str_remove(posts$title, "hate")
 ```
 
 ## Done!

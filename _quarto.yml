@@ -72,6 +72,7 @@ book:
 
     - part: "In-Class Activities"
       chapters:
+      - src/ica/07-wrangling-2-notes.qmd
       - src/ica/06-wrangling-1-notes.qmd
       - src/ica/04_adv_maps/code/04-adv-maps-1-notes.qmd
       - src/ica/03-adv-ggplot-notes.qmd
@@ -81,6 +82,7 @@ book:
   - src/appx/appx-sample1.qmd
   - src/appx/appx-sample2.qmd
   - mm/mm.md
+  - exams/exams.md
 
 
 
