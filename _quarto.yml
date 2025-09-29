@@ -72,6 +72,7 @@ book:
 
     - part: "In-Class Activities"
       chapters:
+      - src/ica/08-missing-data-notes.qmd
       - src/ica/07-wrangling-2-notes.qmd
       - src/ica/06-wrangling-1-notes.qmd
       - src/ica/04_adv_maps/code/04-adv-maps-1-notes.qmd

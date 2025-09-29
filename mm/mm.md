@@ -2,6 +2,8 @@
 
 ## Creativity
 
+![0929-missing_data.jpg](0929-missing_data.jpg)
+
 ![0922-adv-data-wrangling-p2.png](0922-adv-data-wrangling-p2.png)
 
 ![0917-adv-data-wrangling-p1.png](0917-adv-data-wrangling-p1.png)
