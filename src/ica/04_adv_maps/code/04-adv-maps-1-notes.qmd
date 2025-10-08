@@ -299,7 +299,7 @@ ggplot() + geom_raster(data = elev_df, aes(x = x, y = y, fill = elevation)) + sc
 - We can use the `st_bbox()` function to get the **bounding box** for a spatial object---we do this after filtering to the 7 counties in the Twin Cities.
 - We then use `st_crop()` to trim a spatial object to a given bounding box.
 
-```{r get_elevation_data_zoom_in}
+```{r get_elevation_data_zoom_in, eval = FALSE}
 seven_countyarea <- mn_counties |>
     filter(name %in% c("Anoka", "Hennepin", "Ramsey", "Dakota", "Carver", "Washington", "Scott")) |> 
     st_bbox()
@@ -315,7 +315,7 @@ colnames(elev_df) <- c("x", "y", "elevation")
 
 In the plot below, we add a layer for water information and a `coord_sf()` layer to restrict the x and y-axis limits to the Twin Cities bounding box. (Without this layer, the map would zoom back out to show all counties and bodies of water).
 
-```{r elevation_map_zoom_in}
+```{r elevation_map_zoom_in, eval =FALSE}
 ggplot() +
     geom_raster(data = elev_df, aes(x = x, y = y, fill = elevation)) + 
     geom_sf(data = mn_counties, fill = NA, color = "black") + # county boundary layer

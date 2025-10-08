@@ -342,7 +342,7 @@ We can use a **simulation study** to investigate the statistical properties desc
 
 We will slowly step through the simulation study code below. We will pause frequently for you to add comments documenting what is happening. 
 
-```{r mult_single_sim_study}
+```{r mult_single_sim_study, eval = FALSE}
 set.seed(224)
 num_simulations <- 1000
 ci_list <- vector("list", length = num_simulations)
@@ -391,7 +391,7 @@ for (i in 1:num_simulations) {
 
 Below we compute the confidence interval (CI) coverage probability (fraction of times the CI contains the true value of `1`) for the CIs generated from single and multiple imputation:
 
-```{r mult_single_sim_study_summ}
+```{r mult_single_sim_study_summ, eval=FALSE}
 ci_data <- bind_rows(ci_list)
 ci_data |> 
     mutate(contains_truth = ci_lower < 1 & ci_upper > 1) |> 

@@ -1,6 +1,10 @@
 # Mind Maps
 
-## Creativity
+![1008-loops+iter-p2.png](1008-loops+iter-p2.png)
+
+![1006-loops+iter-p1.jpg](1006-loops+iter-p1.jpg)
+
+![1003-base_R](1003-base_R)
 
 ![1001-functions](1001-functions)
 
@@ -15,6 +19,4 @@
 ![0908-adv_data_viz.png](0908-adv_data_viz.png)
 
 ![0905-review.png](0905-review.png)
-
-![0808-mind_map_example.jpg](0808-mind_map_example.jpg)
 
