@@ -1,0 +1,116 @@
+---
+title: "Homework 06"
+---
+
+
+## TidyTuesday Section (optional)
+
+::: {.callout-important title="Instructions"}
+
+You can count work on this week's TidyTuesday toward the exceptional work required for an A in the Homework component.
+
+:::
+
+
+Explore the week's [TidyTuesday](https://github.com/rfordatascience/tidytuesday) challenge. Develop a research question, then answer it through a short data story with [effective visualization(s)]({{< var effective-viz-url >}}).  Provide sufficient background for readers to grasp your narrative.
+
+```{r, message = FALSE}
+# Load packages
+library(tidyverse)
+library(readr)
+library(ggpubr)
+library(forcats)
+```
+
+```{r, message=FALSE}
+# Load data
+tuesdata <- tidytuesdayR::tt_load('2025-10-07')
+
+euroleague_basketball <- tuesdata$euroleague_basketball
+```
+
+### About the Data
+
+The Tidy Tuesday data for the week of 10/7/25 comes from the the EuroleagueBasketball R package. The dataset includes information about the teams, including their country, home city, arena seating capacity, final four performances, and championships won.
+
+### Driving Question: Which countries have the most successful EuroLeague basketball teams and why?
+
+First, I looked at the number of teams a country has as it relates to the number of times that country has appeared in the Final Four.
+
+```{r}
+euroleague_basketball %>%
+  group_by(Country) %>%
+  summarize(
+    teams = n(),
+    FF_sum = sum(FinalFour_Appearances)
+  ) %>%
+  ggplot(aes(x = FF_sum, y = reorder(Country, -FF_sum), fill = teams)) + 
+  geom_col() +
+  geom_smooth(se = FALSE) +
+  labs(x = "total final four appearances", y = "country", title = str_wrap("EuroLeague Basketball Final Four Appearances by Country and Number of Teams", 60), subtitle = "1992-2025",
+  caption = "Cate Stacy, 10/19/25, TidyTuesday") +
+  theme_classic()
+```
+This plot demonstrates that countries with more than one team tend to have more success. However, Greece, which only has two teams, has by far the greatest number of final four appearances. Despite having four teams, Spain has roughly half the number of Final Four appearances as Greece.
+
+Next, I looked at how arena seating capacity relates to a team's number of Final Four appearances.
+
+```{r}
+euroleague_basketball <- euroleague_basketball %>%
+  mutate(
+    Capacity_Num = parse_number(Capacity),
+    Capacity_Cat = case_when(
+      Capacity_Num >= 4500 & Capacity_Num <= 6500 ~ "4500-6500",
+      Capacity_Num > 6500 & Capacity_Num <= 8500 ~ "6501-8500",
+      Capacity_Num > 8500 & Capacity_Num <= 10500 ~ "8501-10500",
+      Capacity_Num > 10500 & Capacity_Num <= 12500 ~ "10501-12500",
+      Capacity_Num > 12500 & Capacity_Num <= 14500 ~ "12501-14500",
+      Capacity_Num > 14500 & Capacity_Num <= 16500 ~ "14501-16500",
+      Capacity_Num > 16500 & Capacity_Num <= 18500 ~ "16501-18500",
+    )
+  )
+
+ggplot(euroleague_basketball, aes(x = Capacity_Num, y = FinalFour_Appearances)) + 
+  geom_point() +
+  geom_smooth(se = FALSE) +
+  theme_classic() +
+  labs(y = "total final four appearances", x = "arena capacity", title = "EuroLeague Basketball Final Four Appearances by Arena Capacity", subtitle = "1992-2025",
+  caption = "Cate Stacy, 10/19/25, TidyTuesday")
+```
+There appears to be a weakly positive relationship between arena capacity and final four appearances.
+
+I then decided to examine this relationship at the country level.
+
+```{r}
+euro_grouped <- euroleague_basketball %>%
+  group_by(Country) %>%
+  summarize(
+    Avg_Capacity = mean(Capacity_Num),
+    FFCount = sum(FinalFour_Appearances),
+    Capacity_Cat_Avg = case_when(
+      Avg_Capacity >= 4500 & Avg_Capacity <= 6500 ~ "4500-6500",
+      Avg_Capacity > 6500 & Avg_Capacity <= 8500 ~ "6501-8500",
+      Avg_Capacity > 8500 & Avg_Capacity <= 10500 ~ "8501-10500",
+      Avg_Capacity > 10500 & Avg_Capacity <= 12500 ~ "10501-12500",
+      Avg_Capacity > 12500 & Avg_Capacity <= 14500 ~ "12501-14500",
+      Avg_Capacity > 14500 & Avg_Capacity <= 16500 ~ "14501-16500",
+      Avg_Capacity > 16500 & Avg_Capacity <= 18500 ~ "16501-18500",
+    ) 
+  ) %>%
+  mutate(
+    Capacity_Cat_Avg = factor(Capacity_Cat_Avg, 
+      levels = c(
+        "4500-6500","6501-8500","8501-10500","10501-12500","12501-14500","14501-16500","16501-18500"))) %>%
+  select(Country, Capacity_Cat_Avg, FFCount)
+
+# Create balloon plot
+ggballoonplot(euro_grouped, x = "Capacity_Cat_Avg", y = "Country",
+  size = "FFCount", fill = "dodgerblue") + 
+  labs(title = str_wrap("EuroLeague Basketball Final Four Appearances by Country and Average Arena Capacity", 60),
+  subtitle = "1992-2025", size = str_wrap("Total Final Four Appearances", 10),
+  caption = "Cate Stacy, 10/19/25, TidyTuesday")  +
+  scale_x_discrete(drop = FALSE)
+```
+
+There does not appear to be a very strong relationship between average arena capacity and final four appearances. Despite having one of the largest average arena sizes, United Arab Emirates has had no Final Four appearances. However, Greece, which also has larger arenas, is quite successful. 
+
