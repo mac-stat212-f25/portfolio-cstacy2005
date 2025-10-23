@@ -389,7 +389,8 @@ Instructions
 <span id="cb3-11"><a href="#cb3-11"></a>     <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"royalblue4"</span>) <span class="sc">+</span> <span class="co"># Customize color scale</span></span>
 <span id="cb3-12"><a href="#cb3-12"></a>     <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Monthly Crane Observations at Lake Hornborgasjön, Sweden from 1994 to 2024"</span>, </span>
 <span id="cb3-13"><a href="#cb3-13"></a>          <span class="at">y =</span> <span class="st">""</span>, <span class="at">x =</span> <span class="st">""</span>, <span class="at">caption =</span> <span class="st">"Cate Stacy, 10/8/25, Data From Hornborgasjön Field Station"</span>) <span class="sc">+</span></span>
-<span id="cb3-14"><a href="#cb3-14"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-14"><a href="#cb3-14"></a>     <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a>      <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1994</span>, <span class="at">to =</span> <span class="dv">2024</span>, <span class="at">by =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="hw05-tt_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
@@ -1115,38 +1116,39 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-50"><a href="#cb6-50"></a>     <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"royalblue4"</span>) <span class="sc">+</span> <span class="co"># Customize color scale</span></span>
 <span id="cb6-51"><a href="#cb6-51"></a>     <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Monthly Crane Observations at Lake Hornborgasjön, Sweden from 1994 to 2024"</span>, </span>
 <span id="cb6-52"><a href="#cb6-52"></a>          <span class="at">y =</span> <span class="st">""</span>, <span class="at">x =</span> <span class="st">""</span>, <span class="at">caption =</span> <span class="st">"Cate Stacy, 10/8/25, Data From Hornborgasjön Field Station"</span>) <span class="sc">+</span></span>
-<span id="cb6-53"><a href="#cb6-53"></a>     <span class="fu">theme_minimal</span>()</span>
-<span id="cb6-54"><a href="#cb6-54"></a><span class="in">```</span></span>
-<span id="cb6-55"><a href="#cb6-55"></a></span>
-<span id="cb6-56"><a href="#cb6-56"></a>This heatmap demonstrates that the greatest number of cranes visit Lake Hornborgasjön in the months of April, September, and October. It also suggests that the overall crane population at Lake Hornborgasjön has increased over the course of the study period. We can confirm these trends by isolating month and year in two additional plots. </span>
-<span id="cb6-57"><a href="#cb6-57"></a></span>
-<span id="cb6-60"><a href="#cb6-60"></a><span class="in">```{r}</span></span>
-<span id="cb6-61"><a href="#cb6-61"></a>cranes_new <span class="sc">%&gt;%</span></span>
-<span id="cb6-62"><a href="#cb6-62"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(year) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(observations)) <span class="sc">%&gt;%</span></span>
-<span id="cb6-63"><a href="#cb6-63"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
-<span id="cb6-64"><a href="#cb6-64"></a>  <span class="fu">summarize</span>(<span class="at">mean_observartions =</span> <span class="fu">mean</span>(observations)) <span class="sc">%&gt;%</span></span>
-<span id="cb6-65"><a href="#cb6-65"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> mean_observartions)) <span class="sc">+</span></span>
-<span id="cb6-66"><a href="#cb6-66"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb6-67"><a href="#cb6-67"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb6-68"><a href="#cb6-68"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"observations"</span>, <span class="at">title =</span> <span class="st">"Crane Observations at Lake Hornborgasjön, Sweden from 1994 to 2024"</span>,</span>
-<span id="cb6-69"><a href="#cb6-69"></a>       <span class="at">caption =</span> <span class="st">"Cate Stacy, 10/8/25, Data From Hornborgasjön Field Station"</span>)</span>
-<span id="cb6-70"><a href="#cb6-70"></a><span class="in">```</span></span>
-<span id="cb6-71"><a href="#cb6-71"></a></span>
-<span id="cb6-72"><a href="#cb6-72"></a>This line graph confirms the theory that the crane population has increased over the years, but it reveals that the increase has not been steady. There are several years where the crane population dropped dramatically.</span>
-<span id="cb6-73"><a href="#cb6-73"></a></span>
-<span id="cb6-76"><a href="#cb6-76"></a><span class="in">```{r}</span></span>
-<span id="cb6-77"><a href="#cb6-77"></a>cranes_new <span class="sc">%&gt;%</span></span>
-<span id="cb6-78"><a href="#cb6-78"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(date) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(observations)) <span class="sc">%&gt;%</span></span>
-<span id="cb6-79"><a href="#cb6-79"></a>  <span class="fu">group_by</span>(month) <span class="sc">%&gt;%</span></span>
-<span id="cb6-80"><a href="#cb6-80"></a>  <span class="fu">summarize</span>(<span class="at">mean_observartions =</span> <span class="fu">mean</span>(observations)) <span class="sc">%&gt;%</span></span>
-<span id="cb6-81"><a href="#cb6-81"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> month, <span class="at">y =</span> mean_observartions, <span class="at">fill =</span> month)) <span class="sc">+</span></span>
-<span id="cb6-82"><a href="#cb6-82"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb6-83"><a href="#cb6-83"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb6-84"><a href="#cb6-84"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"observations"</span>, <span class="at">title =</span> <span class="st">"Monthly Crane Observations at Lake Hornborgasjön, Sweden from 1994 to 2024"</span>,</span>
-<span id="cb6-85"><a href="#cb6-85"></a>       <span class="at">caption =</span> <span class="st">"Cate Stacy, 10/8/25, Data From Hornborgasjön Field Station"</span>)</span>
-<span id="cb6-86"><a href="#cb6-86"></a><span class="in">```</span></span>
-<span id="cb6-87"><a href="#cb6-87"></a></span>
-<span id="cb6-88"><a href="#cb6-88"></a>For the most part, this bar chart is in agreement with the trends observed in the heatmap, but there are some slight discrepancies. Based off the heat map, I would have guessed that April had the highest mean number of observations, followed by October, then September. The bar chart, however, displays September as having the highest mean. This could have to do with the plot grouping all of the years together.</span>
+<span id="cb6-53"><a href="#cb6-53"></a>     <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb6-54"><a href="#cb6-54"></a>      <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1994</span>, <span class="at">to =</span> <span class="dv">2024</span>, <span class="at">by =</span> <span class="dv">1</span>))</span>
+<span id="cb6-55"><a href="#cb6-55"></a><span class="in">```</span></span>
+<span id="cb6-56"><a href="#cb6-56"></a></span>
+<span id="cb6-57"><a href="#cb6-57"></a>This heatmap demonstrates that the greatest number of cranes visit Lake Hornborgasjön in the months of April, September, and October. It also suggests that the overall crane population at Lake Hornborgasjön has increased over the course of the study period. We can confirm these trends by isolating month and year in two additional plots. </span>
+<span id="cb6-58"><a href="#cb6-58"></a></span>
+<span id="cb6-61"><a href="#cb6-61"></a><span class="in">```{r}</span></span>
+<span id="cb6-62"><a href="#cb6-62"></a>cranes_new <span class="sc">%&gt;%</span></span>
+<span id="cb6-63"><a href="#cb6-63"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(year) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(observations)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-64"><a href="#cb6-64"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
+<span id="cb6-65"><a href="#cb6-65"></a>  <span class="fu">summarize</span>(<span class="at">mean_observartions =</span> <span class="fu">mean</span>(observations)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-66"><a href="#cb6-66"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> mean_observartions)) <span class="sc">+</span></span>
+<span id="cb6-67"><a href="#cb6-67"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb6-68"><a href="#cb6-68"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb6-69"><a href="#cb6-69"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"observations"</span>, <span class="at">title =</span> <span class="st">"Crane Observations at Lake Hornborgasjön, Sweden from 1994 to 2024"</span>,</span>
+<span id="cb6-70"><a href="#cb6-70"></a>       <span class="at">caption =</span> <span class="st">"Cate Stacy, 10/8/25, Data From Hornborgasjön Field Station"</span>)</span>
+<span id="cb6-71"><a href="#cb6-71"></a><span class="in">```</span></span>
+<span id="cb6-72"><a href="#cb6-72"></a></span>
+<span id="cb6-73"><a href="#cb6-73"></a>This line graph confirms the theory that the crane population has increased over the years, but it reveals that the increase has not been steady. There are several years where the crane population dropped dramatically.</span>
+<span id="cb6-74"><a href="#cb6-74"></a></span>
+<span id="cb6-77"><a href="#cb6-77"></a><span class="in">```{r}</span></span>
+<span id="cb6-78"><a href="#cb6-78"></a>cranes_new <span class="sc">%&gt;%</span></span>
+<span id="cb6-79"><a href="#cb6-79"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(date) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(observations)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-80"><a href="#cb6-80"></a>  <span class="fu">group_by</span>(month) <span class="sc">%&gt;%</span></span>
+<span id="cb6-81"><a href="#cb6-81"></a>  <span class="fu">summarize</span>(<span class="at">mean_observartions =</span> <span class="fu">mean</span>(observations)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-82"><a href="#cb6-82"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> month, <span class="at">y =</span> mean_observartions, <span class="at">fill =</span> month)) <span class="sc">+</span></span>
+<span id="cb6-83"><a href="#cb6-83"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb6-84"><a href="#cb6-84"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb6-85"><a href="#cb6-85"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"observations"</span>, <span class="at">title =</span> <span class="st">"Monthly Crane Observations at Lake Hornborgasjön, Sweden from 1994 to 2024"</span>,</span>
+<span id="cb6-86"><a href="#cb6-86"></a>       <span class="at">caption =</span> <span class="st">"Cate Stacy, 10/8/25, Data From Hornborgasjön Field Station"</span>)</span>
+<span id="cb6-87"><a href="#cb6-87"></a><span class="in">```</span></span>
+<span id="cb6-88"><a href="#cb6-88"></a></span>
+<span id="cb6-89"><a href="#cb6-89"></a>For the most part, this bar chart is in agreement with the trends observed in the heatmap, but there are some slight discrepancies. Based off the heat map, I would have guessed that April had the highest mean number of observations, followed by October, then September. The bar chart, however, displays September as having the highest mean. This could have to do with the plot grouping all of the years together.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
