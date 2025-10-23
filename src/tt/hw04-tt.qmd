@@ -69,12 +69,12 @@ fide_ratings_september %>%
     ) %>%
   filter(!is.na(title)) %>%
   group_by(title) %>%
-  ggplot(aes(x = title, y = age, fill = title)) +
+  ggplot(aes(x = age, y = title, fill = title)) +
   geom_violin() +
   geom_boxplot(width = 0.1, fill = "white") +
   theme_classic() +
-  theme(legend.position = "none", axis.text.x = element_text(angle = 45, hjust = 1)) +
-  labs(title = "Age Distribution of International Chess Federation (FIDE) Title Holders", subtitle = "Cate Stacy, 10/1/25, Data From September FIDE Player Ratings")
+  theme(legend.position = "none") +
+  labs(title = str_wrap("Age Distribution of International Chess Federation (FIDE) Title Holders", 60), x = "", y = "", caption = "Cate Stacy, 10/1/25, Data From September FIDE Player Ratings")
 ```
 
 Despite youth making up almost half the dataset, we see that the mean ages of the majority of title holders are over 24. Interestingly, the mean age of title holders is younger for women than for men across all titles. It's possible that this is because there is greater representation of women among younger players. This theory can be checked by computing the percent of women among players under the age of 25.

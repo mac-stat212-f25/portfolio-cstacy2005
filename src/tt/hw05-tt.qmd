@@ -48,7 +48,8 @@ ggplot(cranes_new, aes(x = month, y = year, fill = observations)) +
      scale_fill_gradient(low = "white", high = "royalblue4") + # Customize color scale
      labs(title = "Monthly Crane Observations at Lake Hornborgasjön, Sweden from 1994 to 2024", 
           y = "", x = "", caption = "Cate Stacy, 10/8/25, Data From Hornborgasjön Field Station") +
-     theme_minimal()
+     theme_minimal() +
+      scale_y_continuous(breaks = seq(from = 1994, to = 2024, by = 1))
 ```
 
 This heatmap demonstrates that the greatest number of cranes visit Lake Hornborgasjön in the months of April, September, and October. It also suggests that the overall crane population at Lake Hornborgasjön has increased over the course of the study period. We can confirm these trends by isolating month and year in two additional plots. 

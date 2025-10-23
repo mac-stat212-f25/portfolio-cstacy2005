@@ -72,7 +72,7 @@ euroleague_basketball <- euroleague_basketball %>%
 
 ggplot(euroleague_basketball, aes(x = Capacity_Num, y = FinalFour_Appearances)) + 
   geom_point() +
-  geom_smooth(se = FALSE) +
+  geom_smooth(se = FALSE, method = "lm") +
   theme_classic() +
   labs(y = "total final four appearances", x = "arena capacity", title = "EuroLeague Basketball Final Four Appearances by Arena Capacity", subtitle = "1992-2025",
   caption = "Cate Stacy, 10/19/25, TidyTuesday")
@@ -111,6 +111,29 @@ ggballoonplot(euro_grouped, x = "Capacity_Cat_Avg", y = "Country",
   caption = "Cate Stacy, 10/19/25, TidyTuesday")  +
   scale_x_discrete(drop = FALSE)
 ```
+
+::: {.callout-important title="Important Note"}
+
+An alternative visualization displaying the same information as the previous plot was created in response to feedback.
+
+:::
+
+```{r}
+euro_grouped2 <- euroleague_basketball %>%
+  group_by(Country) %>%
+  summarize(
+    Avg_Capacity = mean(Capacity_Num),
+    FFCount = sum(FinalFour_Appearances)
+  ) %>%
+  select(Country, Avg_Capacity, FFCount)
+
+ggplot(euro_grouped2, aes(y = reorder(Country, -Avg_Capacity), x = Avg_Capacity, fill = FFCount)) +
+  geom_col() +
+  theme_classic() +
+  labs(x = "average capacity", y = "country", title = str_wrap("EuroLeague Basketball Final Four Appearances by Country and Average Arena Capacity", 60), subtitle = "1992-2025", fill = str_wrap("Total Final Four Appearances", 10),
+  caption = "Cate Stacy, 10/19/25, TidyTuesday")
+```
+
 
 There does not appear to be a very strong relationship between average arena capacity and final four appearances. Despite having one of the largest average arena sizes, United Arab Emirates has had no Final Four appearances. However, Greece, which also has larger arenas, is quite successful. 
 

@@ -20,6 +20,10 @@ library(tidyverse)
 library(ggplot2)
 library(stringr)
 library(ggpubr)
+library(forcats)
+library(gridExtra)
+library(grid)
+library(ggrepel)
 ```
 
 ```{r, message = FALSE}
@@ -113,6 +117,37 @@ ggplot(proteins, aes(x = reorder(protein, -n), y = n, fill = protein)) +
   annotate("text", label = "= Average Rating", x = 2.4, y = 1305) +
   labs(title = "Frequencies of Different Proteins in Recipes as it Relates to Average Rating", x = "Protein", y = "Number of Recipes", caption = "Cate Stacy, 9/24/25, Allrecipes.com")
 ```
+
+::: {.callout-important title="Important Note"}
+
+The previous visualization was revised in order to improve readability.
+
+:::
+
+```{r}
+p1 <- ggplot(proteins, aes(x = reorder(protein, -n), y = n, fill = protein)) + 
+  geom_col() + 
+  theme_classic() + 
+  theme(legend.position = "none") +
+  labs(title = "Frequencies of Different Proteins in Recipes", x = "", y = "Number of Recipes") 
+
+proteins <- proteins %>%
+  mutate(protein = fct_reorder(protein, -n))
+
+p2 <- ggplot(proteins, aes(x = protein, y = avg_rating, fill = protein)) + 
+  geom_col() + 
+  theme_classic() + 
+  theme(legend.position = "none") +
+  labs(title = "Average Ratings of Recipes with Different Proteins", x = "", y = "Average Rating", caption = "Cate Stacy, 9/24/25, Allrecipes.com")
+
+grid.arrange(
+  p1,
+  p2,
+  nrow = 2, 
+  heights = c(14,16)
+)
+```
+
 
 Chicken is by far the most common protein in the Allrecipes dataset while tofu is least common. Tofu also has the lowest average rating, however, the range in average rating is relatively small (0.23). Turkey, which displays medium frequency, has the highest average rating.
 
