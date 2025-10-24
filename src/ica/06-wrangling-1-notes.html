@@ -124,7 +124,7 @@ cookieconsent.run({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/ica/12-iteration-2-notes.html">In-Class Activities</a></li><li class="breadcrumb-item"><a href="../../src/ica/06-wrangling-1-notes.html"><span class="chapter-title">6 Adv Data wrangling P1</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/ica/14-apis-2-notes.html">In-Class Activities</a></li><li class="breadcrumb-item"><a href="../../src/ica/06-wrangling-1-notes.html"><span class="chapter-title">6 Adv Data wrangling P1</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -228,6 +228,11 @@ cookieconsent.run({
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/ica/14-apis-2-notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">14 APIs P2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../src/ica/12-iteration-2-notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">12 Loops+Iter P2</span></a>
   </div>
@@ -353,7 +358,7 @@ cookieconsent.run({
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/ica/12-iteration-2-notes.html">In-Class Activities</a></li><li class="breadcrumb-item"><a href="../../src/ica/06-wrangling-1-notes.html"><span class="chapter-title">6 Adv Data wrangling P1</span></a></li></ol></nav><div class="quarto-title">
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/ica/14-apis-2-notes.html">In-Class Activities</a></li><li class="breadcrumb-item"><a href="../../src/ica/06-wrangling-1-notes.html"><span class="chapter-title">6 Adv Data wrangling P1</span></a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title"><span class="chapter-title">6 Adv Data wrangling P1</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
@@ -671,7 +676,7 @@ Examples
 [253] 20706 20707 20708 20709 20710 20711 20712 20713 20714 20715 20716 20717
 [265] 20718 20719 20720 20721 20722 20723 20724 20725 20726 20727 20728 20729
 [277] 20730 20731 20732 20733 20734 20735 20736 20737 20738 20739 20740 20741
-[289] 20742 20743 20744 20745 20746 20747 20383 20384 20385 20386 20387 20388
+[289] 20742 20743 20744 20745 20746 20747 20748 20749 20385 20386 20387 20388
 [301] 20389 20390 20391 20392 20393 20394 20395 20396 20397 20398 20399 20400
 [313] 20401 20402 20403 20404 20405 20406 20407 20408 20409 20410 20411 20412
 [325] 20413 20414 20415 20416 20417 20418 20419 20420 20421 20422 20423 20424
@@ -739,8 +744,8 @@ Examples
 [276] "2026-10-03" "2026-10-04" "2026-10-05" "2026-10-06" "2026-10-07"
 [281] "2026-10-08" "2026-10-09" "2026-10-10" "2026-10-11" "2026-10-12"
 [286] "2026-10-13" "2026-10-14" "2026-10-15" "2026-10-16" "2026-10-17"
-[291] "2026-10-18" "2026-10-19" "2026-10-20" "2026-10-21" "2025-10-22"
-[296] "2025-10-23" "2025-10-24" "2025-10-25" "2025-10-26" "2025-10-27"
+[291] "2026-10-18" "2026-10-19" "2026-10-20" "2026-10-21" "2026-10-22"
+[296] "2026-10-23" "2025-10-24" "2025-10-25" "2025-10-26" "2025-10-27"
 [301] "2025-10-28" "2025-10-29" "2025-10-30" "2025-10-31" "2025-11-01"
 [306] "2025-11-02" "2025-11-03" "2025-11-04" "2025-11-05" "2025-11-06"
 [311] "2025-11-07" "2025-11-08" "2025-11-09" "2025-11-10" "2025-11-11"
