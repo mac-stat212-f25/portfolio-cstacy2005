@@ -1,4 +1,5 @@
 # Mind Maps
+![1027-web-scraping.png](1027-web-scraping.png)
 
 ![1010-APIs-P1.png](1010-APIs-P1.png)
 
