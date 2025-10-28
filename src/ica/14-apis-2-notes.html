@@ -60,7 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../src/ica/12-iteration-2-notes.html" rel="next">
-<link href="../../src/tt/hw01-tt.html" rel="prev">
+<link href="../../src/ica/15-scraping-notes.html" rel="prev">
 <script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
 <link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
@@ -124,7 +124,7 @@ cookieconsent.run({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/ica/14-apis-2-notes.html">In-Class Activities</a></li><li class="breadcrumb-item"><a href="../../src/ica/14-apis-2-notes.html"><span class="chapter-title">14 APIs P2</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/ica/15-scraping-notes.html">In-Class Activities</a></li><li class="breadcrumb-item"><a href="../../src/ica/14-apis-2-notes.html"><span class="chapter-title">14 APIs P2</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -188,6 +188,11 @@ cookieconsent.run({
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../src/tt/hw07-tt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Homework 07</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../src/tt/hw06-tt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Homework 06</span></a>
   </div>
 </li>
@@ -228,6 +233,11 @@ cookieconsent.run({
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/ica/15-scraping-notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">15 Web scraping</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../src/ica/14-apis-2-notes.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">14 APIs P2</span></a>
   </div>
@@ -354,7 +364,7 @@ cookieconsent.run({
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/ica/14-apis-2-notes.html">In-Class Activities</a></li><li class="breadcrumb-item"><a href="../../src/ica/14-apis-2-notes.html"><span class="chapter-title">14 APIs P2</span></a></li></ol></nav><div class="quarto-title">
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/ica/15-scraping-notes.html">In-Class Activities</a></li><li class="breadcrumb-item"><a href="../../src/ica/14-apis-2-notes.html"><span class="chapter-title">14 APIs P2</span></a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title"><span class="chapter-title">14 APIs P2</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
@@ -612,63 +622,16 @@ cookieconsent.run({
 </ul>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>resp <span class="ot">&lt;-</span> <span class="fu">req_perform</span>(req)</span>
-<span id="cb7-2"><a href="#cb7-2"></a>resp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>&lt;httr2_response&gt;
-GET https://boardgamegeek.com/xmlapi2/search?query=mystery+curse&amp;type=boardgame,boardgameaccessory,boardgameexpansion
-Status: 200 OK
-Content-Type: text/xml
-Body: In memory (1903 bytes)</code></pre>
-</div>
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>resp <span class="ot">&lt;-</span> <span class="fu">resp_body_xml</span>(resp)</span>
-<span id="cb9-2"><a href="#cb9-2"></a>resp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>{xml_document}
-&lt;items total="9" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse"&gt;
-[1] &lt;item type="boardgame" id="63495"&gt;\n  &lt;name type="primary" value="Murder  ...
-[2] &lt;item type="boardgame" id="40175"&gt;\n  &lt;name type="primary" value="Murder  ...
-[3] &lt;item type="boardgame" id="256211"&gt;\n  &lt;name type="primary" value="Robins ...
-[4] &lt;item type="boardgame" id="238391"&gt;\n  &lt;name type="primary" value="Robins ...
-[5] &lt;item type="boardgameaccessory" id="289457"&gt;\n  &lt;name type="primary" valu ...
-[6] &lt;item type="boardgameaccessory" id="291036"&gt;\n  &lt;name type="primary" valu ...
-[7] &lt;item type="boardgameaccessory" id="309435"&gt;\n  &lt;name type="alternate" va ...
-[8] &lt;item type="boardgameexpansion" id="256211"&gt;\n  &lt;name type="primary" valu ...
-[9] &lt;item type="boardgameexpansion" id="238391"&gt;\n  &lt;name type="primary" valu ...</code></pre>
-</div>
+<span id="cb7-2"><a href="#cb7-2"></a>resp</span>
+<span id="cb7-3"><a href="#cb7-3"></a>resp <span class="ot">&lt;-</span> <span class="fu">resp_body_xml</span>(resp)</span>
+<span id="cb7-4"><a href="#cb7-4"></a>resp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>The XML output is not packaged in a nice way. (We’d love to have a data frame.) We can use the <code>xml2</code> package to explore and navigate the XML structure to extract the information we need.</p>
 <p>Let’s first use the <code>xml_structure()</code> function to see how information is organized:</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">xml_structure</span>(resp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>&lt;items [total, termsofuse]&gt;
-  &lt;item [type, id]&gt;
-    &lt;name [type, value]&gt;
-    &lt;yearpublished [value]&gt;
-  &lt;item [type, id]&gt;
-    &lt;name [type, value]&gt;
-    &lt;yearpublished [value]&gt;
-  &lt;item [type, id]&gt;
-    &lt;name [type, value]&gt;
-    &lt;yearpublished [value]&gt;
-  &lt;item [type, id]&gt;
-    &lt;name [type, value]&gt;
-    &lt;yearpublished [value]&gt;
-  &lt;item [type, id]&gt;
-    &lt;name [type, value]&gt;
-    &lt;yearpublished [value]&gt;
-  &lt;item [type, id]&gt;
-    &lt;name [type, value]&gt;
-  &lt;item [type, id]&gt;
-    &lt;name [type, value]&gt;
-    &lt;yearpublished [value]&gt;
-  &lt;item [type, id]&gt;
-    &lt;name [type, value]&gt;
-    &lt;yearpublished [value]&gt;
-  &lt;item [type, id]&gt;
-    &lt;name [type, value]&gt;
-    &lt;yearpublished [value]&gt;</code></pre>
-</div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">xml_structure</span>(resp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>The key navigation and extraction functions in <code>xml2</code> are:</p>
 <ul>
@@ -693,100 +656,35 @@ Body: In memory (1903 bytes)</code></pre>
 </li>
 </ul>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Get the item nodes in 2 different ways</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>resp <span class="sc">|&gt;</span> <span class="fu">xml_find_all</span>(<span class="st">"item"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>{xml_nodeset (9)}
-[1] &lt;item type="boardgame" id="63495"&gt;\n  &lt;name type="primary" value="Murder  ...
-[2] &lt;item type="boardgame" id="40175"&gt;\n  &lt;name type="primary" value="Murder  ...
-[3] &lt;item type="boardgame" id="256211"&gt;\n  &lt;name type="primary" value="Robins ...
-[4] &lt;item type="boardgame" id="238391"&gt;\n  &lt;name type="primary" value="Robins ...
-[5] &lt;item type="boardgameaccessory" id="289457"&gt;\n  &lt;name type="primary" valu ...
-[6] &lt;item type="boardgameaccessory" id="291036"&gt;\n  &lt;name type="primary" valu ...
-[7] &lt;item type="boardgameaccessory" id="309435"&gt;\n  &lt;name type="alternate" va ...
-[8] &lt;item type="boardgameexpansion" id="256211"&gt;\n  &lt;name type="primary" valu ...
-[9] &lt;item type="boardgameexpansion" id="238391"&gt;\n  &lt;name type="primary" valu ...</code></pre>
-</div>
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>resp <span class="sc">|&gt;</span> <span class="fu">xml_children</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>{xml_nodeset (9)}
-[1] &lt;item type="boardgame" id="63495"&gt;\n  &lt;name type="primary" value="Murder  ...
-[2] &lt;item type="boardgame" id="40175"&gt;\n  &lt;name type="primary" value="Murder  ...
-[3] &lt;item type="boardgame" id="256211"&gt;\n  &lt;name type="primary" value="Robins ...
-[4] &lt;item type="boardgame" id="238391"&gt;\n  &lt;name type="primary" value="Robins ...
-[5] &lt;item type="boardgameaccessory" id="289457"&gt;\n  &lt;name type="primary" valu ...
-[6] &lt;item type="boardgameaccessory" id="291036"&gt;\n  &lt;name type="primary" valu ...
-[7] &lt;item type="boardgameaccessory" id="309435"&gt;\n  &lt;name type="alternate" va ...
-[8] &lt;item type="boardgameexpansion" id="256211"&gt;\n  &lt;name type="primary" valu ...
-[9] &lt;item type="boardgameexpansion" id="238391"&gt;\n  &lt;name type="primary" valu ...</code></pre>
-</div>
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Get the item "type"</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a>resp <span class="sc">|&gt;</span> <span class="fu">xml_find_all</span>(<span class="st">"item"</span>) <span class="sc">|&gt;</span> <span class="fu">xml_attr</span>(<span class="st">"type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>[1] "boardgame"          "boardgame"          "boardgame"         
-[4] "boardgame"          "boardgameaccessory" "boardgameaccessory"
-[7] "boardgameaccessory" "boardgameexpansion" "boardgameexpansion"</code></pre>
-</div>
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># The &lt;name&gt; and &lt;yearpublished&gt; nodes are nested within each &lt;item&gt;</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a>resp <span class="sc">|&gt;</span> <span class="fu">xml_find_all</span>(<span class="st">"item/name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>{xml_nodeset (9)}
-[1] &lt;name type="primary" value="Murder Mystery Dinner Party: The Curse of the ...
-[2] &lt;name type="primary" value="Murder Mystery Evening: The Curse of the Mumm ...
-[3] &lt;name type="primary" value="Robinson Crusoe: Adventures on the Cursed Isl ...
-[4] &lt;name type="primary" value="Robinson Crusoe: Adventures on the Cursed Isl ...
-[5] &lt;name type="primary" value="Robinson Crusoe: Adventures on the Cursed Isl ...
-[6] &lt;name type="primary" value="Robinson Crusoe: Adventures on the Cursed Isl ...
-[7] &lt;name type="alternate" value="Robinson Crusoe: Adventures on the Cursed I ...
-[8] &lt;name type="primary" value="Robinson Crusoe: Adventures on the Cursed Isl ...
-[9] &lt;name type="primary" value="Robinson Crusoe: Adventures on the Cursed Isl ...</code></pre>
-</div>
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>resp <span class="sc">|&gt;</span> <span class="fu">xml_find_all</span>(<span class="st">"item/yearpublished"</span>) <span class="co"># Notice that this is length 8 instead of 9!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>{xml_nodeset (8)}
-[1] &lt;yearpublished value="2008"/&gt;
-[2] &lt;yearpublished value="2007"/&gt;
-[3] &lt;yearpublished value="2018"/&gt;
-[4] &lt;yearpublished value="2019"/&gt;
-[5] &lt;yearpublished value="2019"/&gt;
-[6] &lt;yearpublished value="2019"/&gt;
-[7] &lt;yearpublished value="2018"/&gt;
-[8] &lt;yearpublished value="2019"/&gt;</code></pre>
-</div>
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Get the "primary" or "alternate" designation for each name</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a>resp <span class="sc">|&gt;</span> <span class="fu">xml_find_all</span>(<span class="st">"item/name"</span>) <span class="sc">|&gt;</span> <span class="fu">xml_attr</span>(<span class="st">"type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>[1] "primary"   "primary"   "primary"   "primary"   "primary"   "primary"  
-[7] "alternate" "primary"   "primary"  </code></pre>
-</div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Get the item nodes in 2 different ways</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>resp <span class="sc">|&gt;</span> <span class="fu">xml_find_all</span>(<span class="st">"item"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3"></a>resp <span class="sc">|&gt;</span> <span class="fu">xml_children</span>()</span>
+<span id="cb9-4"><a href="#cb9-4"></a></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co"># Get the item "type"</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a>resp <span class="sc">|&gt;</span> <span class="fu">xml_find_all</span>(<span class="st">"item"</span>) <span class="sc">|&gt;</span> <span class="fu">xml_attr</span>(<span class="st">"type"</span>)</span>
+<span id="cb9-7"><a href="#cb9-7"></a></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="co"># The &lt;name&gt; and &lt;yearpublished&gt; nodes are nested within each &lt;item&gt;</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a>resp <span class="sc">|&gt;</span> <span class="fu">xml_find_all</span>(<span class="st">"item/name"</span>)</span>
+<span id="cb9-10"><a href="#cb9-10"></a>resp <span class="sc">|&gt;</span> <span class="fu">xml_find_all</span>(<span class="st">"item/yearpublished"</span>) <span class="co"># Notice that this is length 8 instead of 9!</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a></span>
+<span id="cb9-12"><a href="#cb9-12"></a><span class="co"># Get the "primary" or "alternate" designation for each name</span></span>
+<span id="cb9-13"><a href="#cb9-13"></a>resp <span class="sc">|&gt;</span> <span class="fu">xml_find_all</span>(<span class="st">"item/name"</span>) <span class="sc">|&gt;</span> <span class="fu">xml_attr</span>(<span class="st">"type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p><strong>Exercises</strong></p>
 <ol type="1">
 <li>Get the board game name (e.g., “Murder Mystery…” and “Robinson Crusoe”)</li>
 </ol>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>resp <span class="sc">|&gt;</span> <span class="fu">xml_find_all</span>(<span class="st">"item/name"</span>) <span class="sc">|&gt;</span> <span class="fu">xml_attr</span>(<span class="st">"value"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>[1] "Murder Mystery Dinner Party: The Curse of the Green Lady"                             
-[2] "Murder Mystery Evening: The Curse of the Mummy"                                       
-[3] "Robinson Crusoe: Adventures on the Cursed Island – Mystery Cards I"                   
-[4] "Robinson Crusoe: Adventures on the Cursed Island – Mystery Tales"                     
-[5] "Robinson Crusoe: Adventures on the Cursed Island – Mystery Tales Upgrade Pack"        
-[6] "Robinson Crusoe: Adventures on the Cursed Island – Mystery Tales – Insert Here Insert"
-[7] "Robinson Crusoe: Adventures on the Cursed Island – Mystery Tales: e-Raptor Insert"    
-[8] "Robinson Crusoe: Adventures on the Cursed Island – Mystery Cards I"                   
-[9] "Robinson Crusoe: Adventures on the Cursed Island – Mystery Tales"                     </code></pre>
-</div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>resp <span class="sc">|&gt;</span> <span class="fu">xml_find_all</span>(<span class="st">"item/name"</span>) <span class="sc">|&gt;</span> <span class="fu">xml_attr</span>(<span class="st">"value"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <ol start="2" type="1">
 <li>Get the board game ID number (e.g., 63495, 40175)</li>
 </ol>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>resp <span class="sc">|&gt;</span> <span class="fu">xml_find_all</span>(<span class="st">"item"</span>) <span class="sc">%&gt;%</span> <span class="fu">xml_attr</span>(<span class="st">"id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>[1] "63495"  "40175"  "256211" "238391" "289457" "291036" "309435" "256211"
-[9] "238391"</code></pre>
-</div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>resp <span class="sc">|&gt;</span> <span class="fu">xml_find_all</span>(<span class="st">"item"</span>) <span class="sc">%&gt;%</span> <span class="fu">xml_attr</span>(<span class="st">"id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section><section id="new-york-times-api" class="level3"><h3 class="anchored" data-anchor-id="new-york-times-api">New York Times API</h3>
 <p>This example will build on the <a href="https://developer.nytimes.com/">New York Times Web API</a>, which provides access to news articles, movie reviews, book reviews, and many other data.</p>
@@ -795,7 +693,7 @@ Body: In memory (1903 bytes)</code></pre>
 <p>Once you have signed up, verified your email, log back in to https://developer.nytimes.com. Under your email address, click on Apps and Create a new App (call it First API) and enable Article Search API, then press Save. This creates an <strong>authentication key</strong>, which is a 32 digit string with numbers and the letters a-e.</p>
 <p>As with your census API key, save this key in a <code>.txt</code> file, and read it in and store this in a variable called <code>times_key</code>. 📌 Again, don’t commit this file to GitHub. Make Git ignores it via GitHub Desktop (<strong>Right click</strong> the file –&gt; select <strong>Ignore file (add to .gitignore)</strong>.</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>times_key <span class="ot">&lt;-</span> <span class="fu">read_lines</span>(<span class="st">"nyt_api_key.txt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>times_key <span class="ot">&lt;-</span> <span class="fu">read_lines</span>(<span class="st">"nyt_api_key.txt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Open this URL in your browser (you should replace <code>MY_KEY</code> with the API key you were given).</p>
@@ -831,24 +729,24 @@ Body: In memory (1903 bytes)</code></pre>
 <p>The scheme, hostname, and path (<code>http://api.nytimes.com/svc/search/v2/articlesearch.json</code>) together form the <strong><a href="https://en.wikipedia.org/wiki/Web_API#Endpoints">endpoint</a></strong> for the API call.</p>
 <p>We can use the <code>httr2</code> package to build up a full URL from its parts:</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>req <span class="ot">&lt;-</span> <span class="fu">request</span>(<span class="st">"http://api.nytimes.com"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb31-2"><a href="#cb31-2"></a>    <span class="fu">req_url_path_append</span>(<span class="st">"svc"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb31-3"><a href="#cb31-3"></a>    <span class="fu">req_url_path_append</span>(<span class="st">"search"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb31-4"><a href="#cb31-4"></a>    <span class="fu">req_url_path_append</span>(<span class="st">"v2"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb31-5"><a href="#cb31-5"></a>    <span class="fu">req_url_path_append</span>(<span class="st">"articlesearch.json"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb31-6"><a href="#cb31-6"></a>    <span class="fu">req_url_query</span>(<span class="at">q =</span> <span class="st">"gamergate"</span>, <span class="st">`</span><span class="at">api-key</span><span class="st">`</span> <span class="ot">=</span> times_key)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>req <span class="ot">&lt;-</span> <span class="fu">request</span>(<span class="st">"http://api.nytimes.com"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2"></a>    <span class="fu">req_url_path_append</span>(<span class="st">"svc"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-3"><a href="#cb14-3"></a>    <span class="fu">req_url_path_append</span>(<span class="st">"search"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-4"><a href="#cb14-4"></a>    <span class="fu">req_url_path_append</span>(<span class="st">"v2"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-5"><a href="#cb14-5"></a>    <span class="fu">req_url_path_append</span>(<span class="st">"articlesearch.json"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-6"><a href="#cb14-6"></a>    <span class="fu">req_url_query</span>(<span class="at">q =</span> <span class="st">"gamergate"</span>, <span class="st">`</span><span class="at">api-key</span><span class="st">`</span> <span class="ot">=</span> times_key)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>We can write a function to generate the URL for a user-specified query:</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>create_nyt_url <span class="ot">&lt;-</span> <span class="cf">function</span>(query, key) {</span>
-<span id="cb32-2"><a href="#cb32-2"></a>    <span class="fu">request</span>(<span class="st">"http://api.nytimes.com"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb32-3"><a href="#cb32-3"></a>        <span class="fu">req_url_path_append</span>(<span class="st">"svc"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb32-4"><a href="#cb32-4"></a>        <span class="fu">req_url_path_append</span>(<span class="st">"search"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb32-5"><a href="#cb32-5"></a>        <span class="fu">req_url_path_append</span>(<span class="st">"v2"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb32-6"><a href="#cb32-6"></a>        <span class="fu">req_url_path_append</span>(<span class="st">"articlesearch.json"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb32-7"><a href="#cb32-7"></a>        <span class="fu">req_url_query</span>(<span class="at">q =</span> query, <span class="st">`</span><span class="at">api-key</span><span class="st">`</span> <span class="ot">=</span> key)</span>
-<span id="cb32-8"><a href="#cb32-8"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>create_nyt_url <span class="ot">&lt;-</span> <span class="cf">function</span>(query, key) {</span>
+<span id="cb15-2"><a href="#cb15-2"></a>    <span class="fu">request</span>(<span class="st">"http://api.nytimes.com"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-3"><a href="#cb15-3"></a>        <span class="fu">req_url_path_append</span>(<span class="st">"svc"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-4"><a href="#cb15-4"></a>        <span class="fu">req_url_path_append</span>(<span class="st">"search"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-5"><a href="#cb15-5"></a>        <span class="fu">req_url_path_append</span>(<span class="st">"v2"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-6"><a href="#cb15-6"></a>        <span class="fu">req_url_path_append</span>(<span class="st">"articlesearch.json"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-7"><a href="#cb15-7"></a>        <span class="fu">req_url_query</span>(<span class="at">q =</span> query, <span class="st">`</span><span class="at">api-key</span><span class="st">`</span> <span class="ot">=</span> key)</span>
+<span id="cb15-8"><a href="#cb15-8"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Let’s use this function to find articles related to:</p>
@@ -860,13 +758,13 @@ Body: In memory (1903 bytes)</code></pre>
 </ul>
 <p>Let’s see how these queries are translated into the URLs:</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>req_fb <span class="ot">&lt;-</span> <span class="fu">create_nyt_url</span>(<span class="at">query =</span> <span class="st">"Ferris Bueller's Day Off"</span>, <span class="at">key =</span> times_key)</span>
-<span id="cb33-2"><a href="#cb33-2"></a>req_pt <span class="ot">&lt;-</span> <span class="fu">create_nyt_url</span>(<span class="at">query =</span> <span class="st">"Penn &amp; Teller"</span>, <span class="at">key =</span> times_key)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>req_fb <span class="ot">&lt;-</span> <span class="fu">create_nyt_url</span>(<span class="at">query =</span> <span class="st">"Ferris Bueller's Day Off"</span>, <span class="at">key =</span> times_key)</span>
+<span id="cb16-2"><a href="#cb16-2"></a>req_pt <span class="ot">&lt;-</span> <span class="fu">create_nyt_url</span>(<span class="at">query =</span> <span class="st">"Penn &amp; Teller"</span>, <span class="at">key =</span> times_key)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>We can use <code>req_perform()</code> to send out the request and <code>resp_body_json()</code> to parse the resulting JSON:</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>resp_pt <span class="ot">&lt;-</span> req_pt <span class="sc">|&gt;</span> <span class="fu">req_perform</span>() <span class="sc">|&gt;</span> <span class="fu">resp_body_json</span>(<span class="at">simplifyVector =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>resp_pt <span class="ot">&lt;-</span> req_pt <span class="sc">|&gt;</span> <span class="fu">req_perform</span>() <span class="sc">|&gt;</span> <span class="fu">resp_body_json</span>(<span class="at">simplifyVector =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <section id="exploring-complex-lists" class="level4"><h4 class="anchored" data-anchor-id="exploring-complex-lists">Exploring complex lists</h4>
@@ -882,32 +780,32 @@ Body: In memory (1903 bytes)</code></pre>
 <li>By <em>position</em> with double square brackets <code>[[</code>:</li>
 </ul>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># This gets the first element of the list</span></span>
-<span id="cb35-2"><a href="#cb35-2"></a>resp_pt[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># This gets the first element of the list</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>resp_pt[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <ul>
 <li>By <em>name</em> with double square brackets <code>[[</code>: (note that list elements are not always named, so this won’t always be possible)</li>
 </ul>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Accessing by name directly</span></span>
-<span id="cb36-2"><a href="#cb36-2"></a>resp_pt[[<span class="st">"status"</span>]]</span>
-<span id="cb36-3"><a href="#cb36-3"></a></span>
-<span id="cb36-4"><a href="#cb36-4"></a><span class="co"># Accessing via a variable</span></span>
-<span id="cb36-5"><a href="#cb36-5"></a>which_element <span class="ot">&lt;-</span> <span class="st">"status"</span></span>
-<span id="cb36-6"><a href="#cb36-6"></a>resp_pt[[which_element]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Accessing by name directly</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>resp_pt[[<span class="st">"status"</span>]]</span>
+<span id="cb19-3"><a href="#cb19-3"></a></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="co"># Accessing via a variable</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a>which_element <span class="ot">&lt;-</span> <span class="st">"status"</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a>resp_pt[[which_element]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <ul>
 <li>By <em>name</em> with a dollar sign <code>$</code>: (Helpful tip: For this mode of access, RStudio allows tab completion to fill in the full name)</li>
 </ul>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>resp_pt<span class="sc">$</span>status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>resp_pt<span class="sc">$</span>status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>We can retrieve these <em>nested</em> attributes by sequentially accessing the object keys from the outside in. For example, the <code>meta</code> element would be accessed as follows:</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>resp_pt<span class="sc">$</span>response<span class="sc">$</span>meta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>resp_pt<span class="sc">$</span>response<span class="sc">$</span>meta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p><strong>Exercise:</strong> In the <code>resp_pt</code> object, retrieve the data associated with:</p>
@@ -915,21 +813,21 @@ Body: In memory (1903 bytes)</code></pre>
 <li>the <code>copyright</code> key</li>
 </ul>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>resp_pt[[<span class="st">"copyright"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>resp_pt[[<span class="st">"copyright"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <ul>
 <li>the number of <code>hits</code> (number of search results) within the <code>meta</code> object</li>
 </ul>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>resp_pt<span class="sc">$</span>response<span class="sc">$</span>meta<span class="sc">$</span>hits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>resp_pt<span class="sc">$</span>response<span class="sc">$</span>meta<span class="sc">$</span>hits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <ul>
 <li>the abstracts and leading paragraphs of the articles found in the search</li>
 </ul>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>resp_pt<span class="sc">$</span>response<span class="sc">$</span>docs<span class="sc">$</span>abstract</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>resp_pt<span class="sc">$</span>response<span class="sc">$</span>docs<span class="sc">$</span>abstract</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section></section></section><section id="done" class="level2"><h2 class="anchored" data-anchor-id="done">Done!</h2>
@@ -1557,8 +1455,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation column-body"><div class="nav-page nav-page-previous">
-      <a href="../../src/tt/hw01-tt.html" class="pagination-link" aria-label="Homework 01">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Homework 01</span></span>
+      <a href="../../src/ica/15-scraping-notes.html" class="pagination-link" aria-label="15 Web scraping">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">15 Web scraping</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1567,477 +1465,483 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb42" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb42-1"><a href="#cb42-1"></a><span class="co">---</span></span>
-<span id="cb42-2"><a href="#cb42-2"></a><span class="an">title:</span><span class="co"> "14 APIs P2"</span></span>
-<span id="cb42-3"><a href="#cb42-3"></a><span class="co">---</span></span>
-<span id="cb42-4"><a href="#cb42-4"></a></span>
-<span id="cb42-5"><a href="#cb42-5"></a></span>
-<span id="cb42-6"><a href="#cb42-6"></a><span class="fu">## 🧩 Learning Goals</span></span>
-<span id="cb42-7"><a href="#cb42-7"></a></span>
-<span id="cb42-8"><a href="#cb42-8"></a>By the end of this lesson, you should be able to:</span>
-<span id="cb42-9"><a href="#cb42-9"></a><span class="ss">- </span>Explain what an API is</span>
-<span id="cb42-10"><a href="#cb42-10"></a><span class="ss">- </span>Set up an API key for a public API</span>
-<span id="cb42-11"><a href="#cb42-11"></a><span class="ss">- </span>Develop comfort in using a URL-method of calling a web API</span>
-<span id="cb42-12"><a href="#cb42-12"></a><span class="ss">- </span>Recognize the structure in a URL for a web API and adjust for your purposes</span>
-<span id="cb42-13"><a href="#cb42-13"></a><span class="ss">- </span>Explore and subset complex nested lists</span>
-<span id="cb42-14"><a href="#cb42-14"></a></span>
-<span id="cb42-15"><a href="#cb42-15"></a></span>
-<span id="cb42-16"><a href="#cb42-16"></a><span class="in">```{r setup_14, echo=FALSE, message=FALSE}</span></span>
-<span id="cb42-17"><a href="#cb42-17"></a><span class="in">library(tidyverse)</span></span>
-<span id="cb42-18"><a href="#cb42-18"></a><span class="in">library(httr2)</span></span>
-<span id="cb42-19"><a href="#cb42-19"></a><span class="in">library(xml2)</span></span>
-<span id="cb42-20"><a href="#cb42-20"></a><span class="in">```</span></span>
-<span id="cb42-21"><a href="#cb42-21"></a></span>
-<span id="cb42-22"><a href="#cb42-22"></a></span>
-<span id="cb42-23"><a href="#cb42-23"></a><span class="fu">## APIs</span></span>
-<span id="cb42-24"><a href="#cb42-24"></a></span>
-<span id="cb42-25"><a href="#cb42-25"></a>An **API** stands for **Application Programming Interface**, and this term describes a general class of tools that allows computer software, rather than humans, to interact with an organization's data. </span>
-<span id="cb42-26"><a href="#cb42-26"></a></span>
-<span id="cb42-27"><a href="#cb42-27"></a><span class="ss">- </span>*Application* refers to software.</span>
-<span id="cb42-28"><a href="#cb42-28"></a><span class="ss">- </span>*Interface* can be thought of as a contract of service between two applications. This contract defines how the two communicate with each other using requests and responses. </span>
-<span id="cb42-29"><a href="#cb42-29"></a>  </span>
-<span id="cb42-30"><a href="#cb42-30"></a>Every API has documentation for how software developers should structure requests for data / information and in what format to expect responses.</span>
-<span id="cb42-31"><a href="#cb42-31"></a></span>
-<span id="cb42-32"><a href="#cb42-32"></a></span>
-<span id="cb42-33"><a href="#cb42-33"></a><span class="fu">##  Web APIs</span></span>
-<span id="cb42-34"><a href="#cb42-34"></a></span>
-<span id="cb42-35"><a href="#cb42-35"></a><span class="co">[</span><span class="ot">Web APIs</span><span class="co">](https://en.wikipedia.org/wiki/Web_API)</span>, or Web Application Programming Interfaces, which focus on transmitting requests and responses for raw data through a web browser.</span>
-<span id="cb42-36"><a href="#cb42-36"></a></span>
-<span id="cb42-37"><a href="#cb42-37"></a><span class="ss">- </span>Our browsers communicate with web servers using a technology called <span class="co">[</span><span class="ot">HTTP</span><span class="co">](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)</span> or Hypertext Transfer Protocol.</span>
-<span id="cb42-38"><a href="#cb42-38"></a><span class="ss">- </span>Programming languages such as R can also use HTTP to communicate with web servers. </span>
-<span id="cb42-39"><a href="#cb42-39"></a></span>
-<span id="cb42-40"><a href="#cb42-40"></a></span>
-<span id="cb42-41"><a href="#cb42-41"></a><span class="fu">### URL</span></span>
-<span id="cb42-42"><a href="#cb42-42"></a></span>
-<span id="cb42-43"><a href="#cb42-43"></a>Every document on the Web has a unique address. This address is known as Uniform Resource Locator (URL).</span>
-<span id="cb42-44"><a href="#cb42-44"></a></span>
-<span id="cb42-45"><a href="#cb42-45"></a>Every URL has the same general structure. Let's look at this example:</span>
-<span id="cb42-46"><a href="#cb42-46"></a></span>
-<span id="cb42-47"><a href="#cb42-47"></a><span class="in">`https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&amp;for=state:*`</span></span>
-<span id="cb42-48"><a href="#cb42-48"></a></span>
-<span id="cb42-49"><a href="#cb42-49"></a><span class="ss">- </span><span class="in">`https://api.census.gov`</span>: This is the **base URL**.</span>
-<span id="cb42-50"><a href="#cb42-50"></a><span class="ss">    - </span><span class="in">`http://`</span>: The **scheme**, which tells your browser or program how to communicate with the web server. This will typically be either <span class="in">`http:`</span> or <span class="in">`https:`</span>.</span>
-<span id="cb42-51"><a href="#cb42-51"></a><span class="ss">    - </span><span class="in">`api.census.gov`</span>: The **hostname** or **host address**, which is a name that identifies the web server that will process the request.</span>
-<span id="cb42-52"><a href="#cb42-52"></a><span class="ss">- </span><span class="in">`data/2019/acs/acs1`</span>: The **file path**, which tells the web server how to get to the desired resource.</span>
-<span id="cb42-53"><a href="#cb42-53"></a><span class="ss">- </span><span class="in">`?get=NAME,B02015_009E,B02015_009M&amp;for=state:*`</span>: The **query string** or **query parameters**, which provide the parameters for the function you would like to call.</span>
-<span id="cb42-54"><a href="#cb42-54"></a><span class="ss">    - </span>This is a string of key-value pairs separated by <span class="in">`&amp;`</span>. That is, the general structure of this part is <span class="in">`key1=value1&amp;key2=value2`</span>.</span>
-<span id="cb42-55"><a href="#cb42-55"></a></span>
-<span id="cb42-56"><a href="#cb42-56"></a>key      value</span>
-<span id="cb42-57"><a href="#cb42-57"></a>----     ------</span>
-<span id="cb42-58"><a href="#cb42-58"></a><span class="in">`get`</span>      <span class="in">`NAME,B02015_009E,B02015_009M`</span></span>
-<span id="cb42-59"><a href="#cb42-59"></a><span class="in">`for`</span>      <span class="in">`state:*`</span></span>
-<span id="cb42-60"><a href="#cb42-60"></a></span>
-<span id="cb42-61"><a href="#cb42-61"></a><span class="fu">### Example Web API's</span></span>
-<span id="cb42-62"><a href="#cb42-62"></a></span>
-<span id="cb42-63"><a href="#cb42-63"></a>A large variety of web APIs provide data. Almost all reasonably large commercial websites offer Web APIs. Todd Motto has compiled an expansive list of <span class="co">[</span><span class="ot">Public Web APIs</span><span class="co">](https://github.com/toddmotto/public-apis)</span> on GitHub. </span>
-<span id="cb42-64"><a href="#cb42-64"></a>Browse this list to see what data sources are available.</span>
-<span id="cb42-65"><a href="#cb42-65"></a></span>
-<span id="cb42-66"><a href="#cb42-66"></a></span>
-<span id="cb42-67"><a href="#cb42-67"></a><span class="fu">## Wrapper packages</span></span>
-<span id="cb42-68"><a href="#cb42-68"></a></span>
-<span id="cb42-69"><a href="#cb42-69"></a>In R, it is easiest to access Web APIs through a **wrapper package**, an R package written specifically for a particular Web API.</span>
-<span id="cb42-70"><a href="#cb42-70"></a></span>
-<span id="cb42-71"><a href="#cb42-71"></a><span class="ss">- </span>The R development community has already contributed wrapper packages for most large Web APIs.</span>
-<span id="cb42-72"><a href="#cb42-72"></a><span class="ss">- </span>To find a wrapper package, search the web for "R package" and the name of the website. For example:</span>
-<span id="cb42-73"><a href="#cb42-73"></a><span class="ss">    - </span>Searching for "R Reddit package" returns <span class="co">[</span><span class="ot">RedditExtractor</span><span class="co">](https://cran.r-project.org/web/packages/RedditExtractoR/index.html)</span></span>
-<span id="cb42-74"><a href="#cb42-74"></a><span class="ss">    - </span>Searching for "R Weather.com package" returns <span class="co">[</span><span class="ot">weatherData</span><span class="co">](https://ram-n.github.io/weatherData/)</span></span>
-<span id="cb42-75"><a href="#cb42-75"></a><span class="ss">- </span><span class="co">[</span><span class="ot">rOpenSci</span><span class="co">](https://ropensci.org/packages/)</span> also has a good collection of wrapper packages.</span>
-<span id="cb42-76"><a href="#cb42-76"></a></span>
-<span id="cb42-77"><a href="#cb42-77"></a>In our work with maps, we've used the <span class="in">`tidycensus`</span> package to obtain census data to display on maps. <span class="in">`tidycensus`</span> is a wrapper package that makes it easy to obtain desired census information:</span>
-<span id="cb42-78"><a href="#cb42-78"></a></span>
-<span id="cb42-79"><a href="#cb42-79"></a><span class="in">```{r tidycensus, eval=FALSE}</span></span>
-<span id="cb42-80"><a href="#cb42-80"></a><span class="in">tidycensus::get_acs(</span></span>
-<span id="cb42-81"><a href="#cb42-81"></a><span class="in">    year = 2020,</span></span>
-<span id="cb42-82"><a href="#cb42-82"></a><span class="in">    state = "MN",</span></span>
-<span id="cb42-83"><a href="#cb42-83"></a><span class="in">    geography = "tract",</span></span>
-<span id="cb42-84"><a href="#cb42-84"></a><span class="in">    variables = c("B01003_001", "B19013_001"),</span></span>
-<span id="cb42-85"><a href="#cb42-85"></a><span class="in">    output = "wide",</span></span>
-<span id="cb42-86"><a href="#cb42-86"></a><span class="in">    geometry = TRUE</span></span>
-<span id="cb42-87"><a href="#cb42-87"></a><span class="in">)</span></span>
-<span id="cb42-88"><a href="#cb42-88"></a><span class="in">```</span></span>
-<span id="cb42-89"><a href="#cb42-89"></a></span>
-<span id="cb42-90"><a href="#cb42-90"></a>Extra Resources:</span>
-<span id="cb42-91"><a href="#cb42-91"></a></span>
-<span id="cb42-92"><a href="#cb42-92"></a><span class="ss">- </span><span class="in">`tidycensus`</span>: wrapper package that provides an interface to a few census datasets with map geometry included</span>
-<span id="cb42-93"><a href="#cb42-93"></a><span class="ss">    - </span>Full documentation is available at <span class="ot">&lt;https://walker-data.com/tidycensus/&gt;</span></span>
-<span id="cb42-94"><a href="#cb42-94"></a><span class="ss">- </span><span class="in">`censusapi`</span>: wrapper package that offers an interface to all census datasets</span>
-<span id="cb42-95"><a href="#cb42-95"></a><span class="ss">    - </span>Full documentation is available at <span class="ot">&lt;https://www.hrecht.com/censusapi/&gt;</span></span>
-<span id="cb42-96"><a href="#cb42-96"></a></span>
-<span id="cb42-97"><a href="#cb42-97"></a>What is going on behind the scenes with <span class="in">`get_acs()`</span>? Let's look at access Web API's directly with URL's.</span>
-<span id="cb42-98"><a href="#cb42-98"></a></span>
-<span id="cb42-99"><a href="#cb42-99"></a></span>
-<span id="cb42-100"><a href="#cb42-100"></a></span>
-<span id="cb42-101"><a href="#cb42-101"></a><span class="fu">## Accessing web APIs directly</span></span>
-<span id="cb42-102"><a href="#cb42-102"></a></span>
-<span id="cb42-103"><a href="#cb42-103"></a><span class="fu">### Getting a Census API key</span></span>
-<span id="cb42-104"><a href="#cb42-104"></a></span>
-<span id="cb42-105"><a href="#cb42-105"></a>Many APIs require users to obtain a **key** to use their services.</span>
-<span id="cb42-106"><a href="#cb42-106"></a></span>
-<span id="cb42-107"><a href="#cb42-107"></a><span class="ss">- </span>This lets organizations keep track of what data is being used.</span>
-<span id="cb42-108"><a href="#cb42-108"></a><span class="ss">- </span>It also **rate limits** their API and ensures programs don't make too many requests per day/minute/hour. Be aware that most APIs do have rate limits --- especially for their free tiers.</span>
-<span id="cb42-109"><a href="#cb42-109"></a></span>
-<span id="cb42-110"><a href="#cb42-110"></a>Navigate to <span class="ot">&lt;https://api.census.gov/data/key_signup.html&gt;</span> to obtain a Census API key:</span>
-<span id="cb42-111"><a href="#cb42-111"></a></span>
-<span id="cb42-112"><a href="#cb42-112"></a><span class="ss">- </span>Organization: Macalester College</span>
-<span id="cb42-113"><a href="#cb42-113"></a><span class="ss">- </span>Email: Your Mac email address</span>
-<span id="cb42-114"><a href="#cb42-114"></a></span>
-<span id="cb42-115"><a href="#cb42-115"></a>You will get the message:</span>
-<span id="cb42-116"><a href="#cb42-116"></a></span>
-<span id="cb42-117"><a href="#cb42-117"></a><span class="at">&gt; Your request for a new API key has been successfully submitted. Please check your email. In a few minutes you should receive a message with instructions on how to activate your new key.</span></span>
-<span id="cb42-118"><a href="#cb42-118"></a></span>
-<span id="cb42-119"><a href="#cb42-119"></a>Check your email. Copy and paste your key into a new text file:</span>
-<span id="cb42-120"><a href="#cb42-120"></a></span>
-<span id="cb42-121"><a href="#cb42-121"></a><span class="ss">- </span>File &gt; New File &gt; Text File (towards the bottom of the menu)</span>
-<span id="cb42-122"><a href="#cb42-122"></a><span class="ss">- </span>Save as <span class="in">`census_api_key.txt`</span> in the same folder as this <span class="in">`.qmd`</span>.  📌 Don't commit this file to GitHub.  Make Git ignores it via GitHub Desktop (**Right click** the file --&gt; select **Ignore file (add to .gitignore)**.</span>
-<span id="cb42-123"><a href="#cb42-123"></a></span>
-<span id="cb42-124"><a href="#cb42-124"></a>Read in the key with the following code:</span>
-<span id="cb42-125"><a href="#cb42-125"></a></span>
-<span id="cb42-126"><a href="#cb42-126"></a></span>
-<span id="cb42-127"><a href="#cb42-127"></a><span class="in">```{r read_census_api_key2}</span></span>
-<span id="cb42-128"><a href="#cb42-128"></a><span class="in">#| eval: FALSE</span></span>
-<span id="cb42-129"><a href="#cb42-129"></a><span class="in">census_api_key &lt;- readLines("census_api_key.txt")</span></span>
-<span id="cb42-130"><a href="#cb42-130"></a><span class="in">```</span></span>
-<span id="cb42-131"><a href="#cb42-131"></a></span>
-<span id="cb42-132"><a href="#cb42-132"></a><span class="fu">### Navigating API documentation</span></span>
-<span id="cb42-133"><a href="#cb42-133"></a></span>
-<span id="cb42-134"><a href="#cb42-134"></a>Navigate to the <span class="co">[</span><span class="ot">Census API user guide</span><span class="co">](https://www.census.gov/data/developers/guidance/api-user-guide.html)</span> and click on the "Example API Queries" tab.</span>
-<span id="cb42-135"><a href="#cb42-135"></a></span>
-<span id="cb42-136"><a href="#cb42-136"></a>Let's look at the Population Estimates Example and the American Community Survey (ACS) Example. </span>
-<span id="cb42-137"><a href="#cb42-137"></a></span>
-<span id="cb42-138"><a href="#cb42-138"></a>These examples walk us through the steps to incrementally build up a URL to obtain desired data. This URL is known as a web API **request**. </span>
-<span id="cb42-139"><a href="#cb42-139"></a></span>
-<span id="cb42-140"><a href="#cb42-140"></a>https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&amp;for=state:*</span>
-<span id="cb42-141"><a href="#cb42-141"></a></span>
-<span id="cb42-142"><a href="#cb42-142"></a>For this request, </span>
-<span id="cb42-143"><a href="#cb42-143"></a></span>
-<span id="cb42-144"><a href="#cb42-144"></a><span class="ss">- </span>we can adjust the **path** to change desired dataset (acs1) and year </span>
-<span id="cb42-145"><a href="#cb42-145"></a><span class="ss">- </span>we can adjust the **query string** to get different variables (<span class="in">`get`</span>) and for different states (<span class="in">`for`</span>)</span>
-<span id="cb42-146"><a href="#cb42-146"></a>  </span>
-<span id="cb42-147"><a href="#cb42-147"></a><span class="in">`?get=NAME,B02015_009E,B02015_009M&amp;for=state:*`</span> </span>
-<span id="cb42-148"><a href="#cb42-148"></a>    </span>
-<span id="cb42-149"><a href="#cb42-149"></a></span>
-<span id="cb42-150"><a href="#cb42-150"></a>Typically, each of these URL components will be specified in the API documentation. </span>
-<span id="cb42-151"><a href="#cb42-151"></a></span>
-<span id="cb42-152"><a href="#cb42-152"></a>Sometimes, the scheme, hostname, and path (<span class="in">`https://api.census.gov/data/2019/acs/acs1`</span>) will be referred to as the **[endpoint](https://en.wikipedia.org/wiki/Web_API#Endpoints)** for the API call.</span>
-<span id="cb42-153"><a href="#cb42-153"></a></span>
-<span id="cb42-154"><a href="#cb42-154"></a><span class="fu">### Building a URL with `httr2`</span></span>
-<span id="cb42-155"><a href="#cb42-155"></a></span>
-<span id="cb42-156"><a href="#cb42-156"></a>We will use the <span class="in">`httr2`</span> package to build up a full URL from its parts because of URLs need to be <span class="co">[</span><span class="ot">percent encoded</span><span class="co">](https://en.wikipedia.org/wiki/Percent-encoding)</span>.</span>
-<span id="cb42-157"><a href="#cb42-157"></a></span>
-<span id="cb42-158"><a href="#cb42-158"></a><span class="ss">- </span><span class="in">`request()`</span> creates an API request object using the **base URL**</span>
-<span id="cb42-159"><a href="#cb42-159"></a><span class="ss">- </span><span class="in">`req_url_path_append()`</span> builds up the URL by adding path components separated by <span class="in">`/`</span></span>
-<span id="cb42-160"><a href="#cb42-160"></a><span class="ss">- </span><span class="in">`req_url_query()`</span> adds the <span class="in">`?`</span> separating the endpoint from the query and sets the key-value pairs in the query</span>
-<span id="cb42-161"><a href="#cb42-161"></a><span class="ss">    - </span>The <span class="in">`.multi`</span> argument controls how multiple values for a given key are combined.</span>
-<span id="cb42-162"><a href="#cb42-162"></a><span class="ss">    - </span>The <span class="in">`I()`</span> function around <span class="in">`"state:*"`</span> inhibits parsing of special characters like <span class="in">`:`</span> and <span class="in">`*`</span>. (It's known as the "as-is" function.)</span>
-<span id="cb42-163"><a href="#cb42-163"></a><span class="ss">    - </span>The backticks around <span class="in">`for`</span> are needed because <span class="in">`for`</span> is a reserved word in R (for for-loops). You'll need backticks whenever the key name has special characters (like spaces, dashes).</span>
-<span id="cb42-164"><a href="#cb42-164"></a><span class="ss">    - </span>We can see from <span class="co">[</span><span class="ot">here</span><span class="co">](https://www.census.gov/data/developers/guidance/api-user-guide.Help_&amp;_Contact_Us.html)</span> that providing an API key is achieved with <span class="in">`key=YOUR_API_KEY`</span>.</span>
-<span id="cb42-165"><a href="#cb42-165"></a></span>
-<span id="cb42-166"><a href="#cb42-166"></a><span class="in">```{r httr2_census}</span></span>
-<span id="cb42-167"><a href="#cb42-167"></a><span class="in">#| eval: FALSE</span></span>
-<span id="cb42-168"><a href="#cb42-168"></a><span class="in">req &lt;- request("https://api.census.gov") |&gt; </span></span>
-<span id="cb42-169"><a href="#cb42-169"></a><span class="in">    req_url_path_append("data") |&gt; </span></span>
-<span id="cb42-170"><a href="#cb42-170"></a><span class="in">    req_url_path_append("2019") |&gt; </span></span>
-<span id="cb42-171"><a href="#cb42-171"></a><span class="in">    req_url_path_append("acs") |&gt; </span></span>
-<span id="cb42-172"><a href="#cb42-172"></a><span class="in">    req_url_path_append("acs1") |&gt; </span></span>
-<span id="cb42-173"><a href="#cb42-173"></a><span class="in">    req_url_query(get = c("NAME", "B02015_009E", "B02015_009M"), `for` = I("state:*"), key = census_api_key, .multi = "comma")</span></span>
-<span id="cb42-174"><a href="#cb42-174"></a><span class="in">```</span></span>
-<span id="cb42-175"><a href="#cb42-175"></a></span>
-<span id="cb42-176"><a href="#cb42-176"></a>**Why would we ever use these steps instead of just using the full URL as a string?**</span>
-<span id="cb42-177"><a href="#cb42-177"></a></span>
-<span id="cb42-178"><a href="#cb42-178"></a><span class="ss">- </span>To generalize this code with functions!</span>
-<span id="cb42-179"><a href="#cb42-179"></a><span class="ss">- </span>To handle special characters</span>
-<span id="cb42-180"><a href="#cb42-180"></a><span class="ss">    - </span>e.g., query parameters might have spaces, which need to be represented in a particular way in a URL (URLs can't contain spaces)</span>
-<span id="cb42-181"><a href="#cb42-181"></a></span>
-<span id="cb42-182"><a href="#cb42-182"></a><span class="fu">### Sending a request with `httr2`{-}</span></span>
-<span id="cb42-183"><a href="#cb42-183"></a></span>
-<span id="cb42-184"><a href="#cb42-184"></a>Once we've fully constructed our request, we can use <span class="in">`req_perform()`</span> to send out the API request and get a **response**.</span>
-<span id="cb42-185"><a href="#cb42-185"></a></span>
-<span id="cb42-186"><a href="#cb42-186"></a><span class="in">```{r census_request}</span></span>
-<span id="cb42-187"><a href="#cb42-187"></a><span class="in">#| eval: FALSE</span></span>
-<span id="cb42-188"><a href="#cb42-188"></a><span class="in">resp &lt;- req_perform(req)</span></span>
-<span id="cb42-189"><a href="#cb42-189"></a><span class="in">```</span></span>
-<span id="cb42-190"><a href="#cb42-190"></a></span>
-<span id="cb42-191"><a href="#cb42-191"></a><span class="fu">### Getting a response with `httr2`</span></span>
-<span id="cb42-192"><a href="#cb42-192"></a></span>
-<span id="cb42-193"><a href="#cb42-193"></a>We see from <span class="in">`Content-Type`</span> that the format of the response is something called JSON. We can navigate to the request URL to see the structure of this output.</span>
-<span id="cb42-194"><a href="#cb42-194"></a></span>
-<span id="cb42-195"><a href="#cb42-195"></a><span class="ss">- </span>We can use <span class="in">`resp_body_json()`</span> in <span class="in">`httr2`</span> to parse the JSON into a nicer R format.</span>
-<span id="cb42-196"><a href="#cb42-196"></a><span class="ss">    - </span>This function uses <span class="in">`fromJSON()`</span> behind the scenes.</span>
-<span id="cb42-197"><a href="#cb42-197"></a><span class="ss">    - </span>Without <span class="in">`simplifyVector = TRUE`</span>, the JSON is read in as a list. </span>
-<span id="cb42-198"><a href="#cb42-198"></a></span>
-<span id="cb42-199"><a href="#cb42-199"></a><span class="in">```{r census_json}</span></span>
-<span id="cb42-200"><a href="#cb42-200"></a><span class="in">#| eval: FALSE</span></span>
-<span id="cb42-201"><a href="#cb42-201"></a><span class="in">resp_json_df &lt;- resp |&gt; resp_body_json(simplifyVector = TRUE)</span></span>
-<span id="cb42-202"><a href="#cb42-202"></a></span>
-<span id="cb42-203"><a href="#cb42-203"></a><span class="in"># Data Cleaning</span></span>
-<span id="cb42-204"><a href="#cb42-204"></a><span class="in">resp_json_df &lt;- janitor::row_to_names(resp_json_df, 1) |&gt; # Move 1st row to Names</span></span>
-<span id="cb42-205"><a href="#cb42-205"></a><span class="in">  as.data.frame() |&gt; # Convert Matrix to Data Frame</span></span>
-<span id="cb42-206"><a href="#cb42-206"></a><span class="in">  mutate(across(starts_with('B'), as.numeric)) # Convert all variables that start with B to numeric</span></span>
-<span id="cb42-207"><a href="#cb42-207"></a></span>
-<span id="cb42-208"><a href="#cb42-208"></a><span class="in">head(resp_json_df)</span></span>
-<span id="cb42-209"><a href="#cb42-209"></a><span class="in">```</span></span>
-<span id="cb42-210"><a href="#cb42-210"></a></span>
-<span id="cb42-211"><a href="#cb42-211"></a>To learn more about JSON, consult the following readings:</span>
-<span id="cb42-212"><a href="#cb42-212"></a></span>
-<span id="cb42-213"><a href="#cb42-213"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">A Non-Programmer's Introduction to JSON</span><span class="co">](https://blog.scottlowe.org/2013/11/08/a-non-programmers-introduction-to-json/)</span></span>
-<span id="cb42-214"><a href="#cb42-214"></a><span class="ss">2. </span><span class="co">[</span><span class="ot">Getting Started With JSON and jsonlite</span><span class="co">](https://cran.r-project.org/web/packages/jsonlite/vignettes/json-aaquickstart.html)</span></span>
-<span id="cb42-215"><a href="#cb42-215"></a><span class="ss">3. </span><span class="co">[</span><span class="ot">Fetching JSON data from REST APIs</span><span class="co">](https://cran.r-project.org/web/packages/jsonlite/vignettes/json-apis.html)</span></span>
-<span id="cb42-216"><a href="#cb42-216"></a></span>
-<span id="cb42-217"><a href="#cb42-217"></a></span>
-<span id="cb42-218"><a href="#cb42-218"></a><span class="fu">## More API Examples</span></span>
-<span id="cb42-219"><a href="#cb42-219"></a></span>
-<span id="cb42-220"><a href="#cb42-220"></a><span class="fu">### Board Game Geek &amp; XML Data</span></span>
-<span id="cb42-221"><a href="#cb42-221"></a></span>
-<span id="cb42-222"><a href="#cb42-222"></a>The <span class="co">[</span><span class="ot">Board Game Geek API</span><span class="co">](https://boardgamegeek.com/wiki/page/BGG_XML_API2)</span> is referenced in the <span class="co">[</span><span class="ot">Games &amp; Comics</span><span class="co">](https://github.com/toddmotto/public-apis?tab=readme-ov-file#games--comics)</span> section of <span class="co">[</span><span class="ot">toddmotto's public API list</span><span class="co">](https://github.com/toddmotto/public-apis)</span>.</span>
-<span id="cb42-223"><a href="#cb42-223"></a></span>
-<span id="cb42-224"><a href="#cb42-224"></a>Our goal is to use the search API at the bottom of the page. </span>
-<span id="cb42-225"><a href="#cb42-225"></a></span>
-<span id="cb42-226"><a href="#cb42-226"></a>Let's start at the top of the API documentation page to see how to navigate this reference.</span>
-<span id="cb42-227"><a href="#cb42-227"></a></span>
-<span id="cb42-228"><a href="#cb42-228"></a><span class="ss">- </span>We can see from the XML references at the top that we will be expecting a new output format: XML stands for Extensible Markup Language</span>
-<span id="cb42-229"><a href="#cb42-229"></a><span class="ss">- </span>The "Root Path" section tells us the base URL for the Board Game Geeks API endpoints and related APIs: <span class="ot">&lt;https://boardgamegeek.com/xmlapi2/&gt;</span></span>
-<span id="cb42-230"><a href="#cb42-230"></a><span class="ss">- </span>The "Search" section at the bottom of the page tells us:</span>
-<span id="cb42-231"><a href="#cb42-231"></a><span class="ss">    - </span>the path for the search endpoint (<span class="in">`/search`</span>)</span>
-<span id="cb42-232"><a href="#cb42-232"></a><span class="ss">    - </span>what query parameters are possible</span>
-<span id="cb42-233"><a href="#cb42-233"></a><span class="ss">    - </span>particular formatting instructions for query parameter values</span>
-<span id="cb42-234"><a href="#cb42-234"></a></span>
-<span id="cb42-235"><a href="#cb42-235"></a>The following request searches for board games, board game accessories, and board game expansions with the words "mystery" and "curse" in the title:</span>
-<span id="cb42-236"><a href="#cb42-236"></a></span>
-<span id="cb42-237"><a href="#cb42-237"></a><span class="in">```{r httr2_bgg}</span></span>
-<span id="cb42-238"><a href="#cb42-238"></a><span class="in">req &lt;- request("https://boardgamegeek.com/xmlapi2") |&gt; </span></span>
-<span id="cb42-239"><a href="#cb42-239"></a><span class="in">    req_url_path_append("search") |&gt; </span></span>
-<span id="cb42-240"><a href="#cb42-240"></a><span class="in">    req_url_query(query = I("mystery+curse"), type = I("boardgame,boardgameaccessory,boardgameexpansion"))</span></span>
-<span id="cb42-241"><a href="#cb42-241"></a><span class="in">```</span></span>
-<span id="cb42-242"><a href="#cb42-242"></a></span>
-<span id="cb42-243"><a href="#cb42-243"></a>When we use <span class="in">`req_perform()`</span>, we see from <span class="in">`Content-Type`</span> that the format of the response is something called XML. We can navigate to the request URL to see the structure of this output.</span>
-<span id="cb42-244"><a href="#cb42-244"></a></span>
-<span id="cb42-245"><a href="#cb42-245"></a><span class="ss">- </span>XML (Extensible Markup Language) is a tree structure of named nodes and attributes.</span>
-<span id="cb42-246"><a href="#cb42-246"></a><span class="ss">- </span>We can use <span class="in">`resp_body_xml()`</span> to read in the XML as an R object.</span>
-<span id="cb42-247"><a href="#cb42-247"></a></span>
-<span id="cb42-248"><a href="#cb42-248"></a><span class="in">```{r bgg_response}</span></span>
-<span id="cb42-249"><a href="#cb42-249"></a><span class="in">resp &lt;- req_perform(req)</span></span>
-<span id="cb42-250"><a href="#cb42-250"></a><span class="in">resp</span></span>
-<span id="cb42-251"><a href="#cb42-251"></a><span class="in">resp &lt;- resp_body_xml(resp)</span></span>
-<span id="cb42-252"><a href="#cb42-252"></a><span class="in">resp</span></span>
-<span id="cb42-253"><a href="#cb42-253"></a><span class="in">```</span></span>
-<span id="cb42-254"><a href="#cb42-254"></a></span>
-<span id="cb42-255"><a href="#cb42-255"></a>The XML output is not packaged in a nice way. (We'd love to have a data frame.) We can use the <span class="in">`xml2`</span> package to explore and navigate the XML structure to extract the information we need.</span>
-<span id="cb42-256"><a href="#cb42-256"></a></span>
-<span id="cb42-257"><a href="#cb42-257"></a>Let's first use the <span class="in">`xml_structure()`</span> function to see how information is organized:</span>
-<span id="cb42-258"><a href="#cb42-258"></a></span>
-<span id="cb42-259"><a href="#cb42-259"></a><span class="in">```{r xml_structure}</span></span>
-<span id="cb42-260"><a href="#cb42-260"></a><span class="in">xml_structure(resp)</span></span>
-<span id="cb42-261"><a href="#cb42-261"></a><span class="in">```</span></span>
-<span id="cb42-262"><a href="#cb42-262"></a></span>
-<span id="cb42-263"><a href="#cb42-263"></a>The key navigation and extraction functions in <span class="in">`xml2`</span> are:</span>
-<span id="cb42-264"><a href="#cb42-264"></a></span>
-<span id="cb42-265"><a href="#cb42-265"></a><span class="ss">- </span><span class="in">`xml_children()`</span>: Get nodes that are nested inside </span>
-<span id="cb42-266"><a href="#cb42-266"></a><span class="ss">    - </span>Like getting the first level bullet points inside a given bullet point</span>
-<span id="cb42-267"><a href="#cb42-267"></a><span class="ss">- </span><span class="in">`xml_find_all()`</span>: Finds nodes matching an XPath expression (XPath stands for XML path)</span>
-<span id="cb42-268"><a href="#cb42-268"></a><span class="ss">    - </span>XPath expressions are like string regular expressions for XML trees</span>
-<span id="cb42-269"><a href="#cb42-269"></a><span class="ss">    - </span>See <span class="co">[</span><span class="ot">here</span><span class="co">](https://www.w3schools.com/xml/xpath_intro.asp)</span> for a deeper dive into XPath</span>
-<span id="cb42-270"><a href="#cb42-270"></a><span class="ss">- </span><span class="in">`xml_attr()`</span>: Selects the value of an attribute (the information to the right of the <span class="in">`=`</span> in quotes)</span>
-<span id="cb42-271"><a href="#cb42-271"></a><span class="ss">    - </span><span class="in">`&lt;node_name attribute_name1="attribute_value1" attribute_name2="attribute_value2"&gt;`</span></span>
-<span id="cb42-272"><a href="#cb42-272"></a></span>
-<span id="cb42-273"><a href="#cb42-273"></a><span class="in">```{r xml_nav_extract}</span></span>
-<span id="cb42-274"><a href="#cb42-274"></a><span class="in"># Get the item nodes in 2 different ways</span></span>
-<span id="cb42-275"><a href="#cb42-275"></a><span class="in">resp |&gt; xml_find_all("item")</span></span>
-<span id="cb42-276"><a href="#cb42-276"></a><span class="in">resp |&gt; xml_children()</span></span>
-<span id="cb42-277"><a href="#cb42-277"></a></span>
-<span id="cb42-278"><a href="#cb42-278"></a><span class="in"># Get the item "type"</span></span>
-<span id="cb42-279"><a href="#cb42-279"></a><span class="in">resp |&gt; xml_find_all("item") |&gt; xml_attr("type")</span></span>
-<span id="cb42-280"><a href="#cb42-280"></a></span>
-<span id="cb42-281"><a href="#cb42-281"></a><span class="in"># The &lt;name&gt; and &lt;yearpublished&gt; nodes are nested within each &lt;item&gt;</span></span>
-<span id="cb42-282"><a href="#cb42-282"></a><span class="in">resp |&gt; xml_find_all("item/name")</span></span>
-<span id="cb42-283"><a href="#cb42-283"></a><span class="in">resp |&gt; xml_find_all("item/yearpublished") # Notice that this is length 8 instead of 9!</span></span>
-<span id="cb42-284"><a href="#cb42-284"></a></span>
-<span id="cb42-285"><a href="#cb42-285"></a><span class="in"># Get the "primary" or "alternate" designation for each name</span></span>
-<span id="cb42-286"><a href="#cb42-286"></a><span class="in">resp |&gt; xml_find_all("item/name") |&gt; xml_attr("type")</span></span>
-<span id="cb42-287"><a href="#cb42-287"></a><span class="in">```</span></span>
-<span id="cb42-288"><a href="#cb42-288"></a></span>
-<span id="cb42-289"><a href="#cb42-289"></a>**Exercises**</span>
-<span id="cb42-290"><a href="#cb42-290"></a></span>
-<span id="cb42-291"><a href="#cb42-291"></a><span class="ss">1. </span>Get the board game name (e.g., "Murder Mystery..." and  "Robinson Crusoe")</span>
-<span id="cb42-292"><a href="#cb42-292"></a></span>
-<span id="cb42-295"><a href="#cb42-295"></a><span class="in">```{r}</span></span>
-<span id="cb42-296"><a href="#cb42-296"></a>resp <span class="sc">|&gt;</span> <span class="fu">xml_find_all</span>(<span class="st">"item/name"</span>) <span class="sc">|&gt;</span> <span class="fu">xml_attr</span>(<span class="st">"value"</span>)</span>
-<span id="cb42-297"><a href="#cb42-297"></a><span class="in">```</span></span>
-<span id="cb42-298"><a href="#cb42-298"></a></span>
-<span id="cb42-299"><a href="#cb42-299"></a></span>
-<span id="cb42-300"><a href="#cb42-300"></a><span class="ss">2. </span>Get the board game ID number (e.g., 63495, 40175)</span>
-<span id="cb42-301"><a href="#cb42-301"></a></span>
-<span id="cb42-304"><a href="#cb42-304"></a><span class="in">```{r}</span></span>
-<span id="cb42-305"><a href="#cb42-305"></a>resp <span class="sc">|&gt;</span> <span class="fu">xml_find_all</span>(<span class="st">"item"</span>) <span class="sc">%&gt;%</span> <span class="fu">xml_attr</span>(<span class="st">"id"</span>)</span>
-<span id="cb42-306"><a href="#cb42-306"></a><span class="in">```</span></span>
-<span id="cb42-307"><a href="#cb42-307"></a></span>
-<span id="cb42-308"><a href="#cb42-308"></a></span>
-<span id="cb42-309"><a href="#cb42-309"></a></span>
-<span id="cb42-310"><a href="#cb42-310"></a><span class="fu">### New York Times API</span></span>
-<span id="cb42-311"><a href="#cb42-311"></a></span>
-<span id="cb42-312"><a href="#cb42-312"></a>This example will build on the <span class="co">[</span><span class="ot">New York Times Web API</span><span class="co">](https://developer.nytimes.com/)</span>, which provides access to news articles, movie reviews, book reviews, and many other data. </span>
-<span id="cb42-313"><a href="#cb42-313"></a></span>
-<span id="cb42-314"><a href="#cb42-314"></a>We will specifically focus on the <span class="co">[</span><span class="ot">Article Search API</span><span class="co">](https://developer.nytimes.com/docs/articlesearch-product/1/overview)</span>, which finds information about news articles that contain a particular word or phrase.</span>
-<span id="cb42-315"><a href="#cb42-315"></a></span>
-<span id="cb42-316"><a href="#cb42-316"></a>To get started with the NY Times API, you must <span class="co">[</span><span class="ot">register and get an **authentication key**</span><span class="co">](https://developer.nytimes.com/accounts/create)</span>. Signup only takes a few seconds, and it lets the New York Times make sure nobody abuses their API for commercial purposes. It also **rate limits** their API and ensures programs don't make too many requests per day. For the NY Times API, this limit is 1000 calls per day. </span>
-<span id="cb42-317"><a href="#cb42-317"></a></span>
-<span id="cb42-318"><a href="#cb42-318"></a>Once you have signed up, verified your email, log back in to https://developer.nytimes.com. Under your email address, click on Apps and Create a new App (call it First API) and enable Article Search API, then press Save. This creates an **authentication key**, which is a 32 digit string with numbers and the letters a-e. </span>
-<span id="cb42-319"><a href="#cb42-319"></a></span>
-<span id="cb42-320"><a href="#cb42-320"></a>As with your census API key, save this key in a <span class="in">`.txt`</span> file, and read it in and store this in a variable called <span class="in">`times_key`</span>.  📌 Again, don't commit this file to GitHub.  Make Git ignores it via GitHub Desktop (**Right click** the file --&gt; select **Ignore file (add to .gitignore)**.</span>
-<span id="cb42-321"><a href="#cb42-321"></a></span>
-<span id="cb42-322"><a href="#cb42-322"></a><span class="in">```{r nyt_key_2}</span></span>
-<span id="cb42-323"><a href="#cb42-323"></a><span class="in">#| eval: false</span></span>
-<span id="cb42-324"><a href="#cb42-324"></a><span class="in">times_key &lt;- read_lines("nyt_api_key.txt")</span></span>
-<span id="cb42-325"><a href="#cb42-325"></a><span class="in">```</span></span>
-<span id="cb42-326"><a href="#cb42-326"></a></span>
-<span id="cb42-327"><a href="#cb42-327"></a></span>
-<span id="cb42-328"><a href="#cb42-328"></a></span>
-<span id="cb42-329"><a href="#cb42-329"></a>Open this URL in your browser (you should replace <span class="in">`MY_KEY`</span> with the API key you were given).</span>
-<span id="cb42-330"><a href="#cb42-330"></a></span>
-<span id="cb42-331"><a href="#cb42-331"></a><span class="in">    http://api.nytimes.com/svc/search/v2/articlesearch.json?q=gamergate&amp;api-key=MY_KEY</span></span>
-<span id="cb42-332"><a href="#cb42-332"></a><span class="in">    </span></span>
-<span id="cb42-333"><a href="#cb42-333"></a>The text you see in the browser is the response data (in JSON format). </span>
-<span id="cb42-334"><a href="#cb42-334"></a></span>
-<span id="cb42-335"><a href="#cb42-335"></a>This URL has the same structure that we discussed above for the census API:</span>
-<span id="cb42-336"><a href="#cb42-336"></a></span>
-<span id="cb42-337"><a href="#cb42-337"></a><span class="ss">- </span><span class="in">`http://`</span> --- The **scheme**, which tells your browser or program how to communicate with the web server. This will typically be either <span class="in">`http:`</span> or <span class="in">`https:`</span>.</span>
-<span id="cb42-338"><a href="#cb42-338"></a><span class="ss">- </span><span class="in">`api.nytimes.com`</span> --- The **hostname**, which is a name that identifies the web server that will process the request.</span>
-<span id="cb42-339"><a href="#cb42-339"></a><span class="ss">- </span><span class="in">`/svc/search/v2/articlesearch.json`</span> --- The **path**, which tells the web server what function you would like to call (a function for searching articles).</span>
-<span id="cb42-340"><a href="#cb42-340"></a><span class="ss">- </span><span class="in">`?q=gamergate&amp;api-key=MY_KEY`</span> --- The **query parameters**, which provide the parameters for the function you would like to call. The key value pairs are the following:</span>
-<span id="cb42-341"><a href="#cb42-341"></a></span>
-<span id="cb42-342"><a href="#cb42-342"></a>key      value</span>
-<span id="cb42-343"><a href="#cb42-343"></a>----     ------</span>
-<span id="cb42-344"><a href="#cb42-344"></a>q        gamergate</span>
-<span id="cb42-345"><a href="#cb42-345"></a>api-key  MY_KEY</span>
-<span id="cb42-346"><a href="#cb42-346"></a></span>
-<span id="cb42-347"><a href="#cb42-347"></a>The scheme, hostname, and path (<span class="in">`http://api.nytimes.com/svc/search/v2/articlesearch.json`</span>) together form the **[endpoint](https://en.wikipedia.org/wiki/Web_API#Endpoints)** for the API call.</span>
-<span id="cb42-348"><a href="#cb42-348"></a></span>
-<span id="cb42-349"><a href="#cb42-349"></a>We can use the <span class="in">`httr2`</span> package to build up a full URL from its parts:</span>
-<span id="cb42-350"><a href="#cb42-350"></a></span>
-<span id="cb42-351"><a href="#cb42-351"></a><span class="in">```{r httr2_nyt}</span></span>
-<span id="cb42-352"><a href="#cb42-352"></a><span class="in">#| eval: false</span></span>
-<span id="cb42-353"><a href="#cb42-353"></a><span class="in">req &lt;- request("http://api.nytimes.com") |&gt; </span></span>
-<span id="cb42-354"><a href="#cb42-354"></a><span class="in">    req_url_path_append("svc") |&gt; </span></span>
-<span id="cb42-355"><a href="#cb42-355"></a><span class="in">    req_url_path_append("search") |&gt; </span></span>
-<span id="cb42-356"><a href="#cb42-356"></a><span class="in">    req_url_path_append("v2") |&gt; </span></span>
-<span id="cb42-357"><a href="#cb42-357"></a><span class="in">    req_url_path_append("articlesearch.json") |&gt; </span></span>
-<span id="cb42-358"><a href="#cb42-358"></a><span class="in">    req_url_query(q = "gamergate", `api-key` = times_key)</span></span>
-<span id="cb42-359"><a href="#cb42-359"></a><span class="in">```</span></span>
-<span id="cb42-360"><a href="#cb42-360"></a></span>
-<span id="cb42-361"><a href="#cb42-361"></a></span>
-<span id="cb42-362"><a href="#cb42-362"></a>We can write a function to generate the URL for a user-specified query:</span>
-<span id="cb42-363"><a href="#cb42-363"></a></span>
-<span id="cb42-364"><a href="#cb42-364"></a><span class="in">```{r create_nyt_url}</span></span>
-<span id="cb42-365"><a href="#cb42-365"></a><span class="in">#| eval: false</span></span>
-<span id="cb42-366"><a href="#cb42-366"></a><span class="in">create_nyt_url &lt;- function(query, key) {</span></span>
-<span id="cb42-367"><a href="#cb42-367"></a><span class="in">    request("http://api.nytimes.com") |&gt; </span></span>
-<span id="cb42-368"><a href="#cb42-368"></a><span class="in">        req_url_path_append("svc") |&gt; </span></span>
-<span id="cb42-369"><a href="#cb42-369"></a><span class="in">        req_url_path_append("search") |&gt; </span></span>
-<span id="cb42-370"><a href="#cb42-370"></a><span class="in">        req_url_path_append("v2") |&gt; </span></span>
-<span id="cb42-371"><a href="#cb42-371"></a><span class="in">        req_url_path_append("articlesearch.json") |&gt; </span></span>
-<span id="cb42-372"><a href="#cb42-372"></a><span class="in">        req_url_query(q = query, `api-key` = key)</span></span>
-<span id="cb42-373"><a href="#cb42-373"></a><span class="in">}</span></span>
-<span id="cb42-374"><a href="#cb42-374"></a><span class="in">```</span></span>
-<span id="cb42-375"><a href="#cb42-375"></a></span>
-<span id="cb42-376"><a href="#cb42-376"></a>Let's use this function to find articles related to:</span>
-<span id="cb42-377"><a href="#cb42-377"></a></span>
-<span id="cb42-378"><a href="#cb42-378"></a><span class="ss">- </span><span class="in">`Ferris Bueller's Day Off`</span> (note the spaces and the apostrophe)</span>
-<span id="cb42-379"><a href="#cb42-379"></a><span class="ss">- </span><span class="in">`Penn &amp; Teller`</span> (note the spaces and the punctuation mark <span class="in">`&amp;`</span>)</span>
-<span id="cb42-380"><a href="#cb42-380"></a></span>
-<span id="cb42-381"><a href="#cb42-381"></a>Let's see how these queries are translated into the URLs:</span>
-<span id="cb42-382"><a href="#cb42-382"></a></span>
-<span id="cb42-383"><a href="#cb42-383"></a><span class="in">```{r use_create_nyt_url}</span></span>
-<span id="cb42-384"><a href="#cb42-384"></a><span class="in">#| eval: false</span></span>
-<span id="cb42-385"><a href="#cb42-385"></a><span class="in">req_fb &lt;- create_nyt_url(query = "Ferris Bueller's Day Off", key = times_key)</span></span>
-<span id="cb42-386"><a href="#cb42-386"></a><span class="in">req_pt &lt;- create_nyt_url(query = "Penn &amp; Teller", key = times_key)</span></span>
-<span id="cb42-387"><a href="#cb42-387"></a><span class="in">```</span></span>
-<span id="cb42-388"><a href="#cb42-388"></a></span>
-<span id="cb42-389"><a href="#cb42-389"></a>We can use <span class="in">`req_perform()`</span> to send out the request and <span class="in">`resp_body_json()`</span> to parse the resulting JSON:</span>
-<span id="cb42-390"><a href="#cb42-390"></a></span>
-<span id="cb42-391"><a href="#cb42-391"></a><span class="in">```{r nyt_responses}</span></span>
-<span id="cb42-392"><a href="#cb42-392"></a><span class="in">#| eval: false</span></span>
-<span id="cb42-393"><a href="#cb42-393"></a><span class="in">resp_pt &lt;- req_pt |&gt; req_perform() |&gt; resp_body_json(simplifyVector = TRUE)</span></span>
-<span id="cb42-394"><a href="#cb42-394"></a><span class="in">```</span></span>
-<span id="cb42-395"><a href="#cb42-395"></a></span>
-<span id="cb42-396"><a href="#cb42-396"></a></span>
-<span id="cb42-397"><a href="#cb42-397"></a><span class="fu">#### Exploring complex lists</span></span>
-<span id="cb42-398"><a href="#cb42-398"></a></span>
-<span id="cb42-399"><a href="#cb42-399"></a><span class="in">`resp_pt`</span> is a **list**. A list is a useful structure for storing elements of different types. Data frames are special cases of lists where each list element has the same length (but where the list elements have different classes).</span>
-<span id="cb42-400"><a href="#cb42-400"></a></span>
-<span id="cb42-401"><a href="#cb42-401"></a>Lists are a very flexible data structure but can be very confusing because list elements can be lists themselves!</span>
-<span id="cb42-402"><a href="#cb42-402"></a></span>
-<span id="cb42-403"><a href="#cb42-403"></a>We can explore the structure of a list in two ways:</span>
-<span id="cb42-404"><a href="#cb42-404"></a></span>
-<span id="cb42-405"><a href="#cb42-405"></a><span class="ss">- </span>Entering <span class="in">`View(list_object)`</span> in the Console. The triangle buttons on the left allow you to toggle dropdowns to explore list elements.</span>
-<span id="cb42-406"><a href="#cb42-406"></a><span class="ss">- </span>Using the <span class="in">`str()`</span> (structure) function.</span>
-<span id="cb42-407"><a href="#cb42-407"></a></span>
-<span id="cb42-408"><a href="#cb42-408"></a></span>
-<span id="cb42-409"><a href="#cb42-409"></a>Using base R subsetting, we can access elements of a list in three ways:</span>
-<span id="cb42-410"><a href="#cb42-410"></a></span>
-<span id="cb42-411"><a href="#cb42-411"></a><span class="ss">- </span>By *position* with double square brackets <span class="in">`[[`</span>:</span>
-<span id="cb42-412"><a href="#cb42-412"></a></span>
-<span id="cb42-413"><a href="#cb42-413"></a><span class="in">```{r list_access1}</span></span>
-<span id="cb42-414"><a href="#cb42-414"></a><span class="in">#| eval: false</span></span>
-<span id="cb42-415"><a href="#cb42-415"></a><span class="in"># This gets the first element of the list</span></span>
-<span id="cb42-416"><a href="#cb42-416"></a><span class="in">resp_pt[[1]]</span></span>
-<span id="cb42-417"><a href="#cb42-417"></a><span class="in">```</span></span>
-<span id="cb42-418"><a href="#cb42-418"></a></span>
-<span id="cb42-419"><a href="#cb42-419"></a></span>
-<span id="cb42-420"><a href="#cb42-420"></a><span class="ss">- </span>By *name* with double square brackets <span class="in">`[[`</span>: (note that list elements are not always named, so this won't always be possible)</span>
-<span id="cb42-421"><a href="#cb42-421"></a></span>
-<span id="cb42-422"><a href="#cb42-422"></a><span class="in">```{r list_access2}</span></span>
-<span id="cb42-423"><a href="#cb42-423"></a><span class="in">#| eval: false</span></span>
-<span id="cb42-424"><a href="#cb42-424"></a><span class="in"># Accessing by name directly</span></span>
-<span id="cb42-425"><a href="#cb42-425"></a><span class="in">resp_pt[["status"]]</span></span>
-<span id="cb42-426"><a href="#cb42-426"></a></span>
-<span id="cb42-427"><a href="#cb42-427"></a><span class="in"># Accessing via a variable</span></span>
-<span id="cb42-428"><a href="#cb42-428"></a><span class="in">which_element &lt;- "status"</span></span>
-<span id="cb42-429"><a href="#cb42-429"></a><span class="in">resp_pt[[which_element]]</span></span>
-<span id="cb42-430"><a href="#cb42-430"></a><span class="in">```</span></span>
-<span id="cb42-431"><a href="#cb42-431"></a></span>
-<span id="cb42-432"><a href="#cb42-432"></a><span class="ss">- </span>By *name* with a dollar sign <span class="in">`$`</span>: (Helpful tip: For this mode of access, RStudio allows tab completion to fill in the full name)</span>
-<span id="cb42-433"><a href="#cb42-433"></a></span>
-<span id="cb42-434"><a href="#cb42-434"></a><span class="in">```{r list_access3}</span></span>
-<span id="cb42-435"><a href="#cb42-435"></a><span class="in">#| eval: false</span></span>
-<span id="cb42-436"><a href="#cb42-436"></a><span class="in">resp_pt$status</span></span>
-<span id="cb42-437"><a href="#cb42-437"></a><span class="in">```</span></span>
-<span id="cb42-438"><a href="#cb42-438"></a></span>
-<span id="cb42-439"><a href="#cb42-439"></a>We can retrieve these *nested* attributes by sequentially accessing the object keys from the outside in. For example, the <span class="in">`meta`</span> element would be accessed as follows:</span>
-<span id="cb42-440"><a href="#cb42-440"></a></span>
-<span id="cb42-441"><a href="#cb42-441"></a><span class="in">```{r list_access4}</span></span>
-<span id="cb42-442"><a href="#cb42-442"></a><span class="in">#| eval: false</span></span>
-<span id="cb42-443"><a href="#cb42-443"></a><span class="in">resp_pt$response$meta</span></span>
-<span id="cb42-444"><a href="#cb42-444"></a><span class="in">```</span></span>
-<span id="cb42-445"><a href="#cb42-445"></a></span>
-<span id="cb42-446"><a href="#cb42-446"></a></span>
-<span id="cb42-447"><a href="#cb42-447"></a>**Exercise:** In the <span class="in">`resp_pt`</span> object, retrieve the data associated with:</span>
-<span id="cb42-448"><a href="#cb42-448"></a></span>
-<span id="cb42-449"><a href="#cb42-449"></a><span class="ss">- </span>the <span class="in">`copyright`</span> key</span>
-<span id="cb42-450"><a href="#cb42-450"></a></span>
-<span id="cb42-453"><a href="#cb42-453"></a><span class="in">```{r}</span></span>
-<span id="cb42-454"><a href="#cb42-454"></a><span class="co">#| eval: FALSE</span></span>
-<span id="cb42-455"><a href="#cb42-455"></a>resp_pt[[<span class="st">"copyright"</span>]]</span>
-<span id="cb42-456"><a href="#cb42-456"></a><span class="in">```</span></span>
-<span id="cb42-457"><a href="#cb42-457"></a></span>
-<span id="cb42-458"><a href="#cb42-458"></a></span>
-<span id="cb42-459"><a href="#cb42-459"></a><span class="ss">- </span>the number of <span class="in">`hits`</span> (number of search results) within the <span class="in">`meta`</span> object</span>
-<span id="cb42-460"><a href="#cb42-460"></a></span>
-<span id="cb42-463"><a href="#cb42-463"></a><span class="in">```{r}</span></span>
-<span id="cb42-464"><a href="#cb42-464"></a><span class="co">#| eval: FALSE</span></span>
-<span id="cb42-465"><a href="#cb42-465"></a>resp_pt<span class="sc">$</span>response<span class="sc">$</span>meta<span class="sc">$</span>hits</span>
-<span id="cb42-466"><a href="#cb42-466"></a><span class="in">```</span></span>
-<span id="cb42-467"><a href="#cb42-467"></a></span>
-<span id="cb42-468"><a href="#cb42-468"></a></span>
-<span id="cb42-469"><a href="#cb42-469"></a><span class="ss">- </span>the abstracts and leading paragraphs of the articles found in the search</span>
-<span id="cb42-470"><a href="#cb42-470"></a></span>
-<span id="cb42-473"><a href="#cb42-473"></a><span class="in">```{r}</span></span>
-<span id="cb42-474"><a href="#cb42-474"></a><span class="co">#| eval: FALSE</span></span>
-<span id="cb42-475"><a href="#cb42-475"></a>resp_pt<span class="sc">$</span>response<span class="sc">$</span>docs<span class="sc">$</span>abstract</span>
-<span id="cb42-476"><a href="#cb42-476"></a><span class="in">```</span></span>
-<span id="cb42-477"><a href="#cb42-477"></a></span>
-<span id="cb42-478"><a href="#cb42-478"></a></span>
-<span id="cb42-479"><a href="#cb42-479"></a><span class="fu">## Done!</span></span>
-<span id="cb42-480"><a href="#cb42-480"></a></span>
-<span id="cb42-481"><a href="#cb42-481"></a><span class="ss">- </span>Check the ICA Instructions for how to (a) push your code to GitHub and (b) update your portfolio website</span>
+<div class="sourceCode" id="cb25" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1"></a><span class="co">---</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="an">title:</span><span class="co"> "14 APIs P2"</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="co">---</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a></span>
+<span id="cb25-5"><a href="#cb25-5"></a></span>
+<span id="cb25-6"><a href="#cb25-6"></a><span class="fu">## 🧩 Learning Goals</span></span>
+<span id="cb25-7"><a href="#cb25-7"></a></span>
+<span id="cb25-8"><a href="#cb25-8"></a>By the end of this lesson, you should be able to:</span>
+<span id="cb25-9"><a href="#cb25-9"></a><span class="ss">- </span>Explain what an API is</span>
+<span id="cb25-10"><a href="#cb25-10"></a><span class="ss">- </span>Set up an API key for a public API</span>
+<span id="cb25-11"><a href="#cb25-11"></a><span class="ss">- </span>Develop comfort in using a URL-method of calling a web API</span>
+<span id="cb25-12"><a href="#cb25-12"></a><span class="ss">- </span>Recognize the structure in a URL for a web API and adjust for your purposes</span>
+<span id="cb25-13"><a href="#cb25-13"></a><span class="ss">- </span>Explore and subset complex nested lists</span>
+<span id="cb25-14"><a href="#cb25-14"></a></span>
+<span id="cb25-15"><a href="#cb25-15"></a></span>
+<span id="cb25-16"><a href="#cb25-16"></a><span class="in">```{r setup_14, echo=FALSE, message=FALSE}</span></span>
+<span id="cb25-17"><a href="#cb25-17"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb25-18"><a href="#cb25-18"></a><span class="in">library(httr2)</span></span>
+<span id="cb25-19"><a href="#cb25-19"></a><span class="in">library(xml2)</span></span>
+<span id="cb25-20"><a href="#cb25-20"></a><span class="in">```</span></span>
+<span id="cb25-21"><a href="#cb25-21"></a></span>
+<span id="cb25-22"><a href="#cb25-22"></a></span>
+<span id="cb25-23"><a href="#cb25-23"></a><span class="fu">## APIs</span></span>
+<span id="cb25-24"><a href="#cb25-24"></a></span>
+<span id="cb25-25"><a href="#cb25-25"></a>An **API** stands for **Application Programming Interface**, and this term describes a general class of tools that allows computer software, rather than humans, to interact with an organization's data. </span>
+<span id="cb25-26"><a href="#cb25-26"></a></span>
+<span id="cb25-27"><a href="#cb25-27"></a><span class="ss">- </span>*Application* refers to software.</span>
+<span id="cb25-28"><a href="#cb25-28"></a><span class="ss">- </span>*Interface* can be thought of as a contract of service between two applications. This contract defines how the two communicate with each other using requests and responses. </span>
+<span id="cb25-29"><a href="#cb25-29"></a>  </span>
+<span id="cb25-30"><a href="#cb25-30"></a>Every API has documentation for how software developers should structure requests for data / information and in what format to expect responses.</span>
+<span id="cb25-31"><a href="#cb25-31"></a></span>
+<span id="cb25-32"><a href="#cb25-32"></a></span>
+<span id="cb25-33"><a href="#cb25-33"></a><span class="fu">##  Web APIs</span></span>
+<span id="cb25-34"><a href="#cb25-34"></a></span>
+<span id="cb25-35"><a href="#cb25-35"></a><span class="co">[</span><span class="ot">Web APIs</span><span class="co">](https://en.wikipedia.org/wiki/Web_API)</span>, or Web Application Programming Interfaces, which focus on transmitting requests and responses for raw data through a web browser.</span>
+<span id="cb25-36"><a href="#cb25-36"></a></span>
+<span id="cb25-37"><a href="#cb25-37"></a><span class="ss">- </span>Our browsers communicate with web servers using a technology called <span class="co">[</span><span class="ot">HTTP</span><span class="co">](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)</span> or Hypertext Transfer Protocol.</span>
+<span id="cb25-38"><a href="#cb25-38"></a><span class="ss">- </span>Programming languages such as R can also use HTTP to communicate with web servers. </span>
+<span id="cb25-39"><a href="#cb25-39"></a></span>
+<span id="cb25-40"><a href="#cb25-40"></a></span>
+<span id="cb25-41"><a href="#cb25-41"></a><span class="fu">### URL</span></span>
+<span id="cb25-42"><a href="#cb25-42"></a></span>
+<span id="cb25-43"><a href="#cb25-43"></a>Every document on the Web has a unique address. This address is known as Uniform Resource Locator (URL).</span>
+<span id="cb25-44"><a href="#cb25-44"></a></span>
+<span id="cb25-45"><a href="#cb25-45"></a>Every URL has the same general structure. Let's look at this example:</span>
+<span id="cb25-46"><a href="#cb25-46"></a></span>
+<span id="cb25-47"><a href="#cb25-47"></a><span class="in">`https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&amp;for=state:*`</span></span>
+<span id="cb25-48"><a href="#cb25-48"></a></span>
+<span id="cb25-49"><a href="#cb25-49"></a><span class="ss">- </span><span class="in">`https://api.census.gov`</span>: This is the **base URL**.</span>
+<span id="cb25-50"><a href="#cb25-50"></a><span class="ss">    - </span><span class="in">`http://`</span>: The **scheme**, which tells your browser or program how to communicate with the web server. This will typically be either <span class="in">`http:`</span> or <span class="in">`https:`</span>.</span>
+<span id="cb25-51"><a href="#cb25-51"></a><span class="ss">    - </span><span class="in">`api.census.gov`</span>: The **hostname** or **host address**, which is a name that identifies the web server that will process the request.</span>
+<span id="cb25-52"><a href="#cb25-52"></a><span class="ss">- </span><span class="in">`data/2019/acs/acs1`</span>: The **file path**, which tells the web server how to get to the desired resource.</span>
+<span id="cb25-53"><a href="#cb25-53"></a><span class="ss">- </span><span class="in">`?get=NAME,B02015_009E,B02015_009M&amp;for=state:*`</span>: The **query string** or **query parameters**, which provide the parameters for the function you would like to call.</span>
+<span id="cb25-54"><a href="#cb25-54"></a><span class="ss">    - </span>This is a string of key-value pairs separated by <span class="in">`&amp;`</span>. That is, the general structure of this part is <span class="in">`key1=value1&amp;key2=value2`</span>.</span>
+<span id="cb25-55"><a href="#cb25-55"></a></span>
+<span id="cb25-56"><a href="#cb25-56"></a>key      value</span>
+<span id="cb25-57"><a href="#cb25-57"></a>----     ------</span>
+<span id="cb25-58"><a href="#cb25-58"></a><span class="in">`get`</span>      <span class="in">`NAME,B02015_009E,B02015_009M`</span></span>
+<span id="cb25-59"><a href="#cb25-59"></a><span class="in">`for`</span>      <span class="in">`state:*`</span></span>
+<span id="cb25-60"><a href="#cb25-60"></a></span>
+<span id="cb25-61"><a href="#cb25-61"></a><span class="fu">### Example Web API's</span></span>
+<span id="cb25-62"><a href="#cb25-62"></a></span>
+<span id="cb25-63"><a href="#cb25-63"></a>A large variety of web APIs provide data. Almost all reasonably large commercial websites offer Web APIs. Todd Motto has compiled an expansive list of <span class="co">[</span><span class="ot">Public Web APIs</span><span class="co">](https://github.com/toddmotto/public-apis)</span> on GitHub. </span>
+<span id="cb25-64"><a href="#cb25-64"></a>Browse this list to see what data sources are available.</span>
+<span id="cb25-65"><a href="#cb25-65"></a></span>
+<span id="cb25-66"><a href="#cb25-66"></a></span>
+<span id="cb25-67"><a href="#cb25-67"></a><span class="fu">## Wrapper packages</span></span>
+<span id="cb25-68"><a href="#cb25-68"></a></span>
+<span id="cb25-69"><a href="#cb25-69"></a>In R, it is easiest to access Web APIs through a **wrapper package**, an R package written specifically for a particular Web API.</span>
+<span id="cb25-70"><a href="#cb25-70"></a></span>
+<span id="cb25-71"><a href="#cb25-71"></a><span class="ss">- </span>The R development community has already contributed wrapper packages for most large Web APIs.</span>
+<span id="cb25-72"><a href="#cb25-72"></a><span class="ss">- </span>To find a wrapper package, search the web for "R package" and the name of the website. For example:</span>
+<span id="cb25-73"><a href="#cb25-73"></a><span class="ss">    - </span>Searching for "R Reddit package" returns <span class="co">[</span><span class="ot">RedditExtractor</span><span class="co">](https://cran.r-project.org/web/packages/RedditExtractoR/index.html)</span></span>
+<span id="cb25-74"><a href="#cb25-74"></a><span class="ss">    - </span>Searching for "R Weather.com package" returns <span class="co">[</span><span class="ot">weatherData</span><span class="co">](https://ram-n.github.io/weatherData/)</span></span>
+<span id="cb25-75"><a href="#cb25-75"></a><span class="ss">- </span><span class="co">[</span><span class="ot">rOpenSci</span><span class="co">](https://ropensci.org/packages/)</span> also has a good collection of wrapper packages.</span>
+<span id="cb25-76"><a href="#cb25-76"></a></span>
+<span id="cb25-77"><a href="#cb25-77"></a>In our work with maps, we've used the <span class="in">`tidycensus`</span> package to obtain census data to display on maps. <span class="in">`tidycensus`</span> is a wrapper package that makes it easy to obtain desired census information:</span>
+<span id="cb25-78"><a href="#cb25-78"></a></span>
+<span id="cb25-79"><a href="#cb25-79"></a><span class="in">```{r tidycensus, eval=FALSE}</span></span>
+<span id="cb25-80"><a href="#cb25-80"></a><span class="in">tidycensus::get_acs(</span></span>
+<span id="cb25-81"><a href="#cb25-81"></a><span class="in">    year = 2020,</span></span>
+<span id="cb25-82"><a href="#cb25-82"></a><span class="in">    state = "MN",</span></span>
+<span id="cb25-83"><a href="#cb25-83"></a><span class="in">    geography = "tract",</span></span>
+<span id="cb25-84"><a href="#cb25-84"></a><span class="in">    variables = c("B01003_001", "B19013_001"),</span></span>
+<span id="cb25-85"><a href="#cb25-85"></a><span class="in">    output = "wide",</span></span>
+<span id="cb25-86"><a href="#cb25-86"></a><span class="in">    geometry = TRUE</span></span>
+<span id="cb25-87"><a href="#cb25-87"></a><span class="in">)</span></span>
+<span id="cb25-88"><a href="#cb25-88"></a><span class="in">```</span></span>
+<span id="cb25-89"><a href="#cb25-89"></a></span>
+<span id="cb25-90"><a href="#cb25-90"></a>Extra Resources:</span>
+<span id="cb25-91"><a href="#cb25-91"></a></span>
+<span id="cb25-92"><a href="#cb25-92"></a><span class="ss">- </span><span class="in">`tidycensus`</span>: wrapper package that provides an interface to a few census datasets with map geometry included</span>
+<span id="cb25-93"><a href="#cb25-93"></a><span class="ss">    - </span>Full documentation is available at <span class="ot">&lt;https://walker-data.com/tidycensus/&gt;</span></span>
+<span id="cb25-94"><a href="#cb25-94"></a><span class="ss">- </span><span class="in">`censusapi`</span>: wrapper package that offers an interface to all census datasets</span>
+<span id="cb25-95"><a href="#cb25-95"></a><span class="ss">    - </span>Full documentation is available at <span class="ot">&lt;https://www.hrecht.com/censusapi/&gt;</span></span>
+<span id="cb25-96"><a href="#cb25-96"></a></span>
+<span id="cb25-97"><a href="#cb25-97"></a>What is going on behind the scenes with <span class="in">`get_acs()`</span>? Let's look at access Web API's directly with URL's.</span>
+<span id="cb25-98"><a href="#cb25-98"></a></span>
+<span id="cb25-99"><a href="#cb25-99"></a></span>
+<span id="cb25-100"><a href="#cb25-100"></a></span>
+<span id="cb25-101"><a href="#cb25-101"></a><span class="fu">## Accessing web APIs directly</span></span>
+<span id="cb25-102"><a href="#cb25-102"></a></span>
+<span id="cb25-103"><a href="#cb25-103"></a><span class="fu">### Getting a Census API key</span></span>
+<span id="cb25-104"><a href="#cb25-104"></a></span>
+<span id="cb25-105"><a href="#cb25-105"></a>Many APIs require users to obtain a **key** to use their services.</span>
+<span id="cb25-106"><a href="#cb25-106"></a></span>
+<span id="cb25-107"><a href="#cb25-107"></a><span class="ss">- </span>This lets organizations keep track of what data is being used.</span>
+<span id="cb25-108"><a href="#cb25-108"></a><span class="ss">- </span>It also **rate limits** their API and ensures programs don't make too many requests per day/minute/hour. Be aware that most APIs do have rate limits --- especially for their free tiers.</span>
+<span id="cb25-109"><a href="#cb25-109"></a></span>
+<span id="cb25-110"><a href="#cb25-110"></a>Navigate to <span class="ot">&lt;https://api.census.gov/data/key_signup.html&gt;</span> to obtain a Census API key:</span>
+<span id="cb25-111"><a href="#cb25-111"></a></span>
+<span id="cb25-112"><a href="#cb25-112"></a><span class="ss">- </span>Organization: Macalester College</span>
+<span id="cb25-113"><a href="#cb25-113"></a><span class="ss">- </span>Email: Your Mac email address</span>
+<span id="cb25-114"><a href="#cb25-114"></a></span>
+<span id="cb25-115"><a href="#cb25-115"></a>You will get the message:</span>
+<span id="cb25-116"><a href="#cb25-116"></a></span>
+<span id="cb25-117"><a href="#cb25-117"></a><span class="at">&gt; Your request for a new API key has been successfully submitted. Please check your email. In a few minutes you should receive a message with instructions on how to activate your new key.</span></span>
+<span id="cb25-118"><a href="#cb25-118"></a></span>
+<span id="cb25-119"><a href="#cb25-119"></a>Check your email. Copy and paste your key into a new text file:</span>
+<span id="cb25-120"><a href="#cb25-120"></a></span>
+<span id="cb25-121"><a href="#cb25-121"></a><span class="ss">- </span>File &gt; New File &gt; Text File (towards the bottom of the menu)</span>
+<span id="cb25-122"><a href="#cb25-122"></a><span class="ss">- </span>Save as <span class="in">`census_api_key.txt`</span> in the same folder as this <span class="in">`.qmd`</span>.  📌 Don't commit this file to GitHub.  Make Git ignores it via GitHub Desktop (**Right click** the file --&gt; select **Ignore file (add to .gitignore)**.</span>
+<span id="cb25-123"><a href="#cb25-123"></a></span>
+<span id="cb25-124"><a href="#cb25-124"></a>Read in the key with the following code:</span>
+<span id="cb25-125"><a href="#cb25-125"></a></span>
+<span id="cb25-126"><a href="#cb25-126"></a></span>
+<span id="cb25-127"><a href="#cb25-127"></a><span class="in">```{r read_census_api_key2}</span></span>
+<span id="cb25-128"><a href="#cb25-128"></a><span class="in">#| eval: FALSE</span></span>
+<span id="cb25-129"><a href="#cb25-129"></a><span class="in">census_api_key &lt;- readLines("census_api_key.txt")</span></span>
+<span id="cb25-130"><a href="#cb25-130"></a><span class="in">```</span></span>
+<span id="cb25-131"><a href="#cb25-131"></a></span>
+<span id="cb25-132"><a href="#cb25-132"></a><span class="fu">### Navigating API documentation</span></span>
+<span id="cb25-133"><a href="#cb25-133"></a></span>
+<span id="cb25-134"><a href="#cb25-134"></a>Navigate to the <span class="co">[</span><span class="ot">Census API user guide</span><span class="co">](https://www.census.gov/data/developers/guidance/api-user-guide.html)</span> and click on the "Example API Queries" tab.</span>
+<span id="cb25-135"><a href="#cb25-135"></a></span>
+<span id="cb25-136"><a href="#cb25-136"></a>Let's look at the Population Estimates Example and the American Community Survey (ACS) Example. </span>
+<span id="cb25-137"><a href="#cb25-137"></a></span>
+<span id="cb25-138"><a href="#cb25-138"></a>These examples walk us through the steps to incrementally build up a URL to obtain desired data. This URL is known as a web API **request**. </span>
+<span id="cb25-139"><a href="#cb25-139"></a></span>
+<span id="cb25-140"><a href="#cb25-140"></a>https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&amp;for=state:*</span>
+<span id="cb25-141"><a href="#cb25-141"></a></span>
+<span id="cb25-142"><a href="#cb25-142"></a>For this request, </span>
+<span id="cb25-143"><a href="#cb25-143"></a></span>
+<span id="cb25-144"><a href="#cb25-144"></a><span class="ss">- </span>we can adjust the **path** to change desired dataset (acs1) and year </span>
+<span id="cb25-145"><a href="#cb25-145"></a><span class="ss">- </span>we can adjust the **query string** to get different variables (<span class="in">`get`</span>) and for different states (<span class="in">`for`</span>)</span>
+<span id="cb25-146"><a href="#cb25-146"></a>  </span>
+<span id="cb25-147"><a href="#cb25-147"></a><span class="in">`?get=NAME,B02015_009E,B02015_009M&amp;for=state:*`</span> </span>
+<span id="cb25-148"><a href="#cb25-148"></a>    </span>
+<span id="cb25-149"><a href="#cb25-149"></a></span>
+<span id="cb25-150"><a href="#cb25-150"></a>Typically, each of these URL components will be specified in the API documentation. </span>
+<span id="cb25-151"><a href="#cb25-151"></a></span>
+<span id="cb25-152"><a href="#cb25-152"></a>Sometimes, the scheme, hostname, and path (<span class="in">`https://api.census.gov/data/2019/acs/acs1`</span>) will be referred to as the **[endpoint](https://en.wikipedia.org/wiki/Web_API#Endpoints)** for the API call.</span>
+<span id="cb25-153"><a href="#cb25-153"></a></span>
+<span id="cb25-154"><a href="#cb25-154"></a><span class="fu">### Building a URL with `httr2`</span></span>
+<span id="cb25-155"><a href="#cb25-155"></a></span>
+<span id="cb25-156"><a href="#cb25-156"></a>We will use the <span class="in">`httr2`</span> package to build up a full URL from its parts because of URLs need to be <span class="co">[</span><span class="ot">percent encoded</span><span class="co">](https://en.wikipedia.org/wiki/Percent-encoding)</span>.</span>
+<span id="cb25-157"><a href="#cb25-157"></a></span>
+<span id="cb25-158"><a href="#cb25-158"></a><span class="ss">- </span><span class="in">`request()`</span> creates an API request object using the **base URL**</span>
+<span id="cb25-159"><a href="#cb25-159"></a><span class="ss">- </span><span class="in">`req_url_path_append()`</span> builds up the URL by adding path components separated by <span class="in">`/`</span></span>
+<span id="cb25-160"><a href="#cb25-160"></a><span class="ss">- </span><span class="in">`req_url_query()`</span> adds the <span class="in">`?`</span> separating the endpoint from the query and sets the key-value pairs in the query</span>
+<span id="cb25-161"><a href="#cb25-161"></a><span class="ss">    - </span>The <span class="in">`.multi`</span> argument controls how multiple values for a given key are combined.</span>
+<span id="cb25-162"><a href="#cb25-162"></a><span class="ss">    - </span>The <span class="in">`I()`</span> function around <span class="in">`"state:*"`</span> inhibits parsing of special characters like <span class="in">`:`</span> and <span class="in">`*`</span>. (It's known as the "as-is" function.)</span>
+<span id="cb25-163"><a href="#cb25-163"></a><span class="ss">    - </span>The backticks around <span class="in">`for`</span> are needed because <span class="in">`for`</span> is a reserved word in R (for for-loops). You'll need backticks whenever the key name has special characters (like spaces, dashes).</span>
+<span id="cb25-164"><a href="#cb25-164"></a><span class="ss">    - </span>We can see from <span class="co">[</span><span class="ot">here</span><span class="co">](https://www.census.gov/data/developers/guidance/api-user-guide.Help_&amp;_Contact_Us.html)</span> that providing an API key is achieved with <span class="in">`key=YOUR_API_KEY`</span>.</span>
+<span id="cb25-165"><a href="#cb25-165"></a></span>
+<span id="cb25-166"><a href="#cb25-166"></a><span class="in">```{r httr2_census}</span></span>
+<span id="cb25-167"><a href="#cb25-167"></a><span class="in">#| eval: FALSE</span></span>
+<span id="cb25-168"><a href="#cb25-168"></a><span class="in">req &lt;- request("https://api.census.gov") |&gt; </span></span>
+<span id="cb25-169"><a href="#cb25-169"></a><span class="in">    req_url_path_append("data") |&gt; </span></span>
+<span id="cb25-170"><a href="#cb25-170"></a><span class="in">    req_url_path_append("2019") |&gt; </span></span>
+<span id="cb25-171"><a href="#cb25-171"></a><span class="in">    req_url_path_append("acs") |&gt; </span></span>
+<span id="cb25-172"><a href="#cb25-172"></a><span class="in">    req_url_path_append("acs1") |&gt; </span></span>
+<span id="cb25-173"><a href="#cb25-173"></a><span class="in">    req_url_query(get = c("NAME", "B02015_009E", "B02015_009M"), `for` = I("state:*"), key = census_api_key, .multi = "comma")</span></span>
+<span id="cb25-174"><a href="#cb25-174"></a><span class="in">```</span></span>
+<span id="cb25-175"><a href="#cb25-175"></a></span>
+<span id="cb25-176"><a href="#cb25-176"></a>**Why would we ever use these steps instead of just using the full URL as a string?**</span>
+<span id="cb25-177"><a href="#cb25-177"></a></span>
+<span id="cb25-178"><a href="#cb25-178"></a><span class="ss">- </span>To generalize this code with functions!</span>
+<span id="cb25-179"><a href="#cb25-179"></a><span class="ss">- </span>To handle special characters</span>
+<span id="cb25-180"><a href="#cb25-180"></a><span class="ss">    - </span>e.g., query parameters might have spaces, which need to be represented in a particular way in a URL (URLs can't contain spaces)</span>
+<span id="cb25-181"><a href="#cb25-181"></a></span>
+<span id="cb25-182"><a href="#cb25-182"></a><span class="fu">### Sending a request with `httr2`{-}</span></span>
+<span id="cb25-183"><a href="#cb25-183"></a></span>
+<span id="cb25-184"><a href="#cb25-184"></a>Once we've fully constructed our request, we can use <span class="in">`req_perform()`</span> to send out the API request and get a **response**.</span>
+<span id="cb25-185"><a href="#cb25-185"></a></span>
+<span id="cb25-186"><a href="#cb25-186"></a><span class="in">```{r census_request}</span></span>
+<span id="cb25-187"><a href="#cb25-187"></a><span class="in">#| eval: FALSE</span></span>
+<span id="cb25-188"><a href="#cb25-188"></a><span class="in">resp &lt;- req_perform(req)</span></span>
+<span id="cb25-189"><a href="#cb25-189"></a><span class="in">```</span></span>
+<span id="cb25-190"><a href="#cb25-190"></a></span>
+<span id="cb25-191"><a href="#cb25-191"></a><span class="fu">### Getting a response with `httr2`</span></span>
+<span id="cb25-192"><a href="#cb25-192"></a></span>
+<span id="cb25-193"><a href="#cb25-193"></a>We see from <span class="in">`Content-Type`</span> that the format of the response is something called JSON. We can navigate to the request URL to see the structure of this output.</span>
+<span id="cb25-194"><a href="#cb25-194"></a></span>
+<span id="cb25-195"><a href="#cb25-195"></a><span class="ss">- </span>We can use <span class="in">`resp_body_json()`</span> in <span class="in">`httr2`</span> to parse the JSON into a nicer R format.</span>
+<span id="cb25-196"><a href="#cb25-196"></a><span class="ss">    - </span>This function uses <span class="in">`fromJSON()`</span> behind the scenes.</span>
+<span id="cb25-197"><a href="#cb25-197"></a><span class="ss">    - </span>Without <span class="in">`simplifyVector = TRUE`</span>, the JSON is read in as a list. </span>
+<span id="cb25-198"><a href="#cb25-198"></a></span>
+<span id="cb25-199"><a href="#cb25-199"></a><span class="in">```{r census_json}</span></span>
+<span id="cb25-200"><a href="#cb25-200"></a><span class="in">#| eval: FALSE</span></span>
+<span id="cb25-201"><a href="#cb25-201"></a><span class="in">resp_json_df &lt;- resp |&gt; resp_body_json(simplifyVector = TRUE)</span></span>
+<span id="cb25-202"><a href="#cb25-202"></a></span>
+<span id="cb25-203"><a href="#cb25-203"></a><span class="in"># Data Cleaning</span></span>
+<span id="cb25-204"><a href="#cb25-204"></a><span class="in">resp_json_df &lt;- janitor::row_to_names(resp_json_df, 1) |&gt; # Move 1st row to Names</span></span>
+<span id="cb25-205"><a href="#cb25-205"></a><span class="in">  as.data.frame() |&gt; # Convert Matrix to Data Frame</span></span>
+<span id="cb25-206"><a href="#cb25-206"></a><span class="in">  mutate(across(starts_with('B'), as.numeric)) # Convert all variables that start with B to numeric</span></span>
+<span id="cb25-207"><a href="#cb25-207"></a></span>
+<span id="cb25-208"><a href="#cb25-208"></a><span class="in">head(resp_json_df)</span></span>
+<span id="cb25-209"><a href="#cb25-209"></a><span class="in">```</span></span>
+<span id="cb25-210"><a href="#cb25-210"></a></span>
+<span id="cb25-211"><a href="#cb25-211"></a>To learn more about JSON, consult the following readings:</span>
+<span id="cb25-212"><a href="#cb25-212"></a></span>
+<span id="cb25-213"><a href="#cb25-213"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">A Non-Programmer's Introduction to JSON</span><span class="co">](https://blog.scottlowe.org/2013/11/08/a-non-programmers-introduction-to-json/)</span></span>
+<span id="cb25-214"><a href="#cb25-214"></a><span class="ss">2. </span><span class="co">[</span><span class="ot">Getting Started With JSON and jsonlite</span><span class="co">](https://cran.r-project.org/web/packages/jsonlite/vignettes/json-aaquickstart.html)</span></span>
+<span id="cb25-215"><a href="#cb25-215"></a><span class="ss">3. </span><span class="co">[</span><span class="ot">Fetching JSON data from REST APIs</span><span class="co">](https://cran.r-project.org/web/packages/jsonlite/vignettes/json-apis.html)</span></span>
+<span id="cb25-216"><a href="#cb25-216"></a></span>
+<span id="cb25-217"><a href="#cb25-217"></a></span>
+<span id="cb25-218"><a href="#cb25-218"></a><span class="fu">## More API Examples</span></span>
+<span id="cb25-219"><a href="#cb25-219"></a></span>
+<span id="cb25-220"><a href="#cb25-220"></a><span class="fu">### Board Game Geek &amp; XML Data</span></span>
+<span id="cb25-221"><a href="#cb25-221"></a></span>
+<span id="cb25-222"><a href="#cb25-222"></a>The <span class="co">[</span><span class="ot">Board Game Geek API</span><span class="co">](https://boardgamegeek.com/wiki/page/BGG_XML_API2)</span> is referenced in the <span class="co">[</span><span class="ot">Games &amp; Comics</span><span class="co">](https://github.com/toddmotto/public-apis?tab=readme-ov-file#games--comics)</span> section of <span class="co">[</span><span class="ot">toddmotto's public API list</span><span class="co">](https://github.com/toddmotto/public-apis)</span>.</span>
+<span id="cb25-223"><a href="#cb25-223"></a></span>
+<span id="cb25-224"><a href="#cb25-224"></a>Our goal is to use the search API at the bottom of the page. </span>
+<span id="cb25-225"><a href="#cb25-225"></a></span>
+<span id="cb25-226"><a href="#cb25-226"></a>Let's start at the top of the API documentation page to see how to navigate this reference.</span>
+<span id="cb25-227"><a href="#cb25-227"></a></span>
+<span id="cb25-228"><a href="#cb25-228"></a><span class="ss">- </span>We can see from the XML references at the top that we will be expecting a new output format: XML stands for Extensible Markup Language</span>
+<span id="cb25-229"><a href="#cb25-229"></a><span class="ss">- </span>The "Root Path" section tells us the base URL for the Board Game Geeks API endpoints and related APIs: <span class="ot">&lt;https://boardgamegeek.com/xmlapi2/&gt;</span></span>
+<span id="cb25-230"><a href="#cb25-230"></a><span class="ss">- </span>The "Search" section at the bottom of the page tells us:</span>
+<span id="cb25-231"><a href="#cb25-231"></a><span class="ss">    - </span>the path for the search endpoint (<span class="in">`/search`</span>)</span>
+<span id="cb25-232"><a href="#cb25-232"></a><span class="ss">    - </span>what query parameters are possible</span>
+<span id="cb25-233"><a href="#cb25-233"></a><span class="ss">    - </span>particular formatting instructions for query parameter values</span>
+<span id="cb25-234"><a href="#cb25-234"></a></span>
+<span id="cb25-235"><a href="#cb25-235"></a>The following request searches for board games, board game accessories, and board game expansions with the words "mystery" and "curse" in the title:</span>
+<span id="cb25-236"><a href="#cb25-236"></a></span>
+<span id="cb25-237"><a href="#cb25-237"></a><span class="in">```{r httr2_bgg}</span></span>
+<span id="cb25-238"><a href="#cb25-238"></a><span class="in">#| eval: FALSE</span></span>
+<span id="cb25-239"><a href="#cb25-239"></a><span class="in">req &lt;- request("https://boardgamegeek.com/xmlapi2") |&gt; </span></span>
+<span id="cb25-240"><a href="#cb25-240"></a><span class="in">    req_url_path_append("search") |&gt; </span></span>
+<span id="cb25-241"><a href="#cb25-241"></a><span class="in">    req_url_query(query = I("mystery+curse"), type = I("boardgame,boardgameaccessory,boardgameexpansion"))</span></span>
+<span id="cb25-242"><a href="#cb25-242"></a><span class="in">```</span></span>
+<span id="cb25-243"><a href="#cb25-243"></a></span>
+<span id="cb25-244"><a href="#cb25-244"></a>When we use <span class="in">`req_perform()`</span>, we see from <span class="in">`Content-Type`</span> that the format of the response is something called XML. We can navigate to the request URL to see the structure of this output.</span>
+<span id="cb25-245"><a href="#cb25-245"></a></span>
+<span id="cb25-246"><a href="#cb25-246"></a><span class="ss">- </span>XML (Extensible Markup Language) is a tree structure of named nodes and attributes.</span>
+<span id="cb25-247"><a href="#cb25-247"></a><span class="ss">- </span>We can use <span class="in">`resp_body_xml()`</span> to read in the XML as an R object.</span>
+<span id="cb25-248"><a href="#cb25-248"></a></span>
+<span id="cb25-249"><a href="#cb25-249"></a><span class="in">```{r bgg_response}</span></span>
+<span id="cb25-250"><a href="#cb25-250"></a><span class="in">#| eval: FALSE</span></span>
+<span id="cb25-251"><a href="#cb25-251"></a><span class="in">resp &lt;- req_perform(req)</span></span>
+<span id="cb25-252"><a href="#cb25-252"></a><span class="in">resp</span></span>
+<span id="cb25-253"><a href="#cb25-253"></a><span class="in">resp &lt;- resp_body_xml(resp)</span></span>
+<span id="cb25-254"><a href="#cb25-254"></a><span class="in">resp</span></span>
+<span id="cb25-255"><a href="#cb25-255"></a><span class="in">```</span></span>
+<span id="cb25-256"><a href="#cb25-256"></a></span>
+<span id="cb25-257"><a href="#cb25-257"></a>The XML output is not packaged in a nice way. (We'd love to have a data frame.) We can use the <span class="in">`xml2`</span> package to explore and navigate the XML structure to extract the information we need.</span>
+<span id="cb25-258"><a href="#cb25-258"></a></span>
+<span id="cb25-259"><a href="#cb25-259"></a>Let's first use the <span class="in">`xml_structure()`</span> function to see how information is organized:</span>
+<span id="cb25-260"><a href="#cb25-260"></a></span>
+<span id="cb25-261"><a href="#cb25-261"></a><span class="in">```{r xml_structure}</span></span>
+<span id="cb25-262"><a href="#cb25-262"></a><span class="in">#| eval: FALSE</span></span>
+<span id="cb25-263"><a href="#cb25-263"></a><span class="in">xml_structure(resp)</span></span>
+<span id="cb25-264"><a href="#cb25-264"></a><span class="in">```</span></span>
+<span id="cb25-265"><a href="#cb25-265"></a></span>
+<span id="cb25-266"><a href="#cb25-266"></a>The key navigation and extraction functions in <span class="in">`xml2`</span> are:</span>
+<span id="cb25-267"><a href="#cb25-267"></a></span>
+<span id="cb25-268"><a href="#cb25-268"></a><span class="ss">- </span><span class="in">`xml_children()`</span>: Get nodes that are nested inside </span>
+<span id="cb25-269"><a href="#cb25-269"></a><span class="ss">    - </span>Like getting the first level bullet points inside a given bullet point</span>
+<span id="cb25-270"><a href="#cb25-270"></a><span class="ss">- </span><span class="in">`xml_find_all()`</span>: Finds nodes matching an XPath expression (XPath stands for XML path)</span>
+<span id="cb25-271"><a href="#cb25-271"></a><span class="ss">    - </span>XPath expressions are like string regular expressions for XML trees</span>
+<span id="cb25-272"><a href="#cb25-272"></a><span class="ss">    - </span>See <span class="co">[</span><span class="ot">here</span><span class="co">](https://www.w3schools.com/xml/xpath_intro.asp)</span> for a deeper dive into XPath</span>
+<span id="cb25-273"><a href="#cb25-273"></a><span class="ss">- </span><span class="in">`xml_attr()`</span>: Selects the value of an attribute (the information to the right of the <span class="in">`=`</span> in quotes)</span>
+<span id="cb25-274"><a href="#cb25-274"></a><span class="ss">    - </span><span class="in">`&lt;node_name attribute_name1="attribute_value1" attribute_name2="attribute_value2"&gt;`</span></span>
+<span id="cb25-275"><a href="#cb25-275"></a></span>
+<span id="cb25-276"><a href="#cb25-276"></a><span class="in">```{r xml_nav_extract}</span></span>
+<span id="cb25-277"><a href="#cb25-277"></a><span class="in">#| eval: FALSE</span></span>
+<span id="cb25-278"><a href="#cb25-278"></a><span class="in"># Get the item nodes in 2 different ways</span></span>
+<span id="cb25-279"><a href="#cb25-279"></a><span class="in">resp |&gt; xml_find_all("item")</span></span>
+<span id="cb25-280"><a href="#cb25-280"></a><span class="in">resp |&gt; xml_children()</span></span>
+<span id="cb25-281"><a href="#cb25-281"></a></span>
+<span id="cb25-282"><a href="#cb25-282"></a><span class="in"># Get the item "type"</span></span>
+<span id="cb25-283"><a href="#cb25-283"></a><span class="in">resp |&gt; xml_find_all("item") |&gt; xml_attr("type")</span></span>
+<span id="cb25-284"><a href="#cb25-284"></a></span>
+<span id="cb25-285"><a href="#cb25-285"></a><span class="in"># The &lt;name&gt; and &lt;yearpublished&gt; nodes are nested within each &lt;item&gt;</span></span>
+<span id="cb25-286"><a href="#cb25-286"></a><span class="in">resp |&gt; xml_find_all("item/name")</span></span>
+<span id="cb25-287"><a href="#cb25-287"></a><span class="in">resp |&gt; xml_find_all("item/yearpublished") # Notice that this is length 8 instead of 9!</span></span>
+<span id="cb25-288"><a href="#cb25-288"></a></span>
+<span id="cb25-289"><a href="#cb25-289"></a><span class="in"># Get the "primary" or "alternate" designation for each name</span></span>
+<span id="cb25-290"><a href="#cb25-290"></a><span class="in">resp |&gt; xml_find_all("item/name") |&gt; xml_attr("type")</span></span>
+<span id="cb25-291"><a href="#cb25-291"></a><span class="in">```</span></span>
+<span id="cb25-292"><a href="#cb25-292"></a></span>
+<span id="cb25-293"><a href="#cb25-293"></a>**Exercises**</span>
+<span id="cb25-294"><a href="#cb25-294"></a></span>
+<span id="cb25-295"><a href="#cb25-295"></a><span class="ss">1. </span>Get the board game name (e.g., "Murder Mystery..." and  "Robinson Crusoe")</span>
+<span id="cb25-296"><a href="#cb25-296"></a></span>
+<span id="cb25-299"><a href="#cb25-299"></a><span class="in">```{r}</span></span>
+<span id="cb25-300"><a href="#cb25-300"></a><span class="co">#| eval: FALSE</span></span>
+<span id="cb25-301"><a href="#cb25-301"></a>resp <span class="sc">|&gt;</span> <span class="fu">xml_find_all</span>(<span class="st">"item/name"</span>) <span class="sc">|&gt;</span> <span class="fu">xml_attr</span>(<span class="st">"value"</span>)</span>
+<span id="cb25-302"><a href="#cb25-302"></a><span class="in">```</span></span>
+<span id="cb25-303"><a href="#cb25-303"></a></span>
+<span id="cb25-304"><a href="#cb25-304"></a></span>
+<span id="cb25-305"><a href="#cb25-305"></a><span class="ss">2. </span>Get the board game ID number (e.g., 63495, 40175)</span>
+<span id="cb25-306"><a href="#cb25-306"></a></span>
+<span id="cb25-309"><a href="#cb25-309"></a><span class="in">```{r}</span></span>
+<span id="cb25-310"><a href="#cb25-310"></a><span class="co">#| eval: FALSE</span></span>
+<span id="cb25-311"><a href="#cb25-311"></a>resp <span class="sc">|&gt;</span> <span class="fu">xml_find_all</span>(<span class="st">"item"</span>) <span class="sc">%&gt;%</span> <span class="fu">xml_attr</span>(<span class="st">"id"</span>)</span>
+<span id="cb25-312"><a href="#cb25-312"></a><span class="in">```</span></span>
+<span id="cb25-313"><a href="#cb25-313"></a></span>
+<span id="cb25-314"><a href="#cb25-314"></a></span>
+<span id="cb25-315"><a href="#cb25-315"></a></span>
+<span id="cb25-316"><a href="#cb25-316"></a><span class="fu">### New York Times API</span></span>
+<span id="cb25-317"><a href="#cb25-317"></a></span>
+<span id="cb25-318"><a href="#cb25-318"></a>This example will build on the <span class="co">[</span><span class="ot">New York Times Web API</span><span class="co">](https://developer.nytimes.com/)</span>, which provides access to news articles, movie reviews, book reviews, and many other data. </span>
+<span id="cb25-319"><a href="#cb25-319"></a></span>
+<span id="cb25-320"><a href="#cb25-320"></a>We will specifically focus on the <span class="co">[</span><span class="ot">Article Search API</span><span class="co">](https://developer.nytimes.com/docs/articlesearch-product/1/overview)</span>, which finds information about news articles that contain a particular word or phrase.</span>
+<span id="cb25-321"><a href="#cb25-321"></a></span>
+<span id="cb25-322"><a href="#cb25-322"></a>To get started with the NY Times API, you must <span class="co">[</span><span class="ot">register and get an **authentication key**</span><span class="co">](https://developer.nytimes.com/accounts/create)</span>. Signup only takes a few seconds, and it lets the New York Times make sure nobody abuses their API for commercial purposes. It also **rate limits** their API and ensures programs don't make too many requests per day. For the NY Times API, this limit is 1000 calls per day. </span>
+<span id="cb25-323"><a href="#cb25-323"></a></span>
+<span id="cb25-324"><a href="#cb25-324"></a>Once you have signed up, verified your email, log back in to https://developer.nytimes.com. Under your email address, click on Apps and Create a new App (call it First API) and enable Article Search API, then press Save. This creates an **authentication key**, which is a 32 digit string with numbers and the letters a-e. </span>
+<span id="cb25-325"><a href="#cb25-325"></a></span>
+<span id="cb25-326"><a href="#cb25-326"></a>As with your census API key, save this key in a <span class="in">`.txt`</span> file, and read it in and store this in a variable called <span class="in">`times_key`</span>.  📌 Again, don't commit this file to GitHub.  Make Git ignores it via GitHub Desktop (**Right click** the file --&gt; select **Ignore file (add to .gitignore)**.</span>
+<span id="cb25-327"><a href="#cb25-327"></a></span>
+<span id="cb25-328"><a href="#cb25-328"></a><span class="in">```{r nyt_key_2}</span></span>
+<span id="cb25-329"><a href="#cb25-329"></a><span class="in">#| eval: false</span></span>
+<span id="cb25-330"><a href="#cb25-330"></a><span class="in">times_key &lt;- read_lines("nyt_api_key.txt")</span></span>
+<span id="cb25-331"><a href="#cb25-331"></a><span class="in">```</span></span>
+<span id="cb25-332"><a href="#cb25-332"></a></span>
+<span id="cb25-333"><a href="#cb25-333"></a></span>
+<span id="cb25-334"><a href="#cb25-334"></a></span>
+<span id="cb25-335"><a href="#cb25-335"></a>Open this URL in your browser (you should replace <span class="in">`MY_KEY`</span> with the API key you were given).</span>
+<span id="cb25-336"><a href="#cb25-336"></a></span>
+<span id="cb25-337"><a href="#cb25-337"></a><span class="in">    http://api.nytimes.com/svc/search/v2/articlesearch.json?q=gamergate&amp;api-key=MY_KEY</span></span>
+<span id="cb25-338"><a href="#cb25-338"></a><span class="in">    </span></span>
+<span id="cb25-339"><a href="#cb25-339"></a>The text you see in the browser is the response data (in JSON format). </span>
+<span id="cb25-340"><a href="#cb25-340"></a></span>
+<span id="cb25-341"><a href="#cb25-341"></a>This URL has the same structure that we discussed above for the census API:</span>
+<span id="cb25-342"><a href="#cb25-342"></a></span>
+<span id="cb25-343"><a href="#cb25-343"></a><span class="ss">- </span><span class="in">`http://`</span> --- The **scheme**, which tells your browser or program how to communicate with the web server. This will typically be either <span class="in">`http:`</span> or <span class="in">`https:`</span>.</span>
+<span id="cb25-344"><a href="#cb25-344"></a><span class="ss">- </span><span class="in">`api.nytimes.com`</span> --- The **hostname**, which is a name that identifies the web server that will process the request.</span>
+<span id="cb25-345"><a href="#cb25-345"></a><span class="ss">- </span><span class="in">`/svc/search/v2/articlesearch.json`</span> --- The **path**, which tells the web server what function you would like to call (a function for searching articles).</span>
+<span id="cb25-346"><a href="#cb25-346"></a><span class="ss">- </span><span class="in">`?q=gamergate&amp;api-key=MY_KEY`</span> --- The **query parameters**, which provide the parameters for the function you would like to call. The key value pairs are the following:</span>
+<span id="cb25-347"><a href="#cb25-347"></a></span>
+<span id="cb25-348"><a href="#cb25-348"></a>key      value</span>
+<span id="cb25-349"><a href="#cb25-349"></a>----     ------</span>
+<span id="cb25-350"><a href="#cb25-350"></a>q        gamergate</span>
+<span id="cb25-351"><a href="#cb25-351"></a>api-key  MY_KEY</span>
+<span id="cb25-352"><a href="#cb25-352"></a></span>
+<span id="cb25-353"><a href="#cb25-353"></a>The scheme, hostname, and path (<span class="in">`http://api.nytimes.com/svc/search/v2/articlesearch.json`</span>) together form the **[endpoint](https://en.wikipedia.org/wiki/Web_API#Endpoints)** for the API call.</span>
+<span id="cb25-354"><a href="#cb25-354"></a></span>
+<span id="cb25-355"><a href="#cb25-355"></a>We can use the <span class="in">`httr2`</span> package to build up a full URL from its parts:</span>
+<span id="cb25-356"><a href="#cb25-356"></a></span>
+<span id="cb25-357"><a href="#cb25-357"></a><span class="in">```{r httr2_nyt}</span></span>
+<span id="cb25-358"><a href="#cb25-358"></a><span class="in">#| eval: false</span></span>
+<span id="cb25-359"><a href="#cb25-359"></a><span class="in">req &lt;- request("http://api.nytimes.com") |&gt; </span></span>
+<span id="cb25-360"><a href="#cb25-360"></a><span class="in">    req_url_path_append("svc") |&gt; </span></span>
+<span id="cb25-361"><a href="#cb25-361"></a><span class="in">    req_url_path_append("search") |&gt; </span></span>
+<span id="cb25-362"><a href="#cb25-362"></a><span class="in">    req_url_path_append("v2") |&gt; </span></span>
+<span id="cb25-363"><a href="#cb25-363"></a><span class="in">    req_url_path_append("articlesearch.json") |&gt; </span></span>
+<span id="cb25-364"><a href="#cb25-364"></a><span class="in">    req_url_query(q = "gamergate", `api-key` = times_key)</span></span>
+<span id="cb25-365"><a href="#cb25-365"></a><span class="in">```</span></span>
+<span id="cb25-366"><a href="#cb25-366"></a></span>
+<span id="cb25-367"><a href="#cb25-367"></a></span>
+<span id="cb25-368"><a href="#cb25-368"></a>We can write a function to generate the URL for a user-specified query:</span>
+<span id="cb25-369"><a href="#cb25-369"></a></span>
+<span id="cb25-370"><a href="#cb25-370"></a><span class="in">```{r create_nyt_url}</span></span>
+<span id="cb25-371"><a href="#cb25-371"></a><span class="in">#| eval: false</span></span>
+<span id="cb25-372"><a href="#cb25-372"></a><span class="in">create_nyt_url &lt;- function(query, key) {</span></span>
+<span id="cb25-373"><a href="#cb25-373"></a><span class="in">    request("http://api.nytimes.com") |&gt; </span></span>
+<span id="cb25-374"><a href="#cb25-374"></a><span class="in">        req_url_path_append("svc") |&gt; </span></span>
+<span id="cb25-375"><a href="#cb25-375"></a><span class="in">        req_url_path_append("search") |&gt; </span></span>
+<span id="cb25-376"><a href="#cb25-376"></a><span class="in">        req_url_path_append("v2") |&gt; </span></span>
+<span id="cb25-377"><a href="#cb25-377"></a><span class="in">        req_url_path_append("articlesearch.json") |&gt; </span></span>
+<span id="cb25-378"><a href="#cb25-378"></a><span class="in">        req_url_query(q = query, `api-key` = key)</span></span>
+<span id="cb25-379"><a href="#cb25-379"></a><span class="in">}</span></span>
+<span id="cb25-380"><a href="#cb25-380"></a><span class="in">```</span></span>
+<span id="cb25-381"><a href="#cb25-381"></a></span>
+<span id="cb25-382"><a href="#cb25-382"></a>Let's use this function to find articles related to:</span>
+<span id="cb25-383"><a href="#cb25-383"></a></span>
+<span id="cb25-384"><a href="#cb25-384"></a><span class="ss">- </span><span class="in">`Ferris Bueller's Day Off`</span> (note the spaces and the apostrophe)</span>
+<span id="cb25-385"><a href="#cb25-385"></a><span class="ss">- </span><span class="in">`Penn &amp; Teller`</span> (note the spaces and the punctuation mark <span class="in">`&amp;`</span>)</span>
+<span id="cb25-386"><a href="#cb25-386"></a></span>
+<span id="cb25-387"><a href="#cb25-387"></a>Let's see how these queries are translated into the URLs:</span>
+<span id="cb25-388"><a href="#cb25-388"></a></span>
+<span id="cb25-389"><a href="#cb25-389"></a><span class="in">```{r use_create_nyt_url}</span></span>
+<span id="cb25-390"><a href="#cb25-390"></a><span class="in">#| eval: false</span></span>
+<span id="cb25-391"><a href="#cb25-391"></a><span class="in">req_fb &lt;- create_nyt_url(query = "Ferris Bueller's Day Off", key = times_key)</span></span>
+<span id="cb25-392"><a href="#cb25-392"></a><span class="in">req_pt &lt;- create_nyt_url(query = "Penn &amp; Teller", key = times_key)</span></span>
+<span id="cb25-393"><a href="#cb25-393"></a><span class="in">```</span></span>
+<span id="cb25-394"><a href="#cb25-394"></a></span>
+<span id="cb25-395"><a href="#cb25-395"></a>We can use <span class="in">`req_perform()`</span> to send out the request and <span class="in">`resp_body_json()`</span> to parse the resulting JSON:</span>
+<span id="cb25-396"><a href="#cb25-396"></a></span>
+<span id="cb25-397"><a href="#cb25-397"></a><span class="in">```{r nyt_responses}</span></span>
+<span id="cb25-398"><a href="#cb25-398"></a><span class="in">#| eval: false</span></span>
+<span id="cb25-399"><a href="#cb25-399"></a><span class="in">resp_pt &lt;- req_pt |&gt; req_perform() |&gt; resp_body_json(simplifyVector = TRUE)</span></span>
+<span id="cb25-400"><a href="#cb25-400"></a><span class="in">```</span></span>
+<span id="cb25-401"><a href="#cb25-401"></a></span>
+<span id="cb25-402"><a href="#cb25-402"></a></span>
+<span id="cb25-403"><a href="#cb25-403"></a><span class="fu">#### Exploring complex lists</span></span>
+<span id="cb25-404"><a href="#cb25-404"></a></span>
+<span id="cb25-405"><a href="#cb25-405"></a><span class="in">`resp_pt`</span> is a **list**. A list is a useful structure for storing elements of different types. Data frames are special cases of lists where each list element has the same length (but where the list elements have different classes).</span>
+<span id="cb25-406"><a href="#cb25-406"></a></span>
+<span id="cb25-407"><a href="#cb25-407"></a>Lists are a very flexible data structure but can be very confusing because list elements can be lists themselves!</span>
+<span id="cb25-408"><a href="#cb25-408"></a></span>
+<span id="cb25-409"><a href="#cb25-409"></a>We can explore the structure of a list in two ways:</span>
+<span id="cb25-410"><a href="#cb25-410"></a></span>
+<span id="cb25-411"><a href="#cb25-411"></a><span class="ss">- </span>Entering <span class="in">`View(list_object)`</span> in the Console. The triangle buttons on the left allow you to toggle dropdowns to explore list elements.</span>
+<span id="cb25-412"><a href="#cb25-412"></a><span class="ss">- </span>Using the <span class="in">`str()`</span> (structure) function.</span>
+<span id="cb25-413"><a href="#cb25-413"></a></span>
+<span id="cb25-414"><a href="#cb25-414"></a></span>
+<span id="cb25-415"><a href="#cb25-415"></a>Using base R subsetting, we can access elements of a list in three ways:</span>
+<span id="cb25-416"><a href="#cb25-416"></a></span>
+<span id="cb25-417"><a href="#cb25-417"></a><span class="ss">- </span>By *position* with double square brackets <span class="in">`[[`</span>:</span>
+<span id="cb25-418"><a href="#cb25-418"></a></span>
+<span id="cb25-419"><a href="#cb25-419"></a><span class="in">```{r list_access1}</span></span>
+<span id="cb25-420"><a href="#cb25-420"></a><span class="in">#| eval: false</span></span>
+<span id="cb25-421"><a href="#cb25-421"></a><span class="in"># This gets the first element of the list</span></span>
+<span id="cb25-422"><a href="#cb25-422"></a><span class="in">resp_pt[[1]]</span></span>
+<span id="cb25-423"><a href="#cb25-423"></a><span class="in">```</span></span>
+<span id="cb25-424"><a href="#cb25-424"></a></span>
+<span id="cb25-425"><a href="#cb25-425"></a></span>
+<span id="cb25-426"><a href="#cb25-426"></a><span class="ss">- </span>By *name* with double square brackets <span class="in">`[[`</span>: (note that list elements are not always named, so this won't always be possible)</span>
+<span id="cb25-427"><a href="#cb25-427"></a></span>
+<span id="cb25-428"><a href="#cb25-428"></a><span class="in">```{r list_access2}</span></span>
+<span id="cb25-429"><a href="#cb25-429"></a><span class="in">#| eval: false</span></span>
+<span id="cb25-430"><a href="#cb25-430"></a><span class="in"># Accessing by name directly</span></span>
+<span id="cb25-431"><a href="#cb25-431"></a><span class="in">resp_pt[["status"]]</span></span>
+<span id="cb25-432"><a href="#cb25-432"></a></span>
+<span id="cb25-433"><a href="#cb25-433"></a><span class="in"># Accessing via a variable</span></span>
+<span id="cb25-434"><a href="#cb25-434"></a><span class="in">which_element &lt;- "status"</span></span>
+<span id="cb25-435"><a href="#cb25-435"></a><span class="in">resp_pt[[which_element]]</span></span>
+<span id="cb25-436"><a href="#cb25-436"></a><span class="in">```</span></span>
+<span id="cb25-437"><a href="#cb25-437"></a></span>
+<span id="cb25-438"><a href="#cb25-438"></a><span class="ss">- </span>By *name* with a dollar sign <span class="in">`$`</span>: (Helpful tip: For this mode of access, RStudio allows tab completion to fill in the full name)</span>
+<span id="cb25-439"><a href="#cb25-439"></a></span>
+<span id="cb25-440"><a href="#cb25-440"></a><span class="in">```{r list_access3}</span></span>
+<span id="cb25-441"><a href="#cb25-441"></a><span class="in">#| eval: false</span></span>
+<span id="cb25-442"><a href="#cb25-442"></a><span class="in">resp_pt$status</span></span>
+<span id="cb25-443"><a href="#cb25-443"></a><span class="in">```</span></span>
+<span id="cb25-444"><a href="#cb25-444"></a></span>
+<span id="cb25-445"><a href="#cb25-445"></a>We can retrieve these *nested* attributes by sequentially accessing the object keys from the outside in. For example, the <span class="in">`meta`</span> element would be accessed as follows:</span>
+<span id="cb25-446"><a href="#cb25-446"></a></span>
+<span id="cb25-447"><a href="#cb25-447"></a><span class="in">```{r list_access4}</span></span>
+<span id="cb25-448"><a href="#cb25-448"></a><span class="in">#| eval: false</span></span>
+<span id="cb25-449"><a href="#cb25-449"></a><span class="in">resp_pt$response$meta</span></span>
+<span id="cb25-450"><a href="#cb25-450"></a><span class="in">```</span></span>
+<span id="cb25-451"><a href="#cb25-451"></a></span>
+<span id="cb25-452"><a href="#cb25-452"></a></span>
+<span id="cb25-453"><a href="#cb25-453"></a>**Exercise:** In the <span class="in">`resp_pt`</span> object, retrieve the data associated with:</span>
+<span id="cb25-454"><a href="#cb25-454"></a></span>
+<span id="cb25-455"><a href="#cb25-455"></a><span class="ss">- </span>the <span class="in">`copyright`</span> key</span>
+<span id="cb25-456"><a href="#cb25-456"></a></span>
+<span id="cb25-459"><a href="#cb25-459"></a><span class="in">```{r}</span></span>
+<span id="cb25-460"><a href="#cb25-460"></a><span class="co">#| eval: FALSE</span></span>
+<span id="cb25-461"><a href="#cb25-461"></a>resp_pt[[<span class="st">"copyright"</span>]]</span>
+<span id="cb25-462"><a href="#cb25-462"></a><span class="in">```</span></span>
+<span id="cb25-463"><a href="#cb25-463"></a></span>
+<span id="cb25-464"><a href="#cb25-464"></a></span>
+<span id="cb25-465"><a href="#cb25-465"></a><span class="ss">- </span>the number of <span class="in">`hits`</span> (number of search results) within the <span class="in">`meta`</span> object</span>
+<span id="cb25-466"><a href="#cb25-466"></a></span>
+<span id="cb25-469"><a href="#cb25-469"></a><span class="in">```{r}</span></span>
+<span id="cb25-470"><a href="#cb25-470"></a><span class="co">#| eval: FALSE</span></span>
+<span id="cb25-471"><a href="#cb25-471"></a>resp_pt<span class="sc">$</span>response<span class="sc">$</span>meta<span class="sc">$</span>hits</span>
+<span id="cb25-472"><a href="#cb25-472"></a><span class="in">```</span></span>
+<span id="cb25-473"><a href="#cb25-473"></a></span>
+<span id="cb25-474"><a href="#cb25-474"></a></span>
+<span id="cb25-475"><a href="#cb25-475"></a><span class="ss">- </span>the abstracts and leading paragraphs of the articles found in the search</span>
+<span id="cb25-476"><a href="#cb25-476"></a></span>
+<span id="cb25-479"><a href="#cb25-479"></a><span class="in">```{r}</span></span>
+<span id="cb25-480"><a href="#cb25-480"></a><span class="co">#| eval: FALSE</span></span>
+<span id="cb25-481"><a href="#cb25-481"></a>resp_pt<span class="sc">$</span>response<span class="sc">$</span>docs<span class="sc">$</span>abstract</span>
+<span id="cb25-482"><a href="#cb25-482"></a><span class="in">```</span></span>
+<span id="cb25-483"><a href="#cb25-483"></a></span>
+<span id="cb25-484"><a href="#cb25-484"></a></span>
+<span id="cb25-485"><a href="#cb25-485"></a><span class="fu">## Done!</span></span>
+<span id="cb25-486"><a href="#cb25-486"></a></span>
+<span id="cb25-487"><a href="#cb25-487"></a><span class="ss">- </span>Check the ICA Instructions for how to (a) push your code to GitHub and (b) update your portfolio website</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

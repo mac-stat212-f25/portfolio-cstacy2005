@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.42">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Homework 05 – COMP/STAT212 Portfolio</title>
+<title>Homework 07 – COMP/STAT212 Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,8 +59,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../src/tt/hw04-tt.html" rel="next">
-<link href="../../src/tt/hw06-tt.html" rel="prev">
+<link href="../../src/tt/hw06-tt.html" rel="next">
+<link href="../../src/pv/pv-01.html" rel="prev">
 <script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
 <link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
@@ -115,7 +115,11 @@ cookieconsent.run({
   });
 });
 </script><style>html{ scroll-behavior: smooth; }</style>
-<link rel="stylesheet" href="../../style/custom.css">
+<link href="../../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="../../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><link href="../../site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="../../site_libs/leaflet-1.3.1/leaflet.js"></script><link href="../../site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="../../site_libs/proj4-2.6.2/proj4.min.js"></script><script src="../../site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="../../site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="../../site_libs/leaflet-binding-2.2.3/leaflet.js"></script><link rel="stylesheet" href="../../style/custom.css">
 </head>
 <body class="nav-sidebar docked">
 
@@ -124,7 +128,7 @@ cookieconsent.run({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/tt/hw07-tt.html">TidyTuesday</a></li><li class="breadcrumb-item"><a href="../../src/tt/hw05-tt.html"><span class="chapter-title">Homework 05</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/tt/hw07-tt.html">TidyTuesday</a></li><li class="breadcrumb-item"><a href="../../src/tt/hw07-tt.html"><span class="chapter-title">Homework 07</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -188,7 +192,7 @@ cookieconsent.run({
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/tt/hw07-tt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Homework 07</span></a>
+  <a href="../../src/tt/hw07-tt.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Homework 07</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -198,7 +202,7 @@ cookieconsent.run({
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/tt/hw05-tt.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Homework 05</span></a>
+  <a href="../../src/tt/hw05-tt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Homework 05</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -337,14 +341,14 @@ cookieconsent.run({
 <a href="#tidytuesday-section-optional" id="toc-tidytuesday-section-optional" class="nav-link active" data-scroll-target="#tidytuesday-section-optional">TidyTuesday Section (optional)</a>
   <ul class="collapse">
 <li><a href="#about-the-data" id="toc-about-the-data" class="nav-link" data-scroll-target="#about-the-data">About the Data</a></li>
-  <li><a href="#driving-question-how-do-crane-observations-at-lake-hornborgasj%C3%B6n-sweden-vary-temporally" id="toc-driving-question-how-do-crane-observations-at-lake-hornborgasjön-sweden-vary-temporally" class="nav-link" data-scroll-target="#driving-question-how-do-crane-observations-at-lake-hornborgasj%C3%B6n-sweden-vary-temporally">Driving Question: How do crane observations at Lake Hornborgasjön, Sweden vary temporally?</a></li>
+  <li><a href="#driving-question-how-have-seasonal-weather-patterns-changed-over-time-in-the-uk" id="toc-driving-question-how-have-seasonal-weather-patterns-changed-over-time-in-the-uk" class="nav-link" data-scroll-target="#driving-question-how-have-seasonal-weather-patterns-changed-over-time-in-the-uk">Driving Question: How have seasonal weather patterns changed over time in the UK?</a></li>
   </ul>
 </li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/tt/hw07-tt.html">TidyTuesday</a></li><li class="breadcrumb-item"><a href="../../src/tt/hw05-tt.html"><span class="chapter-title">Homework 05</span></a></li></ol></nav><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-title">Homework 05</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/tt/hw07-tt.html">TidyTuesday</a></li><li class="breadcrumb-item"><a href="../../src/tt/hw07-tt.html"><span class="chapter-title">Homework 07</span></a></li></ol></nav><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-title">Homework 07</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -376,80 +380,119 @@ Instructions
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load packages</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(lubridate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">library</span>(ggstream)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Load data</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="st">'2025-09-30'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="st">'2025-10-21'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a>cranes <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>cranes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href="#cb2-4"></a>historic_station_met <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>historic_station_met</span>
+<span id="cb2-5"><a href="#cb2-5"></a>station_meta <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>station_meta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <section id="about-the-data" class="level3"><h3 class="anchored" data-anchor-id="about-the-data">About the Data</h3>
-<p>The Tidy Tuesday data for the week of 9/30/25 comes from the Hornborgasjön field station in Sweden which has been counting the number of cranes stopping at Lake Hornborgasjön during their yearly migration for over 30 years. The variables in the dataset include the date, number of observations, comment, and weather disruption.</p>
-</section><section id="driving-question-how-do-crane-observations-at-lake-hornborgasjön-sweden-vary-temporally" class="level3"><h3 class="anchored" data-anchor-id="driving-question-how-do-crane-observations-at-lake-hornborgasjön-sweden-vary-temporally">Driving Question: How do crane observations at Lake Hornborgasjön, Sweden vary temporally?</h3>
-<p>I was interested in exploring how the number of crane observations has changed over the past 30 years as well as the months in which cranes are most common.</p>
+<p>The Tidy Tuesday data for the week of 10/21/25 comes from the UK Met Office, the United Kingdom’s national weather and climate service. There are two datasets, one with historical weather data, including temperature, frost, rainfall, and sun, and one with station information, including the name and year opened.</p>
+</section><section id="driving-question-how-have-seasonal-weather-patterns-changed-over-time-in-the-uk" class="level3"><h3 class="anchored" data-anchor-id="driving-question-how-have-seasonal-weather-patterns-changed-over-time-in-the-uk">Driving Question: How have seasonal weather patterns changed over time in the UK?</h3>
+<p>For my analysis, I chose to look at spring rainfall total and summer temperature ranges. I started off by joining the datasets and creating a season variable.</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>cranes_new <span class="ot">&lt;-</span> cranes <span class="sc">%&gt;%</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(date) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(observations)) <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb3-4"><a href="#cb3-4"></a>    <span class="at">date_obj =</span> <span class="fu">ymd</span>(date),</span>
-<span id="cb3-5"><a href="#cb3-5"></a>    <span class="at">year =</span> <span class="fu">year</span>(date_obj),</span>
-<span id="cb3-6"><a href="#cb3-6"></a>    <span class="at">month =</span> <span class="fu">month</span>(date_obj, <span class="at">label =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-7"><a href="#cb3-7"></a>  ) </span>
-<span id="cb3-8"><a href="#cb3-8"></a></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="fu">ggplot</span>(cranes_new, <span class="fu">aes</span>(<span class="at">x =</span> month, <span class="at">y =</span> year, <span class="at">fill =</span> observations)) <span class="sc">+</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a>     <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a>     <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"royalblue4"</span>) <span class="sc">+</span> <span class="co"># Customize color scale</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a>     <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Monthly Crane Observations at Lake Hornborgasjön, Sweden from 1994 to 2024"</span>, </span>
-<span id="cb3-13"><a href="#cb3-13"></a>          <span class="at">y =</span> <span class="st">""</span>, <span class="at">x =</span> <span class="st">""</span>, <span class="at">caption =</span> <span class="st">"Cate Stacy, 10/8/25, Data From Hornborgasjön Field Station"</span>) <span class="sc">+</span></span>
-<span id="cb3-14"><a href="#cb3-14"></a>     <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a>      <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1994</span>, <span class="at">to =</span> <span class="dv">2024</span>, <span class="at">by =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>station_full <span class="ot">&lt;-</span> historic_station_met <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">left_join</span>(station_meta, <span class="at">by =</span> <span class="st">"station"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a>station_full <span class="ot">&lt;-</span> station_full <span class="sc">%&gt;%</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-6"><a href="#cb3-6"></a>    <span class="at">season =</span> <span class="fu">case_when</span>(</span>
+<span id="cb3-7"><a href="#cb3-7"></a>      month <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">~</span> <span class="st">"summer"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8"></a>      month <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>) <span class="sc">~</span> <span class="st">'spring'</span>,</span>
+<span id="cb3-9"><a href="#cb3-9"></a>      month <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>) <span class="sc">~</span> <span class="st">'summer'</span>,</span>
+<span id="cb3-10"><a href="#cb3-10"></a>      month <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>) <span class="sc">~</span> <span class="st">"fall"</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a>    )</span>
+<span id="cb3-12"><a href="#cb3-12"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Next, I identified a subset of stations to use in my analysis. I chose the five stations with the longest records and most continuous data. The five selected stations in addition to the other 32 stations can be seen in the map below.</p>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>all_stations <span class="ot">&lt;-</span> station_full <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2000</span>, month <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">filter</span>(<span class="sc">!</span>station <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"armagh"</span>, <span class="st">"durham"</span>, <span class="st">"oxford"</span>, <span class="st">"sheffield"</span>, <span class="st">'stornoway'</span>)) </span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a>station_sub <span class="ot">&lt;-</span> station_full <span class="sc">%&gt;%</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2024</span>, month <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>  <span class="fu">filter</span>(station <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"armagh"</span>, <span class="st">"durham"</span>, <span class="st">"oxford"</span>, <span class="st">"sheffield"</span>, <span class="st">'stornoway'</span>)) </span>
+<span id="cb4-8"><a href="#cb4-8"></a></span>
+<span id="cb4-9"><a href="#cb4-9"></a>station_map <span class="ot">&lt;-</span> <span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>  <span class="fu">addMarkers</span>(<span class="at">data =</span> station_sub, <span class="at">lng =</span> <span class="sc">~</span>lng, <span class="at">lat =</span> <span class="sc">~</span>lat) <span class="sc">%&gt;%</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">data =</span> all_stations, <span class="at">lng =</span> <span class="sc">~</span>lng, <span class="at">lat =</span> <span class="sc">~</span>lat, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">radius =</span> <span class="dv">1</span>)</span>
+<span id="cb4-13"><a href="#cb4-13"></a></span>
+<span id="cb4-14"><a href="#cb4-14"></a>station_map</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-d761cb038831f556909b" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-d761cb038831f556909b">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[54.352,54.768,51.761,53.381,58.214],[-6.649,-1.585,-1.262,-1.49,-6.318],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[52.139,55.181,53.813,57.011,50.218,52.245,51.488,51.089,52.358,56.451,50.759,55.312,51.479,50.779,60.139,56.377,52.483,51.346,57.593,54.67,55.846,53.356,51.911,52.794,50.898,52.836,56.5,53.252,53.175,54.481,58.454,51.006],[-4.57,-6.153,-1.772,-3.396,-5.327,0.102,-3.187,-4.147,-3.802,-5.439,0.285,-3.205,-0.452,-1.835,-1.183,-2.861,1.727,1.337,-3.821,-2.786,-4.43,-2.279,-2.584,-2.663,-1.408,-1.25,-6.88,-4.535,-0.522,-0.624,-3.088,-2.641],1,null,null,{"interactive":true,"className":"","stroke":true,"color":"red","weight":5,"opacity":0.5,"fill":true,"fillColor":"red","fillOpacity":0.2},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[50.218,60.139],"lng":[-6.88,1.727]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>I chose to visualize spring rainfall totals for the five stations as a stream plot.</p>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>station_spring <span class="ot">&lt;-</span> station_full <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">filter</span>(season <span class="sc">==</span> <span class="st">"spring"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">group_by</span>(year, station) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">summarize</span>(<span class="at">spring_rain =</span> <span class="fu">sum</span>(rain)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">filter</span>(station <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"armagh"</span>, <span class="st">"durham"</span>, <span class="st">"oxford"</span>, <span class="st">"sheffield"</span>, <span class="st">'stornoway'</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1890</span>) </span>
+<span id="cb5-7"><a href="#cb5-7"></a>  </span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="fu">ggplot</span>(station_spring, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> spring_rain, <span class="at">fill =</span> station)) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>  <span class="fu">geom_stream</span>(<span class="at">type =</span> <span class="st">"ridge"</span>) <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">200</span>)) <span class="sc">+</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1890</span>, <span class="dv">2024</span>, <span class="at">by =</span> <span class="dv">20</span>)) <span class="sc">+</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"total spring rainfall (mm)"</span>, <span class="at">title =</span> <span class="st">"Spring Rainfall Totals from 1890 to 2024 at Five UK Meteorological Stations"</span>, <span class="at">caption =</span> <span class="st">"Cate Stacy, 10/27/25, TidyTuesday"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="hw05-tt_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="hw07-tt_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>This heatmap demonstrates that the greatest number of cranes visit Lake Hornborgasjön in the months of April, September, and October. It also suggests that the overall crane population at Lake Hornborgasjön has increased over the course of the study period. We can confirm these trends by isolating month and year in two additional plots.</p>
+<p>This plot demonstrates that rainfall totals tend to vary from year to year. 1910 and 1984 saw a lot of rain while there was a dip and rainfall totals from 1925 to 1960. Spring rainfall totals appear to be dropping in recent years. These patterns are seen across all of the stations. However, some stations, like Stornoway, generally receive more rain while others, like Durham, tend to receive less rain.</p>
+<p>Next, I used line segments to visualize summer temperature ranges and average values at each of the five stations from 1890 to 2024.</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>cranes_new <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(year) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(observations)) <span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a>  <span class="fu">summarize</span>(<span class="at">mean_observartions =</span> <span class="fu">mean</span>(observations)) <span class="sc">%&gt;%</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> mean_observartions)) <span class="sc">+</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"observations"</span>, <span class="at">title =</span> <span class="st">"Crane Observations at Lake Hornborgasjön, Sweden from 1994 to 2024"</span>,</span>
-<span id="cb4-9"><a href="#cb4-9"></a>       <span class="at">caption =</span> <span class="st">"Cate Stacy, 10/8/25, Data From Hornborgasjön Field Station"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>station_summer <span class="ot">&lt;-</span> station_full <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">filter</span>(season <span class="sc">==</span> <span class="st">"summer"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">group_by</span>(year, station) <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb6-5"><a href="#cb6-5"></a>    <span class="at">summer_tmax =</span> <span class="fu">mean</span>(tmax),</span>
+<span id="cb6-6"><a href="#cb6-6"></a>    <span class="at">summer_tmin =</span> <span class="fu">mean</span>(tmin),</span>
+<span id="cb6-7"><a href="#cb6-7"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb6-9"><a href="#cb6-9"></a>    <span class="at">summer_tmax_f =</span> ((summer_tmax <span class="sc">*</span> (<span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>)) <span class="sc">+</span> <span class="dv">32</span>),</span>
+<span id="cb6-10"><a href="#cb6-10"></a>    <span class="at">summer_tmin_f =</span> ((summer_tmin <span class="sc">*</span> (<span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>)) <span class="sc">+</span> <span class="dv">32</span>),</span>
+<span id="cb6-11"><a href="#cb6-11"></a>    <span class="at">avg_t =</span> summer_tmin_f <span class="sc">+</span> ((summer_tmax_f <span class="sc">-</span> summer_tmin_f) <span class="sc">/</span> <span class="dv">2</span>)</span>
+<span id="cb6-12"><a href="#cb6-12"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a>  <span class="fu">filter</span>(station <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"armagh"</span>, <span class="st">"durham"</span>, <span class="st">"oxford"</span>, <span class="st">"sheffield"</span>, <span class="st">'stornoway'</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1890</span>) </span>
+<span id="cb6-15"><a href="#cb6-15"></a></span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="fu">ggplot</span>(station_summer, <span class="fu">aes</span>(<span class="at">x =</span> avg_t, <span class="at">y =</span> year)) <span class="sc">+</span></span>
+<span id="cb6-17"><a href="#cb6-17"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> summer_tmin_f, <span class="at">xend =</span> summer_tmax_f, <span class="at">y =</span> year, <span class="at">yend =</span> year), <span class="at">color =</span> <span class="st">"orangered4"</span>) <span class="sc">+</span></span>
+<span id="cb6-18"><a href="#cb6-18"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">"lightblue"</span>, <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb6-19"><a href="#cb6-19"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb6-20"><a href="#cb6-20"></a>  <span class="fu">theme</span>(</span>
+<span id="cb6-21"><a href="#cb6-21"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-22"><a href="#cb6-22"></a>    <span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-23"><a href="#cb6-23"></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb6-24"><a href="#cb6-24"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>station) <span class="sc">+</span></span>
+<span id="cb6-25"><a href="#cb6-25"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1890</span>, <span class="dv">2024</span>, <span class="at">by =</span> <span class="dv">40</span>)) <span class="sc">+</span></span>
+<span id="cb6-26"><a href="#cb6-26"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">str_wrap</span>(<span class="st">"Average Summer Temperature Values and Ranges from 1890 to 2024 at Five UK Meteorological Stations"</span>, <span class="dv">70</span>),</span>
+<span id="cb6-27"><a href="#cb6-27"></a>       <span class="at">x =</span> <span class="st">"temperature range (F)"</span>, <span class="at">y =</span> <span class="st">""</span>, <span class="at">caption =</span> <span class="st">"Cate Stacy, 10/27/25, TidyTuesday"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="hw05-tt_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="hw07-tt_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>This line graph confirms the theory that the crane population has increased over the years, but it reveals that the increase has not been steady. There are several years where the crane population dropped dramatically.</p>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>cranes_new <span class="sc">%&gt;%</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(date) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(observations)) <span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">group_by</span>(month) <span class="sc">%&gt;%</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">summarize</span>(<span class="at">mean_observartions =</span> <span class="fu">mean</span>(observations)) <span class="sc">%&gt;%</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> month, <span class="at">y =</span> mean_observartions, <span class="at">fill =</span> month)) <span class="sc">+</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"observations"</span>, <span class="at">title =</span> <span class="st">"Monthly Crane Observations at Lake Hornborgasjön, Sweden from 1994 to 2024"</span>,</span>
-<span id="cb5-9"><a href="#cb5-9"></a>       <span class="at">caption =</span> <span class="st">"Cate Stacy, 10/8/25, Data From Hornborgasjön Field Station"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="hw05-tt_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>For the most part, this bar chart is in agreement with the trends observed in the heatmap, but there are some slight discrepancies. Based off the heat map, I would have guessed that April had the highest mean number of observations, followed by October, then September. The bar chart, however, displays September as having the highest mean. This could have to do with the plot grouping all of the years together.</p>
+<p>Similar to the rainfall plot, temperature ranges throughout time follow a similar pattern across each station. However, some stations, such as Oxford, have larger ranges than others, such as Stornoway. Additionally, Oxford appears to be the warmest, on average, while Stornoway appears to be the coolest.</p>
 
 
 <!-- -->
@@ -1071,99 +1114,147 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation column-body"><div class="nav-page nav-page-previous">
-      <a href="../../src/tt/hw06-tt.html" class="pagination-link" aria-label="Homework 06">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Homework 06</span></span>
+      <a href="../../src/pv/pv-01.html" class="pagination-link" aria-label="Professional Viz Sample">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Professional Viz Sample</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../src/tt/hw04-tt.html" class="pagination-link" aria-label="Homework 04">
-        <span class="nav-page-text"><span class="chapter-title">Homework 04</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../src/tt/hw06-tt.html" class="pagination-link" aria-label="Homework 06">
+        <span class="nav-page-text"><span class="chapter-title">Homework 06</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">---</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="an">title:</span><span class="co"> "Homework 05"</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="co">---</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a></span>
-<span id="cb6-5"><a href="#cb6-5"></a></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="fu">## TidyTuesday Section (optional)</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a></span>
-<span id="cb6-8"><a href="#cb6-8"></a>::: {.callout-important title="Instructions"}</span>
-<span id="cb6-9"><a href="#cb6-9"></a></span>
-<span id="cb6-10"><a href="#cb6-10"></a>You can count work on this week's TidyTuesday toward the exceptional work required for an A in the Homework component.</span>
-<span id="cb6-11"><a href="#cb6-11"></a></span>
-<span id="cb6-12"><a href="#cb6-12"></a>:::</span>
-<span id="cb6-13"><a href="#cb6-13"></a></span>
-<span id="cb6-14"><a href="#cb6-14"></a></span>
-<span id="cb6-15"><a href="#cb6-15"></a>Explore the week's <span class="co">[</span><span class="ot">TidyTuesday</span><span class="co">](https://github.com/rfordatascience/tidytuesday)</span> challenge. Develop a research question, then answer it through a short data story with <span class="co">[</span><span class="ot">effective visualization(s)</span><span class="co">]({{&lt; var effective-viz-url &gt;}})</span>.  Provide sufficient background for readers to grasp your narrative.</span>
-<span id="cb6-16"><a href="#cb6-16"></a></span>
-<span id="cb6-17"><a href="#cb6-17"></a><span class="in">```{r, message = FALSE}</span></span>
-<span id="cb6-18"><a href="#cb6-18"></a><span class="in"># Load packages</span></span>
-<span id="cb6-19"><a href="#cb6-19"></a><span class="in">library(tidyverse)</span></span>
-<span id="cb6-20"><a href="#cb6-20"></a><span class="in">library(lubridate)</span></span>
-<span id="cb6-21"><a href="#cb6-21"></a><span class="in">```</span></span>
-<span id="cb6-22"><a href="#cb6-22"></a></span>
-<span id="cb6-23"><a href="#cb6-23"></a><span class="in">```{r, message=FALSE}</span></span>
-<span id="cb6-24"><a href="#cb6-24"></a><span class="in"># Load data</span></span>
-<span id="cb6-25"><a href="#cb6-25"></a><span class="in">tuesdata &lt;- tidytuesdayR::tt_load('2025-09-30')</span></span>
-<span id="cb6-26"><a href="#cb6-26"></a></span>
-<span id="cb6-27"><a href="#cb6-27"></a><span class="in">cranes &lt;- tuesdata$cranes</span></span>
-<span id="cb6-28"><a href="#cb6-28"></a><span class="in">```</span></span>
-<span id="cb6-29"><a href="#cb6-29"></a></span>
-<span id="cb6-30"><a href="#cb6-30"></a><span class="fu">### About the Data</span></span>
-<span id="cb6-31"><a href="#cb6-31"></a>The Tidy Tuesday data for the week of 9/30/25 comes from the Hornborgasjön field station in Sweden which has been counting the number of cranes stopping at Lake Hornborgasjön during their yearly migration for over 30 years. The variables in the dataset include the date, number of observations, comment, and weather disruption.</span>
-<span id="cb6-32"><a href="#cb6-32"></a></span>
-<span id="cb6-33"><a href="#cb6-33"></a><span class="fu">### Driving Question: How do crane observations at Lake Hornborgasjön, Sweden vary temporally?</span></span>
-<span id="cb6-34"><a href="#cb6-34"></a></span>
-<span id="cb6-35"><a href="#cb6-35"></a>I was interested in exploring how the number of crane observations has changed over the past 30 years as well as the months in which cranes are most common.</span>
-<span id="cb6-36"><a href="#cb6-36"></a></span>
-<span id="cb6-39"><a href="#cb6-39"></a><span class="in">```{r}</span></span>
-<span id="cb6-40"><a href="#cb6-40"></a>cranes_new <span class="ot">&lt;-</span> cranes <span class="sc">%&gt;%</span></span>
-<span id="cb6-41"><a href="#cb6-41"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(date) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(observations)) <span class="sc">%&gt;%</span></span>
-<span id="cb6-42"><a href="#cb6-42"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb6-43"><a href="#cb6-43"></a>    <span class="at">date_obj =</span> <span class="fu">ymd</span>(date),</span>
-<span id="cb6-44"><a href="#cb6-44"></a>    <span class="at">year =</span> <span class="fu">year</span>(date_obj),</span>
-<span id="cb6-45"><a href="#cb6-45"></a>    <span class="at">month =</span> <span class="fu">month</span>(date_obj, <span class="at">label =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb6-46"><a href="#cb6-46"></a>  ) </span>
-<span id="cb6-47"><a href="#cb6-47"></a></span>
-<span id="cb6-48"><a href="#cb6-48"></a><span class="fu">ggplot</span>(cranes_new, <span class="fu">aes</span>(<span class="at">x =</span> month, <span class="at">y =</span> year, <span class="at">fill =</span> observations)) <span class="sc">+</span></span>
-<span id="cb6-49"><a href="#cb6-49"></a>     <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
-<span id="cb6-50"><a href="#cb6-50"></a>     <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"royalblue4"</span>) <span class="sc">+</span> <span class="co"># Customize color scale</span></span>
-<span id="cb6-51"><a href="#cb6-51"></a>     <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Monthly Crane Observations at Lake Hornborgasjön, Sweden from 1994 to 2024"</span>, </span>
-<span id="cb6-52"><a href="#cb6-52"></a>          <span class="at">y =</span> <span class="st">""</span>, <span class="at">x =</span> <span class="st">""</span>, <span class="at">caption =</span> <span class="st">"Cate Stacy, 10/8/25, Data From Hornborgasjön Field Station"</span>) <span class="sc">+</span></span>
-<span id="cb6-53"><a href="#cb6-53"></a>     <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb6-54"><a href="#cb6-54"></a>      <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1994</span>, <span class="at">to =</span> <span class="dv">2024</span>, <span class="at">by =</span> <span class="dv">1</span>))</span>
-<span id="cb6-55"><a href="#cb6-55"></a><span class="in">```</span></span>
-<span id="cb6-56"><a href="#cb6-56"></a></span>
-<span id="cb6-57"><a href="#cb6-57"></a>This heatmap demonstrates that the greatest number of cranes visit Lake Hornborgasjön in the months of April, September, and October. It also suggests that the overall crane population at Lake Hornborgasjön has increased over the course of the study period. We can confirm these trends by isolating month and year in two additional plots. </span>
-<span id="cb6-58"><a href="#cb6-58"></a></span>
-<span id="cb6-61"><a href="#cb6-61"></a><span class="in">```{r}</span></span>
-<span id="cb6-62"><a href="#cb6-62"></a>cranes_new <span class="sc">%&gt;%</span></span>
-<span id="cb6-63"><a href="#cb6-63"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(year) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(observations)) <span class="sc">%&gt;%</span></span>
-<span id="cb6-64"><a href="#cb6-64"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
-<span id="cb6-65"><a href="#cb6-65"></a>  <span class="fu">summarize</span>(<span class="at">mean_observartions =</span> <span class="fu">mean</span>(observations)) <span class="sc">%&gt;%</span></span>
-<span id="cb6-66"><a href="#cb6-66"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> mean_observartions)) <span class="sc">+</span></span>
-<span id="cb6-67"><a href="#cb6-67"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb6-68"><a href="#cb6-68"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb6-69"><a href="#cb6-69"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"observations"</span>, <span class="at">title =</span> <span class="st">"Crane Observations at Lake Hornborgasjön, Sweden from 1994 to 2024"</span>,</span>
-<span id="cb6-70"><a href="#cb6-70"></a>       <span class="at">caption =</span> <span class="st">"Cate Stacy, 10/8/25, Data From Hornborgasjön Field Station"</span>)</span>
-<span id="cb6-71"><a href="#cb6-71"></a><span class="in">```</span></span>
-<span id="cb6-72"><a href="#cb6-72"></a></span>
-<span id="cb6-73"><a href="#cb6-73"></a>This line graph confirms the theory that the crane population has increased over the years, but it reveals that the increase has not been steady. There are several years where the crane population dropped dramatically.</span>
-<span id="cb6-74"><a href="#cb6-74"></a></span>
-<span id="cb6-77"><a href="#cb6-77"></a><span class="in">```{r}</span></span>
-<span id="cb6-78"><a href="#cb6-78"></a>cranes_new <span class="sc">%&gt;%</span></span>
-<span id="cb6-79"><a href="#cb6-79"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(date) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(observations)) <span class="sc">%&gt;%</span></span>
-<span id="cb6-80"><a href="#cb6-80"></a>  <span class="fu">group_by</span>(month) <span class="sc">%&gt;%</span></span>
-<span id="cb6-81"><a href="#cb6-81"></a>  <span class="fu">summarize</span>(<span class="at">mean_observartions =</span> <span class="fu">mean</span>(observations)) <span class="sc">%&gt;%</span></span>
-<span id="cb6-82"><a href="#cb6-82"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> month, <span class="at">y =</span> mean_observartions, <span class="at">fill =</span> month)) <span class="sc">+</span></span>
-<span id="cb6-83"><a href="#cb6-83"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb6-84"><a href="#cb6-84"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb6-85"><a href="#cb6-85"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"observations"</span>, <span class="at">title =</span> <span class="st">"Monthly Crane Observations at Lake Hornborgasjön, Sweden from 1994 to 2024"</span>,</span>
-<span id="cb6-86"><a href="#cb6-86"></a>       <span class="at">caption =</span> <span class="st">"Cate Stacy, 10/8/25, Data From Hornborgasjön Field Station"</span>)</span>
-<span id="cb6-87"><a href="#cb6-87"></a><span class="in">```</span></span>
-<span id="cb6-88"><a href="#cb6-88"></a></span>
-<span id="cb6-89"><a href="#cb6-89"></a>For the most part, this bar chart is in agreement with the trends observed in the heatmap, but there are some slight discrepancies. Based off the heat map, I would have guessed that April had the highest mean number of observations, followed by October, then September. The bar chart, however, displays September as having the highest mean. This could have to do with the plot grouping all of the years together.</span>
+<div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="an">title:</span><span class="co"> "Homework 07"</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">---</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a></span>
+<span id="cb7-5"><a href="#cb7-5"></a></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="fu">## TidyTuesday Section (optional)</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a></span>
+<span id="cb7-8"><a href="#cb7-8"></a>::: {.callout-important title="Instructions"}</span>
+<span id="cb7-9"><a href="#cb7-9"></a></span>
+<span id="cb7-10"><a href="#cb7-10"></a>You can count work on this week's TidyTuesday toward the exceptional work required for an A in the Homework component.</span>
+<span id="cb7-11"><a href="#cb7-11"></a></span>
+<span id="cb7-12"><a href="#cb7-12"></a>:::</span>
+<span id="cb7-13"><a href="#cb7-13"></a></span>
+<span id="cb7-14"><a href="#cb7-14"></a></span>
+<span id="cb7-15"><a href="#cb7-15"></a>Explore the week's <span class="co">[</span><span class="ot">TidyTuesday</span><span class="co">](https://github.com/rfordatascience/tidytuesday)</span> challenge. Develop a research question, then answer it through a short data story with <span class="co">[</span><span class="ot">effective visualization(s)</span><span class="co">]({{&lt; var effective-viz-url &gt;}})</span>.  Provide sufficient background for readers to grasp your narrative.</span>
+<span id="cb7-16"><a href="#cb7-16"></a></span>
+<span id="cb7-17"><a href="#cb7-17"></a><span class="in">```{r, message = FALSE}</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a><span class="in"># Load packages</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb7-20"><a href="#cb7-20"></a><span class="in">library(readr)</span></span>
+<span id="cb7-21"><a href="#cb7-21"></a><span class="in">library(leaflet)</span></span>
+<span id="cb7-22"><a href="#cb7-22"></a><span class="in">library(ggstream)</span></span>
+<span id="cb7-23"><a href="#cb7-23"></a><span class="in">```</span></span>
+<span id="cb7-24"><a href="#cb7-24"></a></span>
+<span id="cb7-25"><a href="#cb7-25"></a><span class="in">```{r, message=FALSE}</span></span>
+<span id="cb7-26"><a href="#cb7-26"></a><span class="in"># Load data</span></span>
+<span id="cb7-27"><a href="#cb7-27"></a><span class="in">tuesdata &lt;- tidytuesdayR::tt_load('2025-10-21')</span></span>
+<span id="cb7-28"><a href="#cb7-28"></a></span>
+<span id="cb7-29"><a href="#cb7-29"></a><span class="in">historic_station_met &lt;- tuesdata$historic_station_met</span></span>
+<span id="cb7-30"><a href="#cb7-30"></a><span class="in">station_meta &lt;- tuesdata$station_meta</span></span>
+<span id="cb7-31"><a href="#cb7-31"></a><span class="in">```</span></span>
+<span id="cb7-32"><a href="#cb7-32"></a></span>
+<span id="cb7-33"><a href="#cb7-33"></a><span class="fu">### About the Data</span></span>
+<span id="cb7-34"><a href="#cb7-34"></a></span>
+<span id="cb7-35"><a href="#cb7-35"></a>The Tidy Tuesday data for the week of 10/21/25 comes from the UK Met Office, the United Kingdom’s national weather and climate service. There are two datasets, one with historical weather data, including temperature, frost, rainfall, and sun, and one with station information, including the name and year opened. </span>
+<span id="cb7-36"><a href="#cb7-36"></a></span>
+<span id="cb7-37"><a href="#cb7-37"></a><span class="fu">### Driving Question: How have seasonal weather patterns changed over time in the UK?</span></span>
+<span id="cb7-38"><a href="#cb7-38"></a></span>
+<span id="cb7-39"><a href="#cb7-39"></a>For my analysis, I chose to look at spring rainfall total and summer temperature ranges. I started off by joining the datasets and creating a season variable.</span>
+<span id="cb7-40"><a href="#cb7-40"></a></span>
+<span id="cb7-43"><a href="#cb7-43"></a><span class="in">```{r}</span></span>
+<span id="cb7-44"><a href="#cb7-44"></a>station_full <span class="ot">&lt;-</span> historic_station_met <span class="sc">%&gt;%</span></span>
+<span id="cb7-45"><a href="#cb7-45"></a>  <span class="fu">left_join</span>(station_meta, <span class="at">by =</span> <span class="st">"station"</span>)</span>
+<span id="cb7-46"><a href="#cb7-46"></a></span>
+<span id="cb7-47"><a href="#cb7-47"></a>station_full <span class="ot">&lt;-</span> station_full <span class="sc">%&gt;%</span></span>
+<span id="cb7-48"><a href="#cb7-48"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb7-49"><a href="#cb7-49"></a>    <span class="at">season =</span> <span class="fu">case_when</span>(</span>
+<span id="cb7-50"><a href="#cb7-50"></a>      month <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">~</span> <span class="st">"summer"</span>,</span>
+<span id="cb7-51"><a href="#cb7-51"></a>      month <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>) <span class="sc">~</span> <span class="st">'spring'</span>,</span>
+<span id="cb7-52"><a href="#cb7-52"></a>      month <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>) <span class="sc">~</span> <span class="st">'summer'</span>,</span>
+<span id="cb7-53"><a href="#cb7-53"></a>      month <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>) <span class="sc">~</span> <span class="st">"fall"</span></span>
+<span id="cb7-54"><a href="#cb7-54"></a>    )</span>
+<span id="cb7-55"><a href="#cb7-55"></a>  )</span>
+<span id="cb7-56"><a href="#cb7-56"></a><span class="in">```</span></span>
+<span id="cb7-57"><a href="#cb7-57"></a></span>
+<span id="cb7-58"><a href="#cb7-58"></a>Next, I identified a subset of stations to use in my analysis. I chose the five stations with the longest records and most continuous data. The five selected stations in addition to the other 32 stations can be seen in the map below.</span>
+<span id="cb7-59"><a href="#cb7-59"></a></span>
+<span id="cb7-62"><a href="#cb7-62"></a><span class="in">```{r}</span></span>
+<span id="cb7-63"><a href="#cb7-63"></a>all_stations <span class="ot">&lt;-</span> station_full <span class="sc">%&gt;%</span></span>
+<span id="cb7-64"><a href="#cb7-64"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2000</span>, month <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-65"><a href="#cb7-65"></a>  <span class="fu">filter</span>(<span class="sc">!</span>station <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"armagh"</span>, <span class="st">"durham"</span>, <span class="st">"oxford"</span>, <span class="st">"sheffield"</span>, <span class="st">'stornoway'</span>)) </span>
+<span id="cb7-66"><a href="#cb7-66"></a></span>
+<span id="cb7-67"><a href="#cb7-67"></a>station_sub <span class="ot">&lt;-</span> station_full <span class="sc">%&gt;%</span></span>
+<span id="cb7-68"><a href="#cb7-68"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2024</span>, month <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-69"><a href="#cb7-69"></a>  <span class="fu">filter</span>(station <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"armagh"</span>, <span class="st">"durham"</span>, <span class="st">"oxford"</span>, <span class="st">"sheffield"</span>, <span class="st">'stornoway'</span>)) </span>
+<span id="cb7-70"><a href="#cb7-70"></a></span>
+<span id="cb7-71"><a href="#cb7-71"></a>station_map <span class="ot">&lt;-</span> <span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb7-72"><a href="#cb7-72"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb7-73"><a href="#cb7-73"></a>  <span class="fu">addMarkers</span>(<span class="at">data =</span> station_sub, <span class="at">lng =</span> <span class="sc">~</span>lng, <span class="at">lat =</span> <span class="sc">~</span>lat) <span class="sc">%&gt;%</span></span>
+<span id="cb7-74"><a href="#cb7-74"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">data =</span> all_stations, <span class="at">lng =</span> <span class="sc">~</span>lng, <span class="at">lat =</span> <span class="sc">~</span>lat, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">radius =</span> <span class="dv">1</span>)</span>
+<span id="cb7-75"><a href="#cb7-75"></a></span>
+<span id="cb7-76"><a href="#cb7-76"></a>station_map</span>
+<span id="cb7-77"><a href="#cb7-77"></a><span class="in">```</span></span>
+<span id="cb7-78"><a href="#cb7-78"></a></span>
+<span id="cb7-79"><a href="#cb7-79"></a>I chose to visualize spring rainfall totals for the five stations as a stream plot.</span>
+<span id="cb7-80"><a href="#cb7-80"></a></span>
+<span id="cb7-81"><a href="#cb7-81"></a><span class="in">```{r, message = FALSE}</span></span>
+<span id="cb7-82"><a href="#cb7-82"></a><span class="in">station_spring &lt;- station_full %&gt;%</span></span>
+<span id="cb7-83"><a href="#cb7-83"></a><span class="in">  filter(season == "spring") %&gt;%</span></span>
+<span id="cb7-84"><a href="#cb7-84"></a><span class="in">  group_by(year, station) %&gt;%</span></span>
+<span id="cb7-85"><a href="#cb7-85"></a><span class="in">  summarize(spring_rain = sum(rain)) %&gt;%</span></span>
+<span id="cb7-86"><a href="#cb7-86"></a><span class="in">  filter(station %in% c("armagh", "durham", "oxford", "sheffield", 'stornoway')) %&gt;%</span></span>
+<span id="cb7-87"><a href="#cb7-87"></a><span class="in">  filter(year &gt;= 1890) </span></span>
+<span id="cb7-88"><a href="#cb7-88"></a><span class="in">  </span></span>
+<span id="cb7-89"><a href="#cb7-89"></a><span class="in">ggplot(station_spring, aes(x = year, y = spring_rain, fill = station)) +</span></span>
+<span id="cb7-90"><a href="#cb7-90"></a><span class="in">  geom_stream(type = "ridge") +</span></span>
+<span id="cb7-91"><a href="#cb7-91"></a><span class="in">  scale_y_continuous(breaks = seq(0, 1000, by = 200)) +</span></span>
+<span id="cb7-92"><a href="#cb7-92"></a><span class="in">  scale_x_continuous(breaks = seq(1890, 2024, by = 20)) +</span></span>
+<span id="cb7-93"><a href="#cb7-93"></a><span class="in">  theme_minimal() +</span></span>
+<span id="cb7-94"><a href="#cb7-94"></a><span class="in">  labs(x = "", y = "total spring rainfall (mm)", title = "Spring Rainfall Totals from 1890 to 2024 at Five UK Meteorological Stations", caption = "Cate Stacy, 10/27/25, TidyTuesday")</span></span>
+<span id="cb7-95"><a href="#cb7-95"></a><span class="in">```</span></span>
+<span id="cb7-96"><a href="#cb7-96"></a></span>
+<span id="cb7-97"><a href="#cb7-97"></a>This plot demonstrates that rainfall totals tend to vary from year to year. 1910 and 1984 saw a lot of rain while there was a dip and rainfall totals from 1925 to 1960. Spring rainfall totals appear to be dropping in recent years. These patterns are seen across all of the stations. However, some stations, like Stornoway, generally receive more rain while others, like Durham, tend to receive less rain.</span>
+<span id="cb7-98"><a href="#cb7-98"></a></span>
+<span id="cb7-99"><a href="#cb7-99"></a>Next, I used line segments to visualize summer temperature ranges and average values at each of the five stations from 1890 to 2024.</span>
+<span id="cb7-100"><a href="#cb7-100"></a></span>
+<span id="cb7-101"><a href="#cb7-101"></a><span class="in">```{r, message = FALSE, warning = FALSE}</span></span>
+<span id="cb7-102"><a href="#cb7-102"></a><span class="in">station_summer &lt;- station_full %&gt;%</span></span>
+<span id="cb7-103"><a href="#cb7-103"></a><span class="in">  filter(season == "summer") %&gt;%</span></span>
+<span id="cb7-104"><a href="#cb7-104"></a><span class="in">  group_by(year, station) %&gt;%</span></span>
+<span id="cb7-105"><a href="#cb7-105"></a><span class="in">  summarize(</span></span>
+<span id="cb7-106"><a href="#cb7-106"></a><span class="in">    summer_tmax = mean(tmax),</span></span>
+<span id="cb7-107"><a href="#cb7-107"></a><span class="in">    summer_tmin = mean(tmin),</span></span>
+<span id="cb7-108"><a href="#cb7-108"></a><span class="in">  ) %&gt;%</span></span>
+<span id="cb7-109"><a href="#cb7-109"></a><span class="in">  mutate(</span></span>
+<span id="cb7-110"><a href="#cb7-110"></a><span class="in">    summer_tmax_f = ((summer_tmax * (9/5)) + 32),</span></span>
+<span id="cb7-111"><a href="#cb7-111"></a><span class="in">    summer_tmin_f = ((summer_tmin * (9/5)) + 32),</span></span>
+<span id="cb7-112"><a href="#cb7-112"></a><span class="in">    avg_t = summer_tmin_f + ((summer_tmax_f - summer_tmin_f) / 2)</span></span>
+<span id="cb7-113"><a href="#cb7-113"></a><span class="in">  ) %&gt;%</span></span>
+<span id="cb7-114"><a href="#cb7-114"></a><span class="in">  filter(station %in% c("armagh", "durham", "oxford", "sheffield", 'stornoway')) %&gt;%</span></span>
+<span id="cb7-115"><a href="#cb7-115"></a><span class="in">  filter(year &gt;= 1890) </span></span>
+<span id="cb7-116"><a href="#cb7-116"></a></span>
+<span id="cb7-117"><a href="#cb7-117"></a><span class="in">ggplot(station_summer, aes(x = avg_t, y = year)) +</span></span>
+<span id="cb7-118"><a href="#cb7-118"></a><span class="in">  geom_segment(aes(x = summer_tmin_f, xend = summer_tmax_f, y = year, yend = year), color = "orangered4") +</span></span>
+<span id="cb7-119"><a href="#cb7-119"></a><span class="in">  geom_point(color="lightblue", size = 0.5) +</span></span>
+<span id="cb7-120"><a href="#cb7-120"></a><span class="in">  theme_minimal() +</span></span>
+<span id="cb7-121"><a href="#cb7-121"></a><span class="in">  theme(</span></span>
+<span id="cb7-122"><a href="#cb7-122"></a><span class="in">    panel.grid.major.y = element_blank(),</span></span>
+<span id="cb7-123"><a href="#cb7-123"></a><span class="in">    panel.border = element_blank(),</span></span>
+<span id="cb7-124"><a href="#cb7-124"></a><span class="in">    axis.ticks.y = element_blank()) +</span></span>
+<span id="cb7-125"><a href="#cb7-125"></a><span class="in">  facet_wrap(~station) +</span></span>
+<span id="cb7-126"><a href="#cb7-126"></a><span class="in">  scale_y_continuous(breaks = seq(1890, 2024, by = 40)) +</span></span>
+<span id="cb7-127"><a href="#cb7-127"></a><span class="in">  labs(title = str_wrap("Average Summer Temperature Values and Ranges from 1890 to 2024 at Five UK Meteorological Stations", 70),</span></span>
+<span id="cb7-128"><a href="#cb7-128"></a><span class="in">       x = "temperature range (F)", y = "", caption = "Cate Stacy, 10/27/25, TidyTuesday")</span></span>
+<span id="cb7-129"><a href="#cb7-129"></a><span class="in">```</span></span>
+<span id="cb7-130"><a href="#cb7-130"></a>Similar to the rainfall plot, temperature ranges throughout time follow a similar pattern across each station. However, some stations, such as Oxford, have larger ranges than others, such as Stornoway. Additionally, Oxford appears to be the warmest, on average, while Stornoway appears to be the coolest.</span>
+<span id="cb7-131"><a href="#cb7-131"></a></span>
+<span id="cb7-132"><a href="#cb7-132"></a></span>
+<span id="cb7-133"><a href="#cb7-133"></a></span>
+<span id="cb7-134"><a href="#cb7-134"></a></span>
+<span id="cb7-135"><a href="#cb7-135"></a></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
