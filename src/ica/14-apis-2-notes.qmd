@@ -235,6 +235,7 @@ Let's start at the top of the API documentation page to see how to navigate this
 The following request searches for board games, board game accessories, and board game expansions with the words "mystery" and "curse" in the title:
 
 ```{r httr2_bgg}
+#| eval: FALSE
 req <- request("https://boardgamegeek.com/xmlapi2") |> 
     req_url_path_append("search") |> 
     req_url_query(query = I("mystery+curse"), type = I("boardgame,boardgameaccessory,boardgameexpansion"))
@@ -246,6 +247,7 @@ When we use `req_perform()`, we see from `Content-Type` that the format of the r
 - We can use `resp_body_xml()` to read in the XML as an R object.
 
 ```{r bgg_response}
+#| eval: FALSE
 resp <- req_perform(req)
 resp
 resp <- resp_body_xml(resp)
@@ -257,6 +259,7 @@ The XML output is not packaged in a nice way. (We'd love to have a data frame.) 
 Let's first use the `xml_structure()` function to see how information is organized:
 
 ```{r xml_structure}
+#| eval: FALSE
 xml_structure(resp)
 ```
 
@@ -271,6 +274,7 @@ The key navigation and extraction functions in `xml2` are:
     - `<node_name attribute_name1="attribute_value1" attribute_name2="attribute_value2">`
 
 ```{r xml_nav_extract}
+#| eval: FALSE
 # Get the item nodes in 2 different ways
 resp |> xml_find_all("item")
 resp |> xml_children()
@@ -291,6 +295,7 @@ resp |> xml_find_all("item/name") |> xml_attr("type")
 1. Get the board game name (e.g., "Murder Mystery..." and  "Robinson Crusoe")
 
 ```{r}
+#| eval: FALSE
 resp |> xml_find_all("item/name") |> xml_attr("value")
 ```
 
@@ -298,6 +303,7 @@ resp |> xml_find_all("item/name") |> xml_attr("value")
 2. Get the board game ID number (e.g., 63495, 40175)
 
 ```{r}
+#| eval: FALSE
 resp |> xml_find_all("item") %>% xml_attr("id")
 ```
 
