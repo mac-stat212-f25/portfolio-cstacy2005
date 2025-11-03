@@ -1,4 +1,6 @@
 # Mind Maps
+![1103-effective-viz.png](1103-effective-viz.png)
+
 ![1029-databases-and-sql.png](1029-databases-and-sql.png)
 
 ![1027-web-scraping.png](1027-web-scraping.png)
