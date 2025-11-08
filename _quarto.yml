@@ -66,6 +66,7 @@ book:
 
     - part: "TidyTuesday"
       chapters:
+      - src/tt/hw08-tt.qmd
       - src/tt/hw07-tt.qmd
       - src/tt/hw06-tt.qmd
       - src/tt/hw05-tt.qmd

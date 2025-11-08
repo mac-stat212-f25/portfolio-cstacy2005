@@ -1,5 +1,214 @@
 ---
-title: "Professional Viz Sample"
+title: "Professional Visualization"
 ---
 
-Add content here
+### About the Data
+
+This data comes from wehoop, an R package for working with women's college and professional basketball data.
+The data is scraped from ESPN, providing play-by-plays, box scores, standings, and results.
+This particular dataset includes information about all 13 WNBA teams and their performances throughout the 2025 season.
+
+This professional visualization shows the accumulation of wins for each team over the course of the regular season and playoffs. It also provides insight into the factors that determine teams' records through displaying key statistics for each team.
+
+```{r}
+library(wehoop)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(ggrepel)
+library(gridExtra)
+library(extrafont)
+
+wnba_team_box <- wehoop::load_wnba_team_box()
+```
+
+### Determining Team Records
+
+First, I created variables for the cumulative wins, losses, and record for each team. I also created datasets with the team names and colors for visualization purposes.
+
+```{r}
+wnba_team_records <- wnba_team_box %>%
+  # remove All Star teams
+  filter(team_name != "TEAM CLARK", team_name != "TEAM COLLIER") %>%
+  mutate(
+    win = ifelse(team_winner == TRUE, 1, 0),
+    loss = ifelse(team_winner == FALSE, 1, 0)
+  ) %>%
+  group_by(team_name) %>%
+  arrange(team_name, game_date) %>% 
+  mutate(
+    cumulative_wins = cumsum(win),
+    cumulative_losses = cumsum(loss),
+    record = paste0(cumulative_wins, "-", cumulative_losses),
+    win_pct = cumulative_wins/(cumulative_wins + cumulative_losses)
+  ) %>%
+  ungroup() %>%
+  mutate(team_color = paste0("#", team_color))  
+
+team_colors <- wnba_team_box %>%
+  distinct(team_name, team_color) %>%
+  mutate(team_color = paste0("#", team_color)) %>%
+  deframe()
+
+df_labels <- wnba_team_records %>%
+  group_by(team_name) %>%
+  filter(game_date == max(game_date)) %>%
+  ungroup() 
+```
+
+The primary plot in this visualization is a line graph displaying the cumulative wins for each team over the course of the season. A grey dashed line was added to mark the end of the regular season and beginning of the playoffs. The lines for each team end at varying points, depending on if they made the playoffs and when they were eliminated.
+
+```{r}
+p_line <- ggplot(wnba_team_records, aes(x = game_date, y = cumulative_wins, 
+  group = team_name, color = team_color)) +
+  geom_line(size = 1.2) +
+  scale_color_identity() + 
+  geom_text_repel(
+    data = df_labels,
+    aes(label = team_name),
+    nudge_x = 3, 
+    hjust = 0,
+    direction = "y",
+    segment.color = NA, 
+    size = 3,
+    fontface = "bold"
+  ) +
+  theme_classic() +
+  expand_limits(x = max(wnba_team_records$game_date) + 12) +
+  theme(legend.position = "none") +
+  geom_vline(xintercept = as.Date("2025-09-11"), 
+    linetype = "dashed", color = "darkgrey") +
+  labs(x = "", y = "cumulative wins") +
+  annotate("text", x = as.Date("2025-09-9"), y = 38, 
+    label = str_wrap("End of Regular Season", 15), color = "grey40", 
+    size = 2.5, hjust = 1)
+```
+
+### Calculating Game Margins
+
+As a way of comparing how each team typically matched up against their opponents, I calculated the game margins for various stats, including field goals, free throws, three pointers, turnovers, and fouls. For example, if a team made two more field goals than their opponent in a game, that would be a margin of +2. If they had one less turnover than their opponent, that would be -1. I then took the averages of these margins across all games. 
+
+```{r}
+margins <- wnba_team_records %>%
+  group_by(game_id) %>%
+  mutate(
+    field_margin = field_goals_made - rev(field_goals_made),
+    free_margin = free_throws_made - rev(free_throws_made),
+    three_margin = three_point_field_goals_made - 
+      rev(three_point_field_goals_made),
+    turnover_margin = turnovers - rev(turnovers),
+    foul_margin = fouls - rev(fouls)
+  ) %>%
+  ungroup() %>%
+  select(game_id, team_name, field_margin, free_margin, three_margin, 
+    turnover_margin, foul_margin) %>%
+  arrange(game_id) 
+
+margin_avgs <- margins %>%
+  group_by(team_name) %>%
+  summarize(
+    avg_field_margin = mean(field_margin),
+    avg_free_margin = mean(free_margin),
+    avg_three_margin = mean(three_margin),
+    avg_turnover_margin = mean(turnover_margin),
+    avg_foul_margin = mean(foul_margin)
+  ) %>%
+  pivot_longer(
+    cols = c(avg_field_margin, avg_free_margin, avg_three_margin, 
+      avg_turnover_margin, avg_foul_margin),
+    names_to = "margin_type",
+    values_to = "margin_value"
+  ) %>%
+  mutate(
+    margin_type = fct_relevel(margin_type, "avg_field_margin", "avg_free_margin",
+      "avg_three_margin", "avg_turnover_margin", "avg_foul_margin")
+  )
+```
+
+I displayed the game margin averages for each team using faceted bar plots.
+
+```{r}
+margins_first_three <- margin_avgs %>%
+  filter(team_name == "Aces" | team_name == "Dream" | team_name == "Fever")
+
+p_bar_3 <- ggplot(margins_first_three, aes(x = margin_type, 
+  y = margin_value, fill = margin_type)) +
+  geom_col() +
+  geom_hline(yintercept = 0) +
+  facet_wrap(~team_name, nrow = 3) +
+  theme_classic() +
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), 
+    legend.position = "none") +
+  labs(x = "", y = "") +
+  scale_fill_manual(
+    values = c("avg_field_margin" = "#3c286e", "avg_free_margin" = "#5091cd", 
+      "avg_three_margin" = "#e31837", "avg_turnover_margin" = "#2c5235", 
+      "avg_foul_margin" = "#f05023"),
+    labels = c("avg_field_margin" = "Field Goals", 
+      "avg_free_margin" = "Free Throws", "avg_three_margin" = "Three Pointers",
+      "avg_turnover_margin" = "Turnovers", "avg_foul_margin" = "Fouls")
+  )
+
+margins_last_ten <- margin_avgs %>%
+  filter(team_name != "Aces" & team_name != "Dream" & team_name != "Fever")
+
+p_bar_10 <- ggplot(margins_last_ten, aes(x = margin_type, 
+  y = margin_value, fill = margin_type)) +
+  geom_col() +
+  geom_hline(yintercept = 0) +
+  facet_wrap(~team_name, nrow = 2) +
+  theme_classic() +
+  theme(
+    axis.text.x = element_blank(), 
+    axis.ticks.x = element_blank(), 
+    legend.title = element_text(size = 10),
+    legend.text = element_text(size = 8),   
+    legend.key.size = unit(0.5, "cm")  ) +
+  labs(x = "", y = "", fill = "Average Game Margins") +
+  scale_fill_manual(
+    values = c("avg_field_margin" = "#3c286e", "avg_free_margin" = "#5091cd", 
+      "avg_three_margin" = "#e31837", "avg_turnover_margin" = "#2c5235", 
+      "avg_foul_margin" = "#f05023"),
+    labels = c("avg_field_margin" = "Field Goals", "avg_free_margin" = "Free Throws",
+      "avg_three_margin" = "Three Pointers", "avg_turnover_margin" = "Turnovers", 
+      "avg_foul_margin" = "Fouls")
+  )
+```
+
+### Visualization
+
+```{r, results='hide', fig.keep='none'}
+top_half <- grid.arrange(
+  p_line, 
+  p_bar_3, 
+  ncol = 2, 
+  widths = c(3.93,1)
+)
+```
+
+```{r}
+grid.arrange(
+  top_half, 
+  p_bar_10, 
+  nrow = 2, 
+  heights = c(1.6,1), 
+  top = grid::textGrob(
+    "2025 WNBA Season: Team Records and Typical Performances Against Opponents", 
+    gp = grid::gpar(
+      fontsize = 10, 
+      fontfamily = "Arial Black"
+      )
+  ), 
+  bottom = grid::textGrob(
+    "Cate Stacy | 11/8/25 | wehoop", 
+    gp = grid::gpar(
+      fontsize = 7), 
+    x = 1, 
+    hjust = 1
+  )
+)
+```
+
+The line graph shows that the Minnesota Lynx had the best record throughout the regular season as they were consistently gapping the rest of the league in wins. Despite their winning record, the Lynx were eliminated in the semi-finals of the playoffs. The Las Vegas Aces struggled in the first half of the season but then went on a massive winning streak which took them to the championships. A few teams, the Connecticut Sun, Chicago Sky, and Dallas Wings, were consistently at the bottom of the standings and did not qualify for the playoffs.
+
+The bar plots show that the best teams in the league, such as the Lynx, Aces, Dream, and Mercury generally have positive scoring margins and lower or negative turnover and foul margins. The worst teams in the league, such as the Sun, Sky, and Wings display the opposite trends. This suggests that the abilities of a team to outscore and play cleaner basketball than their opponents are strong determinants of their success in the WNBA.

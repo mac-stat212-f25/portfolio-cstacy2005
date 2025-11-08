@@ -1,0 +1,95 @@
+---
+title: "Homework 08"
+---
+
+
+## TidyTuesday Section (optional)
+
+::: {.callout-important title="Instructions"}
+
+You can count work on this week's TidyTuesday toward the exceptional work required for an A in the Homework component.
+
+:::
+
+
+Explore the week's [TidyTuesday](https://github.com/rfordatascience/tidytuesday) challenge. Develop a research question, then answer it through a short data story with [effective visualization(s)]({{< var effective-viz-url >}}).  Provide sufficient background for readers to grasp your narrative.
+
+```{r, message = FALSE}
+# Load packages
+library(tidyverse)
+```
+
+```{r, message=FALSE}
+# Load data
+tuesdata <- tidytuesdayR::tt_load('2025-10-28')
+
+prizes <- tuesdata$prizes
+```
+
+### About the Data
+
+The Tidy Tuesday data for the week of 10/28/25 is about Selected British Literary Prizes and comes from the Post45 Data Collective. The dataset spans 1990 to 2022 and includes information about the prizes, like name, institution, and genre as well as the authors' identities, including gender, sexuality, ethnicity, and education.
+
+### Driving Question: How has the representation of different ethnicities, genders, and education levels in awardees changed over time by prize institution?
+
+For all of my visualizations, I chose to group the year the prize was awarded into four intervals, each spanning eight years. First, I was interested in looking at the ethnic representation.
+
+```{r}
+prizes <- prizes %>%
+  filter(!is.na(prize_year)) %>%
+  mutate(
+    year_group = case_when(
+      prize_year >= 1991 & prize_year <= 1998 ~ "1991-1998",
+      prize_year >= 1999 & prize_year <= 2006 ~ "1999-2006",
+      prize_year >= 2007 & prize_year <= 2014 ~ "2007-2014",
+      prize_year >= 2015 & prize_year <= 2022 ~ "2015-2022"
+    )
+  )
+
+ggplot(prizes, aes(y = prize_institution, fill = ethnicity_macro)) + 
+  geom_bar(position = "fill") + 
+  theme_classic() + 
+  facet_wrap(~ year_group, nrow = 1) +
+  labs(x = "", y = "", fill = "ethnicity", title = str_wrap("Ethnicities of British Literary Prize Awardees Over Time by Prize Institution", 60), caption = "Cate Stacy, 11/05/25, TidyTuesday") +
+  scale_y_discrete(labels = function(x) str_wrap(x, width = 20)) +
+  scale_x_continuous(
+    labels = c("0", ".25", ".5", ".75", "1")
+  )
+```
+
+This plot shows increasing ethnic diversity in prize awardees across all institutions throughout time. In general, the proportion of awardees who identify as White British, the majority, has decreased. The Booker Foundation has the most diversity and the British Science Fiction Association has the least.
+
+Next, I looked at the gender breakdown of prize awardees.
+
+```{r}
+ggplot(prizes, aes(y = prize_institution, fill = gender)) + 
+  geom_bar(position = "fill") + 
+  theme_classic() + 
+  facet_wrap(~ year_group, nrow = 1) +
+  labs(x = "", y = "", fill = "gender", title = str_wrap("Gender Identities of British Literary Prize Awardees Over Time by Prize Institution", 60), caption = "Cate Stacy, 11/05/25, TidyTuesday") +
+  scale_y_discrete(labels = function(x) str_wrap(x, width = 20)) +
+  scale_x_continuous(
+    labels = c("0", ".25", ".5", ".75", "1")
+  ) +
+  scale_fill_manual(values = c("man" = "dodgerblue", "non-binary" = "purple3", "transman" = "forestgreen", woman = "lightpink2"))
+```
+This plot shows a general trend of increasing female representation over time. Interestingly, there is one institution, the Crime Writers' Association, that had roughly equal representation in 1991-1998 and displays a decreasing trend in female representation over time. 2015-2022 also saw greater representation from trans and non-binary communities, with the University of Edinburgh having the greatest representation of non-binary people.
+
+Finally, I looked at the education breakdown of awardees.
+
+```{r}
+prizes %>%
+  mutate(highest_degree = fct_relevel(highest_degree, "Doctorate", "Juris Doctor", "MD", "Masters", "Postgraduate", "Bachelors", 
+    "Certificate of Education", "Diploma", "none", "unknown")) %>%
+  ggplot(aes(y = prize_institution, fill = highest_degree)) + 
+  geom_bar(position = "fill") + 
+  theme_classic() + 
+  facet_wrap(~ year_group, nrow = 1) +
+  labs(x = "", y = "", fill = "highest degree", title = str_wrap("Highest Degrees Held by British Literary Prize Awardees Over Time by Prize Institution", 60), caption = "Cate Stacy, 11/05/25, TidyTuesday") +
+  scale_y_discrete(labels = function(x) str_wrap(x, width = 20)) +
+  scale_x_continuous(
+    labels = c("0", ".25", ".5", ".75", "1")
+  ) 
+```
+Most institutions, including Costa, TS Eliot Foundation, the Crime Writers' Association, Samuel Johnson Prize for Non-Fiction, Poetry Society, and Booker Foundation saw a decrease in the proportion of awardees who have a bachelor's degree and increase in the proportion of awardees who hold higher-order degrees. Others, like the Women's Prize Trust and British Science Fiction Association experienced little change or a slight increase in the proportion of awardees with bachelor degrees. Overall, there is little to no representation of people without any post-secondary education.
+
