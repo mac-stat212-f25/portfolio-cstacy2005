@@ -77,6 +77,7 @@ book:
 
     - part: "In-Class Activities"
       chapters:
+      - src/ica/18-interactive-viz-notes.qmd
       - src/ica/16-databases-notes.qmd
       - src/ica/15-scraping-notes.qmd
       - src/ica/14-apis-2-notes.qmd
