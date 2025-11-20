@@ -93,10 +93,9 @@ book:
       - src/ica/cleaning.qmd
 
   appendices:
-  - src/appx/appx-sample1.qmd
-  - src/appx/appx-sample2.qmd
   - mm/mm.md
   - exams/exams.md
+  - src/appx/data-explorer.qmd
 
 
 
