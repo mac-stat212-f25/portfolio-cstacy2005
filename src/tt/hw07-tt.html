@@ -439,8 +439,8 @@ Instructions
 <span id="cb4-13"><a href="#cb4-13"></a></span>
 <span id="cb4-14"><a href="#cb4-14"></a>station_map</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-89721fd23e305ad7e8a5" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-89721fd23e305ad7e8a5">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[54.352,54.768,51.761,53.381,58.214],[-6.649,-1.585,-1.262,-1.49,-6.318],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[52.139,55.181,53.813,57.011,50.218,52.245,51.488,51.089,52.358,56.451,50.759,55.312,51.479,50.779,60.139,56.377,52.483,51.346,57.593,54.67,55.846,53.356,51.911,52.794,50.898,52.836,56.5,53.252,53.175,54.481,58.454,51.006],[-4.57,-6.153,-1.772,-3.396,-5.327,0.102,-3.187,-4.147,-3.802,-5.439,0.285,-3.205,-0.452,-1.835,-1.183,-2.861,1.727,1.337,-3.821,-2.786,-4.43,-2.279,-2.584,-2.663,-1.408,-1.25,-6.88,-4.535,-0.522,-0.624,-3.088,-2.641],1,null,null,{"interactive":true,"className":"","stroke":true,"color":"red","weight":5,"opacity":0.5,"fill":true,"fillColor":"red","fillOpacity":0.2},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[50.218,60.139],"lng":[-6.88,1.727]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-00b96ba8b3b2ea30227e" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-00b96ba8b3b2ea30227e">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[54.352,54.768,51.761,53.381,58.214],[-6.649,-1.585,-1.262,-1.49,-6.318],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[52.139,55.181,53.813,57.011,50.218,52.245,51.488,51.089,52.358,56.451,50.759,55.312,51.479,50.779,60.139,56.377,52.483,51.346,57.593,54.67,55.846,53.356,51.911,52.794,50.898,52.836,56.5,53.252,53.175,54.481,58.454,51.006],[-4.57,-6.153,-1.772,-3.396,-5.327,0.102,-3.187,-4.147,-3.802,-5.439,0.285,-3.205,-0.452,-1.835,-1.183,-2.861,1.727,1.337,-3.821,-2.786,-4.43,-2.279,-2.584,-2.663,-1.408,-1.25,-6.88,-4.535,-0.522,-0.624,-3.088,-2.641],1,null,null,{"interactive":true,"className":"","stroke":true,"color":"red","weight":5,"opacity":0.5,"fill":true,"fillColor":"red","fillOpacity":0.2},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[50.218,60.139],"lng":[-6.88,1.727]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>I chose to visualize spring rainfall totals for the five stations as a stream plot.</p>
@@ -483,18 +483,19 @@ Instructions
 <span id="cb6-13"><a href="#cb6-13"></a>  <span class="fu">filter</span>(station <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"armagh"</span>, <span class="st">"durham"</span>, <span class="st">"oxford"</span>, <span class="st">"sheffield"</span>, <span class="st">'stornoway'</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb6-14"><a href="#cb6-14"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1890</span>) </span>
 <span id="cb6-15"><a href="#cb6-15"></a></span>
-<span id="cb6-16"><a href="#cb6-16"></a><span class="fu">ggplot</span>(station_summer, <span class="fu">aes</span>(<span class="at">x =</span> avg_t, <span class="at">y =</span> year)) <span class="sc">+</span></span>
-<span id="cb6-17"><a href="#cb6-17"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> summer_tmin_f, <span class="at">xend =</span> summer_tmax_f, <span class="at">y =</span> year, <span class="at">yend =</span> year), <span class="at">color =</span> <span class="st">"orangered4"</span>) <span class="sc">+</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="fu">ggplot</span>(station_summer, <span class="fu">aes</span>(<span class="at">y =</span> avg_t, <span class="at">x =</span> year)) <span class="sc">+</span></span>
+<span id="cb6-17"><a href="#cb6-17"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">y =</span> summer_tmin_f, <span class="at">yend =</span> summer_tmax_f, <span class="at">x =</span> year, <span class="at">xend =</span> year), <span class="at">color =</span> <span class="st">"darksalmon"</span>, <span class="at">linewidth =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
 <span id="cb6-18"><a href="#cb6-18"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">"lightblue"</span>, <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb6-19"><a href="#cb6-19"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb6-20"><a href="#cb6-20"></a>  <span class="fu">theme</span>(</span>
-<span id="cb6-21"><a href="#cb6-21"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb6-22"><a href="#cb6-22"></a>    <span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb6-23"><a href="#cb6-23"></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
-<span id="cb6-24"><a href="#cb6-24"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>station) <span class="sc">+</span></span>
-<span id="cb6-25"><a href="#cb6-25"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1890</span>, <span class="dv">2024</span>, <span class="at">by =</span> <span class="dv">40</span>)) <span class="sc">+</span></span>
-<span id="cb6-26"><a href="#cb6-26"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">str_wrap</span>(<span class="st">"Average Summer Temperature Values and Ranges from 1890 to 2024 at Five UK Meteorological Stations"</span>, <span class="dv">70</span>),</span>
-<span id="cb6-27"><a href="#cb6-27"></a>       <span class="at">x =</span> <span class="st">"temperature range (F)"</span>, <span class="at">y =</span> <span class="st">""</span>, <span class="at">caption =</span> <span class="st">"Cate Stacy, 10/27/25, TidyTuesday"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-19"><a href="#cb6-19"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb6-20"><a href="#cb6-20"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb6-21"><a href="#cb6-21"></a>  <span class="fu">theme</span>(</span>
+<span id="cb6-22"><a href="#cb6-22"></a>    <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-23"><a href="#cb6-23"></a>    <span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-24"><a href="#cb6-24"></a>    <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb6-25"><a href="#cb6-25"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>station) <span class="sc">+</span></span>
+<span id="cb6-26"><a href="#cb6-26"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1890</span>, <span class="dv">2024</span>, <span class="at">by =</span> <span class="dv">40</span>)) <span class="sc">+</span></span>
+<span id="cb6-27"><a href="#cb6-27"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">str_wrap</span>(<span class="st">"Average Summer Temperature Values and Ranges from 1890 to 2024 at Five UK Meteorological Stations"</span>, <span class="dv">70</span>),</span>
+<span id="cb6-28"><a href="#cb6-28"></a>       <span class="at">y =</span> <span class="st">"temperature range (F)"</span>, <span class="at">x =</span> <span class="st">""</span>, <span class="at">caption =</span> <span class="st">"Cate Stacy, 10/27/25, TidyTuesday"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="hw07-tt_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
@@ -1246,25 +1247,26 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb7-114"><a href="#cb7-114"></a><span class="in">  filter(station %in% c("armagh", "durham", "oxford", "sheffield", 'stornoway')) %&gt;%</span></span>
 <span id="cb7-115"><a href="#cb7-115"></a><span class="in">  filter(year &gt;= 1890) </span></span>
 <span id="cb7-116"><a href="#cb7-116"></a></span>
-<span id="cb7-117"><a href="#cb7-117"></a><span class="in">ggplot(station_summer, aes(x = avg_t, y = year)) +</span></span>
-<span id="cb7-118"><a href="#cb7-118"></a><span class="in">  geom_segment(aes(x = summer_tmin_f, xend = summer_tmax_f, y = year, yend = year), color = "orangered4") +</span></span>
+<span id="cb7-117"><a href="#cb7-117"></a><span class="in">ggplot(station_summer, aes(y = avg_t, x = year)) +</span></span>
+<span id="cb7-118"><a href="#cb7-118"></a><span class="in">  geom_segment(aes(y = summer_tmin_f, yend = summer_tmax_f, x = year, xend = year), color = "darksalmon", linewidth = 0.7) +</span></span>
 <span id="cb7-119"><a href="#cb7-119"></a><span class="in">  geom_point(color="lightblue", size = 0.5) +</span></span>
-<span id="cb7-120"><a href="#cb7-120"></a><span class="in">  theme_minimal() +</span></span>
-<span id="cb7-121"><a href="#cb7-121"></a><span class="in">  theme(</span></span>
-<span id="cb7-122"><a href="#cb7-122"></a><span class="in">    panel.grid.major.y = element_blank(),</span></span>
-<span id="cb7-123"><a href="#cb7-123"></a><span class="in">    panel.border = element_blank(),</span></span>
-<span id="cb7-124"><a href="#cb7-124"></a><span class="in">    axis.ticks.y = element_blank()) +</span></span>
-<span id="cb7-125"><a href="#cb7-125"></a><span class="in">  facet_wrap(~station) +</span></span>
-<span id="cb7-126"><a href="#cb7-126"></a><span class="in">  scale_y_continuous(breaks = seq(1890, 2024, by = 40)) +</span></span>
-<span id="cb7-127"><a href="#cb7-127"></a><span class="in">  labs(title = str_wrap("Average Summer Temperature Values and Ranges from 1890 to 2024 at Five UK Meteorological Stations", 70),</span></span>
-<span id="cb7-128"><a href="#cb7-128"></a><span class="in">       x = "temperature range (F)", y = "", caption = "Cate Stacy, 10/27/25, TidyTuesday")</span></span>
-<span id="cb7-129"><a href="#cb7-129"></a><span class="in">```</span></span>
-<span id="cb7-130"><a href="#cb7-130"></a>Similar to the rainfall plot, temperature ranges throughout time follow a similar pattern across each station. However, some stations, such as Oxford, have larger ranges than others, such as Stornoway. Additionally, Oxford appears to be the warmest, on average, while Stornoway appears to be the coolest.</span>
-<span id="cb7-131"><a href="#cb7-131"></a></span>
+<span id="cb7-120"><a href="#cb7-120"></a><span class="in">  geom_smooth(method="lm") +</span></span>
+<span id="cb7-121"><a href="#cb7-121"></a><span class="in">  theme_minimal() +</span></span>
+<span id="cb7-122"><a href="#cb7-122"></a><span class="in">  theme(</span></span>
+<span id="cb7-123"><a href="#cb7-123"></a><span class="in">    panel.grid.major.x = element_blank(),</span></span>
+<span id="cb7-124"><a href="#cb7-124"></a><span class="in">    panel.border = element_blank(),</span></span>
+<span id="cb7-125"><a href="#cb7-125"></a><span class="in">    axis.ticks.x = element_blank()) +</span></span>
+<span id="cb7-126"><a href="#cb7-126"></a><span class="in">  facet_wrap(~station) +</span></span>
+<span id="cb7-127"><a href="#cb7-127"></a><span class="in">  scale_x_continuous(breaks = seq(1890, 2024, by = 40)) +</span></span>
+<span id="cb7-128"><a href="#cb7-128"></a><span class="in">  labs(title = str_wrap("Average Summer Temperature Values and Ranges from 1890 to 2024 at Five UK Meteorological Stations", 70),</span></span>
+<span id="cb7-129"><a href="#cb7-129"></a><span class="in">       y = "temperature range (F)", x = "", caption = "Cate Stacy, 10/27/25, TidyTuesday")</span></span>
+<span id="cb7-130"><a href="#cb7-130"></a><span class="in">```</span></span>
+<span id="cb7-131"><a href="#cb7-131"></a>Similar to the rainfall plot, temperature ranges throughout time follow a similar pattern across each station. However, some stations, such as Oxford, have larger ranges than others, such as Stornoway. Additionally, Oxford appears to be the warmest, on average, while Stornoway appears to be the coolest.</span>
 <span id="cb7-132"><a href="#cb7-132"></a></span>
 <span id="cb7-133"><a href="#cb7-133"></a></span>
 <span id="cb7-134"><a href="#cb7-134"></a></span>
 <span id="cb7-135"><a href="#cb7-135"></a></span>
+<span id="cb7-136"><a href="#cb7-136"></a></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
