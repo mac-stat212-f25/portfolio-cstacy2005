@@ -1,0 +1,45 @@
+---
+title: "DataExplorer"
+---
+
+```{r}
+library(DataExplorer)
+library(tidyverse)
+
+library(wehoop)
+
+wnba_pbp <- wehoop::load_wnba_pbp()
+wnba_team_box <- wehoop::load_wnba_team_box()
+wnba_player_box <- wehoop::load_wnba_player_box()
+```
+
+```{r}
+data_list <- list(wnba_pbp, wnba_player_box, wnba_team_box)
+plot_str(data_list)
+```
+
+```{r}
+introduce(wnba_pbp)
+
+plot_intro(wnba_pbp)
+
+plot_missing(wnba_pbp)
+```
+
+```{r}
+plot_histogram(wnba_player_box)
+```
+
+```{r}
+plot_qq(wnba_team_box)
+```
+
+```{r}
+plot_boxplot(wnba_team_box, by = "team_winner")
+```
+
+
+
+
+
+
